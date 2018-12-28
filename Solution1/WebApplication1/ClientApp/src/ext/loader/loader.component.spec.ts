@@ -27,7 +27,7 @@ describe('LoaderComponent', () => {
 
   it('test', async(async () => {
     //X. Define data that will be returned in ngOnInint()
-    httpClientSpy.get.and.returnValue(defer(() => Promise.resolve([])));
+    httpClientSpy.get.withArgs('http://localhost/api/SampleData/WeatherForecasts').and.returnValue(defer(() => Promise.resolve([])));
     //httpClientSpy.get('http://localhost/api/SampleData/WeatherForecasts').and.returnValue(defer(() => Promise.resolve([])));
 
     //X. Ensure that initial rendering is made and ngOnInint() is called
