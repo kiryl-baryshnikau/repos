@@ -25,58 +25,64 @@ describe('LoaderComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('test', async(async () => {
-    //X. Define data that will be returned in ngOnInint()
+  it('should do default init/refresh sequence', async(async () => {
+    // X. Define data that will be returned in ngOnInint()
+    // httpClientSpy.get.and.returnValue(defer(() => Promise.resolve([])));
     httpClientSpy.get.withArgs('http://localhost/api/SampleData/WeatherForecasts').and.returnValue(defer(() => Promise.resolve([])));
-    //httpClientSpy.get('http://localhost/api/SampleData/WeatherForecasts').and.returnValue(defer(() => Promise.resolve([])));
-
-    //X. Ensure that initial rendering is made and ngOnInint() is called
+    httpClientSpy.get
+      .withArgs('http://localhost/api/SampleData/WeatherForecasts2')
+      .and
+      .returnValue(defer(() => Promise.resolve([
+        {
+          dateFormatted: '1', temperatureC: 1, temperatureF: 1, summary: '1'
+        }])));
+    // X. Ensure that initial rendering is made and ngOnInint() is called
     fixture.detectChanges();
-    //X. Check if 'Loading...' message is displayed
+    // X. Check if 'Loading...' message is displayed
     let titleText = fixture.nativeElement.querySelector('em').textContent;
     expect(titleText).toEqual('Loading...');
-    //X. Ensure that reload button is not dispalyed
+    // X. Ensure that reload button is not dispalyed
     expect(fixture.nativeElement.querySelectorAll('button').length).toEqual(0);
-    //X. Check if ngOnInint() calls httpClient
+    // X. Check if ngOnInint() calls httpClient
     expect(httpClientSpy.get.calls.count()).toBe(1, 'first call');
-    //X. Wait untill data will be received from httpClient
+    // X. Wait untill data will be received from httpClient
     await fixture.whenStable();
-    //X. Ensure that component is re-rendered
+    // X. Ensure that component is re-rendered
     fixture.detectChanges();
-    //X. Ensure that loading message is gone
+    // X. Ensure that loading message is gone
     expect(fixture.nativeElement.querySelectorAll('em').length).toEqual(0);
-    //X. Check that data has empty array
+    // X. Check that data has empty array
     expect(component.data.length).toBe(0, 'no data');
-    //X. Ensure that reload button is dispalyed
+    // X. Ensure that reload button is dispalyed
     expect(fixture.nativeElement.querySelectorAll('button').length).toEqual(1);
 
 
-    //X. Define data that will be returned in onReloadClick()
-    //httpClientSpy.get.and.returnValue(defer(() => Promise.resolve([])));
+    // X. Define data that will be returned in onReloadClick()
+    // httpClientSpy.get.and.returnValue(defer(() => Promise.resolve([])));
     httpClientSpy.get.calls.reset();
 
-    //X. Cliclk Reload button
-    let button = fixture.nativeElement.querySelector('button');
+    // X. Cliclk Reload button
+    const button = fixture.nativeElement.querySelector('button');
     button.click();
-    //X. Ensure that content is re-rendered
+    // X. Ensure that content is re-rendered
     fixture.detectChanges();
-    //X. Check if 'Loading...' message is displayed
+    // X. Check if 'Loading...' message is displayed
     titleText = fixture.nativeElement.querySelector('em').textContent;
     expect(titleText).toEqual('Loading...');
 
-    //X. Check if ngOnInint() calls httpClient
-    //expect(httpClientSpy.get.calls.count()).toBe(2, 'second call');
+    // X. Check if ngOnInint() calls httpClient
+    // expect(httpClientSpy.get.calls.count()).toBe(2, 'second call');
     expect(httpClientSpy.get.calls.count()).toBe(1, 'second call');
 
-    //X. Wait untill data will be received from httpClient
+    // X. Wait untill data will be received from httpClient
     await fixture.whenStable();
-    //X. Ensure that component is re-rendered
+    // X. Ensure that component is re-rendered
     fixture.detectChanges();
-    //X. Ensure that loading message is gone
+    // X. Ensure that loading message is gone
     expect(fixture.nativeElement.querySelectorAll('em').length).toEqual(0);
-    //X. Check that data has empty array
+    // X. Check that data has empty array
     expect(component.data.length).toBe(0, 'no data');
-    //X. Ensure that reload button is dispalyed
+    // X. Ensure that reload button is dispalyed
     expect(fixture.nativeElement.querySelectorAll('button').length).toEqual(1);
   }));
 });

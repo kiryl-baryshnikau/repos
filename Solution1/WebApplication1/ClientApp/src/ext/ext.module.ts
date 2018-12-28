@@ -18,7 +18,7 @@ import { LoaderComponent } from './loader/loader.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forChild([
-      { path: '', redirectTo: "loader", pathMatch: 'full' },
+      { path: '', redirectTo: 'loader', pathMatch: 'full' },
       { path: 'calculator', component: CalculatorComponent },
       { path: 'loader', component: LoaderComponent }
     ])

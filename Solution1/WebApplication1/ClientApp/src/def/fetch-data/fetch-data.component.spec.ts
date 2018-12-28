@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { FetchDataComponent } from './fetch-data.component';
 import { defer, of } from 'rxjs';
 
-//https://netbasal.com/testing-observables-in-angular-a2dbbfaf5329
-//import { cold, getTestScheduler } from 'jasmine-marbles';
-//const todosServiceStub = {
-//  get() {
-//    const todos$ = cold('--x|', { x: [{ id: 1 }] });
-//    return todos$
-//  }
-//};
+// https://netbasal.com/testing-observables-in-angular-a2dbbfaf5329
+// import { cold, getTestScheduler } from 'jasmine-marbles';
+// const todosServiceStub = {
+//   get() {
+//     const todos$ = cold('--x|', { x: [{ id: 1 }] });
+//     return todos$
+//   }
+// };
 
 
 export function asyncData<T>(data: T) {
@@ -36,7 +36,7 @@ describe('FetchDataComponent', () => {
 
   beforeEach(() => {
     httpClientSpy.get.and.returnValue(asyncData([]));
-    //httpClientSpy.get.and.returnValue(of([]));
+    // httpClientSpy.get.and.returnValue(of([]));
     fixture = TestBed.createComponent(FetchDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -60,13 +60,13 @@ describe('FetchDataComponent', () => {
     expect(component.forecasts.length).toBe(0, 'no data');
   }));
 
-  //it('should work', () => {
-  //  const todos = element.querySelectorAll('.todo');
-  //  const loading = element.querySelector('.loading');
-  //  expect(loading).not.toBeNull();
-  //  getTestScheduler().flush(); // flush the observables
-  //  fixture.detectChanges();
-  //  expect(element.querySelectorAll('.todo').length).toEqual(1);
-  //  expect(element.querySelectorAll('.loading').length).toEqual(0);
-  //});
+  // it('should work', () => {
+  //   const todos = element.querySelectorAll('.todo');
+  //   const loading = element.querySelector('.loading');
+  //   expect(loading).not.toBeNull();
+  //   getTestScheduler().flush(); // flush the observables
+  //   fixture.detectChanges();
+  //   expect(element.querySelectorAll('.todo').length).toEqual(1);
+  //   expect(element.querySelectorAll('.loading').length).toEqual(0);
+  // });
 });

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'ext-loader-component',
+  selector: 'app-loader-component',
   templateUrl: './loader.component.html'
 })
 export class LoaderComponent implements OnInit {
