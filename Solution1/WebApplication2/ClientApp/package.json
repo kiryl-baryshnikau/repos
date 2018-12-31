@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build_": "ng build",
+    "build": "ng build default-lib && ng build extension-lib && ng build WebApplication2",
     "build:ssr": "ng run WebApplication2:server:dev",
     "test": "ng test",
     "lint": "ng lint",
