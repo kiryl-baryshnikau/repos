@@ -1,0 +1,152 @@
+﻿**********************************************************************
+** Visual Studio 2017 Developer Command Prompt v15.9.4
+** Copyright (c) 2017 Microsoft Corporation
+**********************************************************************
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web>cd ClientApp
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>npm install -g angular-swagger-client-generator
+npm WARN deprecated gulp-util@3.0.8: gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
+npm WARN deprecated graceful-fs@3.0.11: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+npm WARN deprecated minimatch@2.0.10: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated graceful-fs@1.2.3: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+C:\Program Files\nodejs\a4apigen -> C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\bin\a4apigen.js
+
+> angular-swagger-client-generator@0.1.15 postinstall C:\Program Files\nodejs\node_modules\angular-swagger-client-generator
+> gulp
+
+[10:08:47] Using gulpfile C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\gulpfile.js
+[10:08:47] Starting 'copyBin'...
+[10:08:47] Starting 'copyLib'...
+[10:08:47] Finished 'copyBin' after 11 ms
+[10:08:47] Finished 'copyLib' after 3.88 ms
+[10:08:47] Starting 'default'...
+[10:08:47] Finished 'default' after 19 μs
++ angular-swagger-client-generator@0.1.15
+added 346 packages from 280 contributors in 47.058s
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>a4apigen -u [http://localhost:11177/swagger/docs/v1]
+Error: Invalid URI "[http://localhost:11177/swagger/docs/v1]"
+    at Request.init (C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\node_modules\request\request.js:273:31)
+    at new Request (C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\node_modules\request\request.js:127:8)
+    at request (C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\node_modules\request\index.js:53:10)
+    at Function.get (C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\node_modules\request\index.js:61:12)
+    at Object.<anonymous> (C:\Program Files\nodejs\node_modules\angular-swagger-client-generator\bin\a4apigen.js:61:13)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+    at tryModuleLoad (module.js:513:12)
+    at Function.Module._load (module.js:505:3)
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>a4apigen -u http://localhost:11177/swagger/docs/v1
+Reading Swagger file output\swagger.json
+Parsing Swagger JSON
+Reading Mustache templates
+Creating Mustache viewModel
+Rendering template for API
+Creating output file ./output/index.ts
+Rendering template for model  Principal
+Creating output file ./output/models/principal.model.ts
+Rendering common models export
+Creating output file ./output/models.ts
+API client generated successfully
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>npm install -g angular6-swagger-client-generator
+C:\Program Files\nodejs\a5apigen -> C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\bin\a5apigen.js
++ angular6-swagger-client-generator@1.2.2
+added 112 packages from 132 contributors in 15.475s
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>a6apigen -u http://localhost:11177/swagger/docs/v1
+'a6apigen' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>a5apigen -u http://localhost:11177/swagger/docs/v1
+Reading Swagger file src\app\swagger.json
+Parsing Swagger JSON
+Reading Mustache templates
+Creating Mustache viewModel
+Rendering common models export
+Creating output file ./src/app//models/index.ts
+fs.js:905
+  return binding.mkdir(pathModule.toNamespacedPath(path),
+                 ^
+
+Error: ENOENT: no such file or directory, mkdir 'C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp\src\app\services\api'
+    at Object.fs.mkdirSync (fs.js:905:18)
+    at Generator.generateServices (C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\lib\index.js:67:16)
+    at Generator.generateAPIClient (C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\lib\index.js:52:14)
+    at Request._callback (C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\bin\a5apigen.js:74:11)
+    at Request.self.callback (C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:159:13)
+    at Request.<anonymous> (C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\node_modules\request\request.js:1161:10)
+    at Request.emit (events.js:159:13)
+    at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\angular6-swagger-client-generator\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:254:19)
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>a5apigen -u http://localhost:11177/swagger/docs/v1
+Reading Swagger file src\app\swagger.json
+Parsing Swagger JSON
+Reading Mustache templates
+Creating Mustache viewModel
+Rendering common models export
+Creating output file ./src/app//models/index.ts
+PrincipalsService,
+Rendering common services export
+Creating output file ./src/app//services/api/index.ts
+API client generated successfully
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>npm install -g api-client-generator
+C:\Program Files\nodejs\api-client-generator -> C:\Program Files\nodejs\node_modules\api-client-generator\dist\main.js
++ api-client-generator@4.0.1
+added 33 packages from 29 contributors in 10.258s
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>npm install -g api-client-generator
+C:\Program Files\nodejs\api-client-generator -> C:\Program Files\nodejs\node_modules\api-client-generator\dist\main.js
++ api-client-generator@4.0.1
+updated 1 package in 2.573s
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>api-client-generator -s http://localhost:11177/swagger/docs/v1
+200 or 201 response not specified; `any` will be used
+Angular API client generated successfully
+The "path" argument must be of type string
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>npm install nswag -g
+C:\Program Files\nodejs\nswag -> C:\Program Files\nodejs\node_modules\nswag\bin\nswag.js
++ nswag@12.0.10
+added 1 package from 1 contributor in 7.435s
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>nswag swagger2typescript /input:http://localhost:11177/swagger/docs/v1 /output:clients.ts
+NSwag NPM CLI
+NSwag command line tool for .NET Core NetCore21, toolchain v12.0.10.0 (NJsonSchema v9.13.11.0 (Newtonsoft.Json v11.0.0.0))
+Visit http://NSwag.org for more information.
+NSwag bin directory: C:\Program Files\nodejs\node_modules\nswag\bin\binaries\NetCore21
+System.InvalidOperationException: The command 'swagger2typescript' could not be found.
+   at NConsole.CommandLineProcessor.ProcessSingleAsync(String[] args, Object input)
+   at NConsole.CommandLineProcessor.ProcessAsync(String[] args, Object input)
+   at NConsole.CommandLineProcessor.Process(String[] args, Object input)
+   at NSwag.Commands.NSwagCommandProcessor.Process(String[] args) in C:\projects\nswag\src\NSwag.Commands\NSwagCommandProcessor.cs:line 54child_process.js:614
+    throw err;
+    ^
+
+Error: Command failed: dotnet "C:\Program Files\nodejs\node_modules\nswag\bin/binaries/NetCore21/dotnet-nswag.dll" swagger2typescript /input:http://localhost:11177/swagger/docs/v1 /output:clients.ts
+    at checkExecSyncError (child_process.js:574:11)
+    at Object.execSync (child_process.js:611:13)
+    at c.exec (C:\Program Files\nodejs\node_modules\nswag\bin\nswag.js:67:11)
+    at ChildProcess.exithandler (child_process.js:264:7)
+    at ChildProcess.emit (events.js:159:13)
+    at maybeClose (internal/child_process.js:943:16)
+    at Socket.stream.socket.on (internal/child_process.js:363:11)
+    at Socket.emit (events.js:159:13)
+    at Pipe._handle.close [as _onclose] (net.js:568:12)
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>nswag swagger2tsclient /input:http://localhost:11177/swagger/docs/v1 /output:clients.ts
+NSwag NPM CLI
+NSwag command line tool for .NET Core NetCore21, toolchain v12.0.10.0 (NJsonSchema v9.13.11.0 (Newtonsoft.Json v11.0.0.0))
+Visit http://NSwag.org for more information.
+NSwag bin directory: C:\Program Files\nodejs\node_modules\nswag\bin\binaries\NetCore21
+Code has been successfully written to file.
+
+Duration: 00:00:01.9555712
+
+C:\Users\822616\source\Repos\Solution2\BD.MedView.Web\ClientApp>
