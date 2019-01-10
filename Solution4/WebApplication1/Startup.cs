@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplication1.Hubs;
 using WebApplication1.Models;
 
 namespace WebApplication1
@@ -24,6 +25,26 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddCors(o => o.AddPolicy("CorsPolicy", builder => {
+            //    builder
+            //    .AllowAnyMethod()
+            //    .AllowAnyHeader()
+            //    .WithOrigins("http://localhost:46152");
+            //}));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "AllowAllOrigins",
+                    builder => builder
+                                    .AllowAnyOrigin()
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod()
+                                    .AllowCredentials());
+
+                options.DefaultPolicyName = "AllowAllOrigins";
+            });
+            //services.AddSignalR();
+
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
@@ -36,6 +57,10 @@ namespace WebApplication1
             });
 
             services.AddOData();
+
+            services.AddSignalR();
+
+            services.AddSingleton<StockTicker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +81,20 @@ namespace WebApplication1
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseODataBatching();
+
+            //app.UseCors("CorsPolicy");
+            app.UseCors("AllowAllOrigins");
+            //app.UseSignalR(routes =>
+            //{
+            //    routes.MapHub<NotifyHub>("notify");
+            //});
+
+            app.UseSignalR(route =>
+            {
+                route.MapHub<ChatHub>("/chathub");
+                route.MapHub<StockTickerHub>("/stock");
+                route.MapHub<DynamicChatHub>("/dynamichub");
+            });
 
             app.UseMvc(routes =>
             {
