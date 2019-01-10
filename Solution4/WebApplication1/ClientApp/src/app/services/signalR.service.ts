@@ -36,7 +36,7 @@ export class SignalRService {
       })
       .catch(err => {
         console.log('Error while establishing connection, retrying...');
-        setTimeout(this.startConnection(), 5000);
+        setTimeout(() => this.startConnection(), 5000);
       });
   }
 

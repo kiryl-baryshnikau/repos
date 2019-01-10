@@ -9,14 +9,18 @@
 
   <table class="table table-response table-bordered">
     <thead>
-    <th>Symbol</th>
-    <th>Price</th>
-    <th>Change %</th>
+      <tr>
+        <th>Symbol</th>
+        <th>Price</th>
+        <th>Change %</th>
+      </tr>
     </thead>
-    <tr *ngFor="let stock of stocks">
-      <td>{{stock.symbol}}</td>
-      <td>{{stock.price}}</td>
-      <td>{{stock.percentChange}} {{stock.percentChange >= 0 ? '▲' : '▼'}}</td>
-    </tr>
+    <tbody>
+      <tr *ngFor="let stock of stocks">
+        <td>{{stock.symbol}}</td>
+        <td>{{stock.price}}</td>
+        <td>{{stock.percentChange}} {{stock.percentChange >= 0 ? '▲' : '▼'}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>

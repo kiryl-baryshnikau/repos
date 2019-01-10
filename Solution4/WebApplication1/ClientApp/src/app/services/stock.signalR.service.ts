@@ -32,7 +32,7 @@ export class stockSignalRService {
         console.log('stock connection started');
         this.connectionEstablished.emit(true);
       }).catch(err => {
-        setTimeout(this.startConnection(), 5000);
+        setTimeout(() => this.startConnection(), 5000);
       });
   }
 
