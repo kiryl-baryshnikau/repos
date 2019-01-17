@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  idmadmin:
+    ports:
+      - "80"
+  idmapi:
+    ports:
+      - "80"
+  idmconfigapi:
+    ports:
+      - "80"
+  idmsts:
+    ports:
+      - "80"
+  gateway:
+    ports:
+      - "80"
+networks:
+  default:
+    external:
+      name: nat
+
+
+
+

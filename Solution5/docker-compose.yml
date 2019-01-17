@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  idmadmin:
+    image: ${DOCKER_REGISTRY-}idmadmin
+    build:
+      context: .\IDMAdmin
+      dockerfile: Dockerfile
+
+  idmapi:
+    image: ${DOCKER_REGISTRY-}idmapi
+    build:
+      context: .\IDMApi
+      dockerfile: Dockerfile
+
+
+  idmconfigapi:
+    image: ${DOCKER_REGISTRY-}idmconfigapi
+    build:
+      context: .\IdmConfigApi
+      dockerfile: Dockerfile
+
+
+  idmsts:
+    image: ${DOCKER_REGISTRY-}idmsts
+    build:
+      context: .\IDMSts
+      dockerfile: Dockerfile
+
+
+  gateway:
+    depends_on:
+      - idmadmin
+      - idmapi
+      - idmconfigapi
+      - idmsts
+    image: ${DOCKER_REGISTRY-}gateway
+    build:
+      context: .\Gateway
+      dockerfile: Dockerfile
+
