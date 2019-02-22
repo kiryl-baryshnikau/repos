@@ -1,0 +1,1910 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19560",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:09.24-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA3659235822a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19551"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19554"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA3659235822a",
+              "display": "Motrin descriptionFFA3659235822a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA3659235822a",
+              "display": "Tylenol descriptionFFA3659235822a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19551",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:09.153-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA3659235822a",
+            "value": "PatFFA3659235822_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA3659235822a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA3659235822b",
+            "value": "PatFFA3659235822_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA3659235822b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA3659235822c",
+            "value": "PatFFA3659235822_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA3659235822c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA3659235822"
+            ],
+            "given": [
+              "JohnFFA3659235822",
+              "AFFA3659235822"
+            ],
+            "prefix": [
+              "Mr.FFA3659235822"
+            ],
+            "suffix": [
+              "Sr.FFA3659235822"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19528"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39178",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:09.207-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA3659235822a",
+              "display": "Tylenol descriptionFFA3659235822a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA3659235822a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39177",
+                "display": "Motrin descriptionFFA3659235822a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19559",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:08.877-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA383392049a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19550"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19553"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA383392049a",
+              "display": "Motrin descriptionFFA383392049a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA383392049a",
+              "display": "Tylenol descriptionFFA383392049a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19550",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:08.793-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA383392049a",
+            "value": "PatFFA383392049_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA383392049a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA383392049b",
+            "value": "PatFFA383392049_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA383392049b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA383392049c",
+            "value": "PatFFA383392049_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA383392049c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA383392049"
+            ],
+            "given": [
+              "JohnFFA383392049",
+              "AFFA383392049"
+            ],
+            "prefix": [
+              "Mr.FFA383392049"
+            ],
+            "suffix": [
+              "Sr.FFA383392049"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19527"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39176",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:08.847-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA383392049a",
+              "display": "Tylenol descriptionFFA383392049a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA383392049a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39175",
+                "display": "Motrin descriptionFFA383392049a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19558",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:08.513-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA292939926a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19549"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19552"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA292939926a",
+              "display": "Motrin descriptionFFA292939926a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA292939926a",
+              "display": "Tylenol descriptionFFA292939926a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19549",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:08.43-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA292939926a",
+            "value": "PatFFA292939926_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA292939926a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA292939926b",
+            "value": "PatFFA292939926_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA292939926b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA292939926c",
+            "value": "PatFFA292939926_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA292939926c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA292939926"
+            ],
+            "given": [
+              "JohnFFA292939926",
+              "AFFA292939926"
+            ],
+            "prefix": [
+              "Mr.FFA292939926"
+            ],
+            "suffix": [
+              "Sr.FFA292939926"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19526"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39174",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:08.483-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA292939926a",
+              "display": "Tylenol descriptionFFA292939926a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA292939926a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39173",
+                "display": "Motrin descriptionFFA292939926a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19556",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:07.71-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA620125622a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19547"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19550"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA620125622a",
+              "display": "Motrin descriptionFFA620125622a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA620125622a",
+              "display": "Tylenol descriptionFFA620125622a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19547",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:07.627-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA620125622a",
+            "value": "PatFFA620125622_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA620125622a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA620125622b",
+            "value": "PatFFA620125622_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA620125622b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA620125622c",
+            "value": "PatFFA620125622_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA620125622c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA620125622"
+            ],
+            "given": [
+              "JohnFFA620125622",
+              "AFFA620125622"
+            ],
+            "prefix": [
+              "Mr.FFA620125622"
+            ],
+            "suffix": [
+              "Sr.FFA620125622"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19524"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39170",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:07.68-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA620125622a",
+              "display": "Tylenol descriptionFFA620125622a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA620125622a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39169",
+                "display": "Motrin descriptionFFA620125622a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19555",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:07.313-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA44941420a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19546"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19549"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA44941420a",
+              "display": "Motrin descriptionFFA44941420a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA44941420a",
+              "display": "Tylenol descriptionFFA44941420a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19546",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:07.23-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA44941420a",
+            "value": "PatFFA44941420_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA44941420a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA44941420b",
+            "value": "PatFFA44941420_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA44941420b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA44941420c",
+            "value": "PatFFA44941420_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA44941420c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA44941420"
+            ],
+            "given": [
+              "JohnFFA44941420",
+              "AFFA44941420"
+            ],
+            "prefix": [
+              "Mr.FFA44941420"
+            ],
+            "suffix": [
+              "Sr.FFA44941420"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19523"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39168",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:07.28-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA44941420a",
+              "display": "Tylenol descriptionFFA44941420a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA44941420a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39167",
+                "display": "Motrin descriptionFFA44941420a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19554",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.917-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA374830589a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19545"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19548"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA374830589a",
+              "display": "Motrin descriptionFFA374830589a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA374830589a",
+              "display": "Tylenol descriptionFFA374830589a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19545",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.833-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA374830589a",
+            "value": "PatFFA374830589_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA374830589a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA374830589b",
+            "value": "PatFFA374830589_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA374830589b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA374830589c",
+            "value": "PatFFA374830589_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA374830589c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA374830589"
+            ],
+            "given": [
+              "JohnFFA374830589",
+              "AFFA374830589"
+            ],
+            "prefix": [
+              "Mr.FFA374830589"
+            ],
+            "suffix": [
+              "Sr.FFA374830589"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19522"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39166",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.883-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA374830589a",
+              "display": "Tylenol descriptionFFA374830589a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA374830589a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39165",
+                "display": "Motrin descriptionFFA374830589a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19553",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.55-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA164552631a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19544"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19547"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA164552631a",
+              "display": "Motrin descriptionFFA164552631a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA164552631a",
+              "display": "Tylenol descriptionFFA164552631a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19544",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.467-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA164552631a",
+            "value": "PatFFA164552631_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA164552631a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA164552631b",
+            "value": "PatFFA164552631_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA164552631b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA164552631c",
+            "value": "PatFFA164552631_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA164552631c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA164552631"
+            ],
+            "given": [
+              "JohnFFA164552631",
+              "AFFA164552631"
+            ],
+            "prefix": [
+              "Mr.FFA164552631"
+            ],
+            "suffix": [
+              "Sr.FFA164552631"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19521"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39164",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.517-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA164552631a",
+              "display": "Tylenol descriptionFFA164552631a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA164552631a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39163",
+                "display": "Motrin descriptionFFA164552631a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19552",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.18-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA3635182330a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19543"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19546"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA3635182330a",
+              "display": "Motrin descriptionFFA3635182330a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA3635182330a",
+              "display": "Tylenol descriptionFFA3635182330a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19543",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.09-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA3635182330a",
+            "value": "PatFFA3635182330_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA3635182330a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA3635182330b",
+            "value": "PatFFA3635182330_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA3635182330b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA3635182330c",
+            "value": "PatFFA3635182330_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA3635182330c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA3635182330"
+            ],
+            "given": [
+              "JohnFFA3635182330",
+              "AFFA3635182330"
+            ],
+            "prefix": [
+              "Mr.FFA3635182330"
+            ],
+            "suffix": [
+              "Sr.FFA3635182330"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19520"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39162",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:06.143-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA3635182330a",
+              "display": "Tylenol descriptionFFA3635182330a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA3635182330a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39161",
+                "display": "Motrin descriptionFFA3635182330a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19551",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:05.763-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA4127321336a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19542"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19545"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA4127321336a",
+              "display": "Motrin descriptionFFA4127321336a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA4127321336a",
+              "display": "Tylenol descriptionFFA4127321336a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19542",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:05.68-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA4127321336a",
+            "value": "PatFFA4127321336_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA4127321336a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA4127321336b",
+            "value": "PatFFA4127321336_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA4127321336b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA4127321336c",
+            "value": "PatFFA4127321336_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA4127321336c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA4127321336"
+            ],
+            "given": [
+              "JohnFFA4127321336",
+              "AFFA4127321336"
+            ],
+            "prefix": [
+              "Mr.FFA4127321336"
+            ],
+            "suffix": [
+              "Sr.FFA4127321336"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19519"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39160",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:05.733-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA4127321336a",
+              "display": "Tylenol descriptionFFA4127321336a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA4127321336a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39159",
+                "display": "Motrin descriptionFFA4127321336a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19550",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:05.367-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA2910292317a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19541"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19544"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA2910292317a",
+              "display": "Motrin descriptionFFA2910292317a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA2910292317a",
+              "display": "Tylenol descriptionFFA2910292317a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19541",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:05.283-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA2910292317a",
+            "value": "PatFFA2910292317_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA2910292317a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA2910292317b",
+            "value": "PatFFA2910292317_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA2910292317b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA2910292317c",
+            "value": "PatFFA2910292317_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA2910292317c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA2910292317"
+            ],
+            "given": [
+              "JohnFFA2910292317",
+              "AFFA2910292317"
+            ],
+            "prefix": [
+              "Mr.FFA2910292317"
+            ],
+            "suffix": [
+              "Sr.FFA2910292317"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19518"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39158",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:05.333-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA2910292317a",
+              "display": "Tylenol descriptionFFA2910292317a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA2910292317a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39157",
+                "display": "Motrin descriptionFFA2910292317a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19549",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.973-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA311372235a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19540"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19543"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA311372235a",
+              "display": "Motrin descriptionFFA311372235a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA311372235a",
+              "display": "Tylenol descriptionFFA311372235a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19540",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.887-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA311372235a",
+            "value": "PatFFA311372235_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA311372235a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA311372235b",
+            "value": "PatFFA311372235_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA311372235b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA311372235c",
+            "value": "PatFFA311372235_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA311372235c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA311372235"
+            ],
+            "given": [
+              "JohnFFA311372235",
+              "AFFA311372235"
+            ],
+            "prefix": [
+              "Mr.FFA311372235"
+            ],
+            "suffix": [
+              "Sr.FFA311372235"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19517"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39156",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.943-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA311372235a",
+              "display": "Tylenol descriptionFFA311372235a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA311372235a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39155",
+                "display": "Motrin descriptionFFA311372235a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19548",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.573-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA35111932a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19539"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19542"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA35111932a",
+              "display": "Motrin descriptionFFA35111932a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA35111932a",
+              "display": "Tylenol descriptionFFA35111932a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19539",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.487-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA35111932a",
+            "value": "PatFFA35111932_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA35111932a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA35111932b",
+            "value": "PatFFA35111932_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA35111932b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA35111932c",
+            "value": "PatFFA35111932_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA35111932c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA35111932"
+            ],
+            "given": [
+              "JohnFFA35111932",
+              "AFFA35111932"
+            ],
+            "prefix": [
+              "Mr.FFA35111932"
+            ],
+            "suffix": [
+              "Sr.FFA35111932"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19516"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39154",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.54-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA35111932a",
+              "display": "Tylenol descriptionFFA35111932a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA35111932a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39153",
+                "display": "Motrin descriptionFFA35111932a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19547",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.11-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA1512122120a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19538"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19541"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA1512122120a",
+              "display": "Motrin descriptionFFA1512122120a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA1512122120a",
+              "display": "Tylenol descriptionFFA1512122120a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19538",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.027-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA1512122120a",
+            "value": "PatFFA1512122120_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA1512122120a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA1512122120b",
+            "value": "PatFFA1512122120_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA1512122120b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA1512122120c",
+            "value": "PatFFA1512122120_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA1512122120c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA1512122120"
+            ],
+            "given": [
+              "JohnFFA1512122120",
+              "AFFA1512122120"
+            ],
+            "prefix": [
+              "Mr.FFA1512122120"
+            ],
+            "suffix": [
+              "Sr.FFA1512122120"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19515"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39152",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:04.08-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA1512122120a",
+              "display": "Tylenol descriptionFFA1512122120a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA1512122120a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39151",
+                "display": "Motrin descriptionFFA1512122120a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "19546",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:03.61-08:00"
+        },
+        "identifier": [
+          {
+            "system": "OrderNumber",
+            "value": "MedOrderFFA3225123134a"
+          }
+        ],
+        "status": "active",
+        "patient": {
+          "reference": "Patient/19537"
+        },
+        "prescriber": {
+          "reference": "Practitioner/2"
+        },
+        "encounter": {
+          "reference": "Encounter/19540"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "RXC-2.3",
+              "code": "MotrinFFA3225123134a",
+              "display": "Motrin descriptionFFA3225123134a"
+            },
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA3225123134a",
+              "display": "Tylenol descriptionFFA3225123134a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "19537",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:03.523-08:00"
+        },
+        "identifier": [
+          {
+            "system": "identifierTypeFFA3225123134a",
+            "value": "PatFFA3225123134_MRN",
+            "assigner": {
+              "display": "ptAssignerFFA3225123134a"
+            }
+          },
+          {
+            "system": "identifierTypeFFA3225123134b",
+            "value": "PatFFA3225123134_SSN",
+            "assigner": {
+              "display": "ptAssignerFFA3225123134b"
+            }
+          },
+          {
+            "system": "identifierTypeFFA3225123134c",
+            "value": "PatFFA3225123134_AccountNumber",
+            "assigner": {
+              "display": "ptAssignerFFA3225123134c"
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "SmithFFA3225123134"
+            ],
+            "given": [
+              "JohnFFA3225123134",
+              "AFFA3225123134"
+            ],
+            "prefix": [
+              "Mr.FFA3225123134"
+            ],
+            "suffix": [
+              "Sr.FFA3225123134"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-01-10T23:27:42Z",
+        "managingOrganization": {
+          "reference": "Organizaton/19514"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Medication",
+        "id": "39150",
+        "meta": {
+          "lastUpdated": "2019-01-23T05:31:03.577-08:00"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "RXE-2.3",
+              "code": "TylenolFFA3225123134a",
+              "display": "Tylenol descriptionFFA3225123134a"
+            }
+          ],
+          "text": "Tylenol descriptionFFA3225123134a"
+        },
+        "product": {
+          "ingredient": [
+            {
+              "item": {
+                "reference": "Medication/39149",
+                "display": "Motrin descriptionFFA3225123134a"
+              },
+              "amount": {
+                "numerator": {
+                  "value": 44,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "denominator": {
+                  "value": 1,
+                  "unit": "",
+                  "system": "http://unitsofmeasure.org",
+                  "code": ""
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

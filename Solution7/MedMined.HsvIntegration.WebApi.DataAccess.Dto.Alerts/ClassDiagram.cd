@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertCategoriesAndSiteIdDto">
+    <Position X="13.25" Y="19.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAIAA=</HashCode>
+      <FileName>AlertCategoriesAndSiteIdDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="alert_categories" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertCategoryDto">
+    <Position X="13" Y="16" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAQAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>AlertCategoryDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertDto">
+    <Position X="3.75" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIgEAAIAQAAEAAAAAAAAAAAACCABAQAAAAABEACgA=</HashCode>
+      <FileName>AlertDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="patient" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="drugs" />
+      <Property Name="lab_results" />
+      <Property Name="organisms" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertHeaderDto">
+    <Position X="3.75" Y="12.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAIQgAAAAA=</HashCode>
+      <FileName>AlertHeaderDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="alerts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertMetadataDto">
+    <Position X="18.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>AlertMetadataDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertPrioritiesDto">
+    <Position X="7.25" Y="16" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAQAAAAAACgAAAAAAAAAAAAAAAAAAAAAgCA=</HashCode>
+      <FileName>AlertPrioritiesDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertStatusDto">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>AlertStatusDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertStatusesDto">
+    <Position X="11.25" Y="12.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlertStatusesDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertSubscriptionDto">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>AlertSubscriptionDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.AlertSummaryDto">
+    <Position X="7.75" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAQAAAACAAgAAAAAAAIQABAAAAAIAAEAAgA=</HashCode>
+      <FileName>AlertSummaryDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="units" />
+      <Property Name="priorities" />
+      <Property Name="statuses" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.DrugComponentDto">
+    <Position X="11.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>DrugComponentDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.DrugDto">
+    <Position X="7.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAJAAAAAAADCCACAAYBACQwAAAAQAgYgAEAAAAA=</HashCode>
+      <FileName>DrugDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="components" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.LabResultDto">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAEAAAAACAAAAAgAAA=</HashCode>
+      <FileName>LabResultDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.OrganismDto">
+    <Position X="7.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAABAwAAA=</HashCode>
+      <FileName>OrganismDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="susceptibilities" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.OrganismSusceptibilityDto">
+    <Position X="11" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAQACAAAAAAAAA=</HashCode>
+      <FileName>OrganismSusceptibilityDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.PatientDto">
+    <Position X="0.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgACAAgEAAAQAAAAAABAAQA=</HashCode>
+      <FileName>PatientDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedMined.HsvIntegration.WebApi.DataAccess.Dto.Alerts.UnitDto">
+    <Position X="4.25" Y="15.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAgACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UnitDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
