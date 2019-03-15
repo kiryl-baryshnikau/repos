@@ -1,0 +1,17 @@
+﻿@inject Microsoft.Extensions.Options.IOptions<InternationalCandies.Models.AppSettings> appSettingsOptions
+@{
+    var appSettings = appSettingsOptions.Value;
+}
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome - @appSettings.Region</h1>
+    <environment include="Development">
+        <img src="~/img/candy.png" />
+    </environment>
+    <environment exclude="Development">
+        <img src="https://internationalcandies.blob.core.windows.net/cdn/img/candy.png" />
+    </environment>
+</div>
