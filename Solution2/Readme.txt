@@ -1,0 +1,1 @@
+Study how to plug swagger generated clients to angular application

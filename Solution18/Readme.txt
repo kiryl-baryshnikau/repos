@@ -1,0 +1,1 @@
+Resolving issue with permission of Azure Active dirctory graph api

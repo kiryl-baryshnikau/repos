@@ -1,0 +1,1 @@
+Issue wit connection to azure sql service: local proxy prevent connection. Required OPS Ticket

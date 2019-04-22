@@ -1,0 +1,64 @@
+﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
+using System.Globalization;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+
+namespace AzureADConsole
+{
+    class Program
+    {
+        const string clientId = "5bf8094e-6337-4d9f-a0b6-73c87cdad0f0";
+        const string aadInstance = "https://login.microsoftonline.com/{0}";
+        //const string tenant = "49d2f1c9-9567-444b-9e0b-504d88acfddd";
+        const string tenant = "internationalcandies.onmicrosoft.com";
+        const string resource = "https://graph.windows.net";
+        const string appKey = "E5y95I(&O*(h1:=:gVRTo?su8O=_Q#Zv$17*Yc9]L]DAUP{iIYiBq}q";
+
+        static string authoity = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);
+
+        private static HttpClient httpClient = new HttpClient();
+        private static AuthenticationContext context = null;
+        private static ClientCredential credential = null;
+
+        static void Main(string[] args)
+        {
+            context = new AuthenticationContext(authoity);
+            credential = new ClientCredential(clientId, appKey);
+            try
+            {
+                var token1 = GetToken();
+                var token = token1.Result;
+                Console.WriteLine(token);
+                Console.WriteLine();
+                var users = GetUsers(token);
+                var ret = users.Result;
+                Console.WriteLine(ret);
+                Console.ReadLine();
+            }
+            catch(Exception e)
+            {
+
+            }
+
+        }
+
+        public static async Task<string> GetToken()
+        {
+            var result = await context.AcquireTokenAsync(resource, credential);
+            var token =  result.AccessToken;
+            return token;
+        }
+
+        private static async Task<string> GetUsers(string token)
+        {
+            var uri = resource + "/" + tenant + "/" + "users" + "/?api-version=1.6";
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var result = await httpClient.GetAsync(uri);
+            var ret = await result.Content.ReadAsStringAsync();
+            return ret;
+        }
+
+    }
+}

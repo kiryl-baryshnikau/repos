@@ -6,5 +6,8 @@ http://localhost:25139/odata/People
 http://localhost:25139/odata/People?$expand=Vehicles
 
 Monthly job 
-Check preview packages each first of Month. Next date 
-April 1
+Check preview packages each first of Month. 
+Last update
+	April 22
+Next date 
+	May 20

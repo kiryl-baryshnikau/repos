@@ -1,0 +1,1 @@
+Learn how to plug lazy loaded modules in so that web-pack will pack them separatelly
