@@ -1,0 +1,27 @@
+<h1>Hello, world!</h1>
+<h4><a (click)="onClick('Configuration')">Configuration:</a></h4>
+<ul>
+  <li><b>authorizationUrl</b>:<span>{{configuration.authorizationUrl}}</span></li>
+  <li><b>directoryUrl</b>:<span>{{configuration.directoryUrl}}</span></li>
+  <li><b>preferenceUrl</b>:<span>{{configuration.preferenceUrl}}</span></li>
+  <li><b>revision</b>:<span>{{configuration.revision}}</span></li>
+</ul>
+<h4><a (click)="onClick('Configuration')">Authorization:</a></h4>
+<ul>
+  <li><b>name</b>:<span>{{authorization.name}}</span></li>
+  <li><b>authorized</b>:<span>{{authorization.authorized}}</span></li>
+  <li><b>roles</b>:<span>{{authorization.roles}}</span></li>
+  <li><b>revision</b>:<span>{{authorization.revision}}</span></li>
+</ul>
+<h4><a (click)="onClick('Configuration')">Directory:</a></h4>
+<ul>
+  <li><b>dirA</b>:<span>{{directory.dirA}}</span></li>
+  <li><b>dirB</b>:<span>{{directory.dirB}}</span></li>
+  <li><b>revision</b>:<span>{{directory.revision}}</span></li>
+</ul>
+<h4><a (click)="onClick('Configuration')">Preference:</a></h4>
+<ul>
+  <li><b>prefA</b>:<span>{{preference.prefA}}</span></li>
+  <li><b>prefA</b>:<span>{{preference.prefA}}</span></li>
+  <li><b>revision</b>:<span>{{preference.revision}}</span></li>
+</ul>

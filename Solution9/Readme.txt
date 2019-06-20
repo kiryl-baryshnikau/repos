@@ -8,6 +8,6 @@ http://localhost:25139/odata/People?$expand=Vehicles
 Monthly job 
 Check preview packages each first of Month. 
 Last update
-	April 22
+	Jun 20 - It is possible to plug entity framework 6.3 to .net Core 3 - but poor entitiy framework core .net core does not work
 Next date 
-	May 20
+	Jul 10
