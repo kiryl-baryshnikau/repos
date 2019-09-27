@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appserviceplanSkuName": {
+      "value": "S1"
+    },
+    "sql-serverAdminLogin": {
+      "value": "bdadmin"
+    },
+    "sql-serverAdminLoginPassword": {
+      "value": "pass@word1"
+    },
+    "db-allCollation": {
+      "value": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "db-allEdition": {
+      "value": "Basic"
+    },
+    "db-allRequestedServiceObjectiveName": {
+      "value": "Basic"
+    },
+    "relySkuName": {
+      "value": "Standard"
+    },
+    "relyTierName": {
+      "value": "Standard"
+    }
+  }
+}

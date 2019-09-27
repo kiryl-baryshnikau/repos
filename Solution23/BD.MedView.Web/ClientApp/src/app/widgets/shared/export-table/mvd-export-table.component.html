@@ -1,0 +1,11 @@
+<div class="control-container">
+    <div class="title-container">
+        <img class="title-image" src="{{assetsUrl}}export.png">
+        <span class="title-text">{{resources.exportTable}}</span>
+    </div>
+    <hr>
+    <div class="dialog-buttons">
+        <button class="btn btn-cancel" (click)="cancelClicked.emit()">{{resources.cancel}}</button>
+        <button class="btn btn-save" (click)="exportClicked.emit()">{{resources.export}}</button>
+    </div>
+</div>

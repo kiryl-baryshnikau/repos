@@ -1,0 +1,45 @@
+<div class="titleComponent">
+    <div>
+        {{selectedItem || ""}}
+    </div>
+</div>
+<div id="dose-request-table" class="iv-status" style="padding-top: 0px">
+    <p-dataTable #dt [value]="data" [rows]="5"
+                 [emptyMessage]="resources.noRecordsFound"
+                 [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,15,20,25,50]"
+                 (onPage)="onPage($event)" (onSort)="onSort($event)" [responsive]="true" 
+                 [tableStyle]="{'table-layout':'auto'}" >
+        <p-column *ngFor="let col of columns" [field]="col.field"
+                  [header]="col.header" [sortable]="col.sortOptions.enabled"
+                  (sortFunction)="sortData($event, col.sortOptions.method)">
+            <ng-template *ngIf="col.field === 'newRequest'"
+                         let-col let-data="rowData" pTemplate="body">
+                <span class="fa fa-circle fa-circle-blue" *ngIf="data[col.field]"></span>
+            </ng-template>
+            <ng-template *ngIf="col.field === 'requestedBy'"
+                         let-col let-data="rowData" pTemplate="body">
+                {{data['nameFormatted'] || ""}}
+            </ng-template>
+            <ng-template *ngIf="col.field === 'requestDuration'"
+                         let-col let-data="rowData" pTemplate="body">
+                {{data['durationDisplayFormatted'] || ""}}
+            </ng-template>
+            <ng-template *ngIf="col.field === 'medDisplayName'"
+                         let-col let-data="rowData" pTemplate="body">
+                <div class="ui-grid ui-grid-responsive ui-fluid expander-background">
+                    <p>{{data['medDisplayName']}} {{data['dose']| number }}</p>
+                    <p>{{data['maximumDose'] ? " - " + (data['maximumDose']| number) : ""}} {{data['doseUnitofMeasure']}}</p>
+                    <p>{{data['routes'] ? data['routes'].join(", ") : ""}}</p>
+                    <p>{{data['patientInfoFormatted']}}</p>
+                </div>
+            </ng-template>
+            <ng-template *ngIf="col.field === 'location'"
+                         let-col let-data="rowData" pTemplate="body">
+                <div class="ui-grid ui-grid-responsive ui-fluid expander-background">
+                    <p>{{resources.columnDataRoom}} {{data['patientRoomName']}} / {{resources.columnDataBed}} {{data['patientBedId']}}</p>
+                    <p>{{resources.columnDataUnit}} {{data['patientUnitName']}}</p>
+                </div>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+</div>

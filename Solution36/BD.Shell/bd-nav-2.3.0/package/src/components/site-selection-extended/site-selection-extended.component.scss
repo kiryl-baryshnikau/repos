@@ -1,0 +1,31 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+    right: 0;
+    z-index: 1001;
+
+    .bdshell--site-selection--breadcrumb {
+        height: 2.2rem;
+
+        a.dropdown-toggle {
+            background-color: $navbar-submenu-lightest;
+            border-color: transparent;
+            color: $gray-dark;
+            padding: 2px 8px;
+
+            &:hover {
+                border-color: $gray-light;
+            }
+        }
+
+        &.single-idn {
+            li.bdshell--site-selection--breadcrumb--idn {
+                display: none;
+            }
+
+            li.bdshell--site-selection--breadcrumb--facility:before {
+                display: none;
+            }
+        }
+    }
+}

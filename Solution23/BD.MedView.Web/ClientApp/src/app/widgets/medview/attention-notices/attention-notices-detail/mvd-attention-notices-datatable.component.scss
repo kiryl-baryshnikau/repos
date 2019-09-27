@@ -1,0 +1,68 @@
+﻿.fa-circle-blue {
+    color: #004592;
+}
+:host ::ng-deep .delivery-tracking-table .ui-table th.tableColumn {
+    cursor: default;
+}
+
+:host ::ng-deep .delivery-tracking-table .ui-table th.tableColumn.ui-sortable-column {
+    cursor: pointer;
+}
+
+:host ::ng-deep .delivery-tracking-table .ui-table th.tableColumn.reorderable-column {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+:host ::ng-deep .delivery-tracking-table .ui-table th.tableColumn.reorderable-column.ui-sortable-column {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+:host ::ng-deep .delivery-tracking-table .ui-table th.tableColumn.reorderable-column.ui-sortable-column .ui-table-sort-icon {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+th {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    border: 0px !important;
+    border-bottom: 1px !important;
+    color: #808080 !important;
+    padding: 16px !important;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: normal;
+    border-bottom: 1px solid #dddddd !important;
+    background-color: white;
+    position: sticky;
+    top: -2px;
+}
+.btn {
+    background-color: #004593;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    min-width: 142px;
+    max-width: 142px;
+    margin-top: 10px;
+}
+.warning-icon {
+    color: #ff9100;
+    font-size: 2em;
+}
+.disposeButton {
+    margin-left: 10px;
+    opacity: inherit !important;
+    color: #004593 !important;
+    background-color: rgb(255, 255, 255) !important;
+    border: solid #004593 1px;
+}
+.acknowledgedNotice {
+    color: #dddddd !important;
+}

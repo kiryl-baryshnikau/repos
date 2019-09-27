@@ -1,0 +1,32 @@
+﻿:host ::ng-deep th {
+    background-color: white;
+    position: sticky;
+    top: 0px;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding-top: 0;
+}
+.titleComponent {
+    font-family: "Roboto-Bold", "Roboto Bold", "Roboto";
+    color: #333333;
+    font-size: 12pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+.summary-Container {
+    flex-grow: 1;
+    min-width: 320px;
+    max-width: 320px;
+    padding-right: 12px;
+    border-right: solid 1px #CCC;
+}
+.detail-Container {
+    flex-grow: 3;
+    padding-left: 12px;
+}

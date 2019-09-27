@@ -1,0 +1,23 @@
+﻿<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="true" [showSettings]="true"
+    [setTimeFrameDisabled]="globalSearchCriteria" [dataFilterDisabled]="globalSearchCriteria" [hourValue]="hourValue"
+    [tableColumns]="tableColumns" (toggleColumn)="IvPrepTableComponent.toggleColumn($event)" [useHoursFrameFilter]="true" [wideMultipleValueBoxes]="true"
+    (initDataFilters)="onMultiValueFiltersInit($event)" (dataFilterOpened)="initializeMultivalueFiltersControl()" 
+    (widgetSettingsClicked)="onWidgetSettingsClicked()" (applyDataFiltersClicked)="applyMultiValueFilter($event)" 
+    (resetDataFiltersClicked)="resetMultiValueFilter($event)" (dateFilterPanelOpened)="onDateFilterPanelOpened()"
+    (dateFilterDateChange)="onDateFilterChanged($event)" (exportButtonClicked)="onExportButtonClicked($event)" #widgetToolbar></mvd-widget-toolbar>
+<div style="display: flex">
+    <div style="width: 330px; margin-right: 24px; min-width: 330px" class="searchBoxIvPrep">
+        <mvd-search-box (onClear)="onClearSearchBox($event)" (onSearchClicked)="onGlobalSearch($event)"
+                        [searchCriteria]="globalSearchCriteria" [placeHolder]="resources.searchBoxPlaceHolder"></mvd-search-box>
+    </div>
+    <div>
+        <iv-prep-btn-filters (onChange)="onSelectedStatusChange($event)"
+            [data]="data" [doseSummary]="doseSummary" [stateMappings]="stateMappings" [deliveryMode]="deliveryMode">
+        </iv-prep-btn-filters>
+    </div>
+</div>
+<mvd-iv-prep-table [data]="data" [deliveryMode]="deliveryMode" [loading]="loading" #IvPrepTableComponent
+                   (onLazyLoad)="onLazyLoad($event)" [totalRecords]="totalRecords" [isMedminedEnabled]="isMedminedEnabled"
+                   (onColumnReorder)="onColumnReorder($event)" (onPriorityChange)="onPriorityChange($event)"
+                   (onHoldChange)="onHoldChange($event)" (onPatientsIconAlertClick)="onPatientsAlertClick($event)">
+</mvd-iv-prep-table>

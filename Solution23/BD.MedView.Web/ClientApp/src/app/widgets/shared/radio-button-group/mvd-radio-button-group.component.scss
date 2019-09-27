@@ -1,0 +1,35 @@
+﻿.btn-primary {
+    color: #fff;
+    background-color: #003884 !important;
+    border: 1px solid #003884 !important;
+}
+
+    .btn-primary.active, .btn-primary:active {
+        color: #fff;
+        background-color: #003884 !important;
+        border: 1px solid #003884 !important;
+    }
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #315DAF !important;
+        border: 1px solid #003884 !important;
+    }
+
+
+.btn-default {
+    color: #003884;
+    background-color: #fff !important;
+    border: 1px solid #003884 !important;
+}
+
+    .btn-default:hover {
+        color: #fff;
+        background-color: #315DAF !important;
+        border: 1px solid #003884 !important;
+    }
+
+
+.btn-group > label {
+    min-width: 194px;
+}

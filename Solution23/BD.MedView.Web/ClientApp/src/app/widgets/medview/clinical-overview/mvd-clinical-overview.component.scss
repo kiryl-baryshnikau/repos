@@ -1,0 +1,137 @@
+﻿.redicon {
+    color: red;
+    font-size: 18px;
+}
+.blueicon {
+    color: #004593;
+    font-size: 18px;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+}
+.leftColumn {
+    padding-right: 12px;
+    border-right: solid 1px #CCC;
+    min-width: 314px;
+}
+.rightColumn {
+    padding-left: 12px;
+}
+.clinicalDashboardFiltersContainer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 24px;
+}
+.flex {
+    display: flex;
+}
+
+.flexRowWrap {
+    flex-flow: row wrap;
+}
+.labelStatus {
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 12px;
+
+}
+.blue {
+    color: #004593 !important;
+}
+.listitem {
+    min-width: 190px;
+    max-width: 190px;
+    display: flex;
+    height: 34px;
+}
+.hideRow{
+    display: none;
+}
+.alignSelfCenter {
+    align-self: center
+}
+.displayIcon {
+    display: block;
+    width: 100%;
+}
+
+.acknowledgedCounter {
+    color: rgb(51,51,51);
+    background-color: #e4e4e4;
+    width: 40px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.newCounter {
+    background-color: #e4e4e4;
+    width: 40px;
+    color: #8D2A90;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.counter > div {
+    background-color: #e4e4e4;
+    width: 43px;
+    font-family: Roboto-Bold, "Roboto Bold", Roboto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.uCounter {
+    background-color: transparent !important;
+    align-self: center;
+    color:#004593;
+    font-size: 14px !important;
+}
+
+.uCounter.New {
+    color: #8D2A90;
+}
+
+.counter div:first-of-type {
+    margin-bottom: 2px;
+}
+
+.boxCounter {
+    background-color: #e4e4e4;
+    max-width: 40px !important;
+    max-height: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.labeledCounter {
+    display: flex;
+    background-color: transparent !important;
+    width: 100% !important;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border: 1px solid #e4e4e4;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.tableTitle {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 27px;
+
+    .category {
+        font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+        font-weight: 500;
+    }
+
+    .title {
+        font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+        font-weight: 700;
+    }
+}

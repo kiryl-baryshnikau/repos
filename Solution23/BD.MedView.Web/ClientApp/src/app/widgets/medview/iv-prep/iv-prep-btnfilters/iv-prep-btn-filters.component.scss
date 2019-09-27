@@ -1,0 +1,60 @@
+div {
+  font-size: 12px;
+  text-align: justify;
+}
+.counter-container {
+    margin: 2px;
+    background-color: lightgray;
+    text-align: center;
+    min-width: 25px;
+    font-size: 13px;
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+    border-radius: 2px;
+}
+.blue{
+  color: #004593 !important;
+}
+.stat{
+  color: red;
+}
+.ui-button {
+    border: 2px solid #003884;
+    margin-right: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 0px;
+    cursor: pointer;
+    color: black;
+    max-height: 59px;
+}
+    .ui-button.active {
+        background-color: #003884 !important;
+        color: white;
+    }
+.IvPrepBtnFiltersContainer {
+    display: flex;
+}
+.flex {
+    display: flex;
+}
+.flexRowWrap {
+    flex-flow: row wrap
+}
+.flexFive {
+    flex: 5;
+}
+.flexOne {
+    flex: 1;
+}
+.selectButtonPadding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.labelStatus {
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}

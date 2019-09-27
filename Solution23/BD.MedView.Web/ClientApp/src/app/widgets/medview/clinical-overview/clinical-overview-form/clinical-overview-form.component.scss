@@ -1,0 +1,62 @@
+﻿.documentation div{
+    margin: 15px;
+}
+
+.display-block {
+    display: block !important;
+}
+
+div > p{
+    margin: 0px;
+}
+
+.radio-in-line {
+    margin-right: 0px !important;
+    padding: 5px;
+    display: inline;
+}
+
+.radio-in-line:first-child {
+    margin-left: 0px !important;
+}
+
+.header-title{
+    display: flex;
+}
+
+.header-title div {
+    margin: 5px 0px 0px 15px;
+    display: flex;
+    align-items: center;
+    height: 22px;
+    width: 22px;
+    background-color: rgba(249, 51, 84, 1);
+    box-shadow: none;
+    font-family: 'Arial-BoldMT', 'Arial Bold', 'Arial';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 15px;
+    color: #FFFFFF;
+    padding: 5px;
+    line-height: 15px;
+}
+
+.close-button {
+    width: 98%;
+}
+
+.spinner {    
+    height: 100%;
+    width: 97%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    font-style: italic;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 12px;
+}

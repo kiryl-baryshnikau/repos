@@ -1,0 +1,13 @@
+<div *ngIf="totalRailGuards > 0">
+    <div [tooltip]="tolTemplate" class="container-alert">
+        <div class="cont-counteralerts">
+            {{totalRailGuards}}
+        </div>
+        <img [src]='imgURL' class="iconAlerts" />
+    </div>
+    <ng-template #tolTemplate>
+        <ul *ngFor="let item of messages" class="display-hint">
+            <li>{{item}}</li>
+        </ul>
+    </ng-template>
+</div>

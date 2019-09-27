@@ -1,0 +1,81 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override"; // TODO: use variables instead of hard-coded values
+
+bd-nav.bdshell-container {
+
+    site-selection-extended {
+        left: 0;
+    }
+
+    sidebar {
+        position: fixed;
+        z-index: 1031;
+
+        ~ site-selection-extended, ~ top-menu, ~ site-selection {
+            left: 3.5rem;
+        }
+
+        ~ topbar {
+            padding-left: 4.5rem;
+        }
+    }
+
+    topbar {
+        + site-selection, + site-selection-extended, + top-menu {
+            top: 3.5rem; //$navbar-height
+        }
+    }
+
+    site-selection + top-menu {
+        top: 5.5rem;
+    }
+
+    site-selection-extended + top-menu {
+        top: 5.7rem; // $navbar-height + breadcrumb height
+    }
+
+
+    .bdshell--site-selection--popup {
+        max-width: 23rem !important;
+        font-size: .875rem;
+
+        label, b {
+            font-size: inherit;
+        }
+
+        .modal-header a {
+            cursor: pointer;
+        }
+
+        .modal-footer button.btn {
+            min-width: 6.5rem;
+        }
+    }
+    /* For bootstrap 3 applications */
+    .show.fade {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .fade {
+        visibility: hidden;
+    }
+
+    .modal-backdrop {
+        &.show {
+            opacity: 0.5;
+        }
+
+        &.hide {
+            opacity: 0;
+        }
+    }
+
+    .modal {
+        display: block;
+        visibility: hidden;
+    }
+
+    .modal-dialog {
+        height: 0;
+    }
+}

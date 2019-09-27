@@ -1,0 +1,20 @@
+<ul class='listPriorities' *ngIf="notices">
+    <li *ngFor='let item of notices.data' (click)="onNoticeSelected(item)">
+        <div class="rowContainer">
+            <div class="iconPlaceHolder">
+                <span class='icon'><i [class]="getIconClass(item)"></i></span>
+            </div>
+            <div class="counter" [class.blinkingText]="notices.options.showAnimations && item.blinkingRow">
+                {{item.counter}}
+            </div>
+            <div class="resumeContainer" [class.blinkingText]="notices.options.showAnimations && item.blinkingRow">
+                <div class="title">
+                    {{item.title}}
+                </div>
+                <div class="resume">
+                    <span>{{item.label}}: </span>{{item.value}}
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

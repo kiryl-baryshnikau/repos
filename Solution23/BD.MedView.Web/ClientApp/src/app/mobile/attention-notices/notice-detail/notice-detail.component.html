@@ -1,0 +1,134 @@
+<div class="container-fluid px-0">
+    <div class="fixed-top">
+        <div class="row mr-0" style="background: #fff">
+            <div class="col pr-0">
+                <div class="d-flex flex-row back-element">
+                    <div class="pr-1 mr-auto left-margin" (click)="backButtonClicked()">
+                        <div style="font-size: 1.2em" class="fa fa-chevron-left align-middle"></div>
+                    </div>
+                    <div class="d-flex flex-row-reverse mr-3">
+                        <mvd-sort-item-mobile *ngFor="let item of sortItems" [id]="item.id" [label]="item.alias" [sortDirection]="item.sortDirection" (clicked)="onSortItemClicked($event)"></mvd-sort-item-mobile>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lastUpdated">
+                <div class="lastUpdatedTitle">{{ resources.lastUpdatedOn }} {{ lastUpdatedDate }} {{ resources.at }}
+                    {{ lastUpdatedTime }}</div>
+            </div>
+    </div>
+    <div class="mobile-content">
+        <div class="row mr-0">
+            <div class="col pr-0">
+                <div class="titleContainer card-1 notice-name-container">
+                    <div class="title nonCritical">
+                        <div class="text">{{ noticeTittle | uppercase}} ({{ noticeCounter}})</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mr-0" *ngIf="noticesDetailsView && noticesDetailsView.length > 0">
+            <div class="col pr-0 left-margin">
+                <div class="col tile" role="button" *ngFor='let detail of noticesDetailsView'
+                (click)="onRowClicked(detail)" aria-controls="collapseBasic" [attr.aria-expanded]="!detail.isCollapsed">
+                <div class="row break-word-text" [class.acknowledged]="detail.isAcknowledge">
+                    <div class="col-0 col-sm-0 mr-2 my-0 px-0 py-0">
+                        <span class="fa fa-circle fa-circle-blue" [class.fa-circle-blue]="!detail.isAcknowledge"
+                            [class.fa-empty-circle]="detail.isAcknowledge"></span>
+                    </div>
+                    <div class="col-7 col-sm-9 pr-0 pb-2">
+                        <div class="row mr-0 text tileTitle">
+                            {{detail.dispensingDeviceNameDisplay || detail.externalSystemName || detail.facilityNameDisplay || ''}}
+                        </div>
+                        <div class="row mr-0">
+                            {{detail.item || detail.inboundInterruptTypeInternalCode || ''}}
+                        </div>
+                        <div class="row mr-0">
+                            {{detail.areasDisplay || ''}}
+                        </div>
+                        <div class="row mr-0" *ngIf="detail.newItems || detail.newItems === 0">
+                            {{resources.newItems}} {{detail.newItems}}
+                        </div>
+                        <div class="row mr-0" *ngIf="detail.deletedItems || detail.deletedItems === 0">
+                            {{resources.deletedItems}} {{detail.deletedItems}}
+                        </div>
+                    </div>
+                    <div class="col-4 col-sm-2 pr-0 pb-2 d-flex flex-column">
+                        <div class="row mr-0 justify-content-end flex-grow-1">
+                            <div [class.critical-text]="isCritical" [class.non-critical-text]="!isCritical"
+                                class="text">
+                                {{detail.noticeDurationDisplay || detail.eventDurationDisplay || ''}}
+                            </div>
+                        </div>
+                        <div class="row mr-0 text justify-content-end text">
+                            {{detail.noticeStartUtcDateTimeDisplay || detail.eventStartUtcDateTimeDisplay || ''}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-0" id="collapseBasic" [collapse]="detail.isCollapsed">
+                    <div *ngIf="!detail.isAcknowledge" class="col pl-0">
+                        <div class="row my-2" *ngIf="acknowledgeError">
+                            <div class="col-2 col-sm-1 align-self-center">
+                                <span class="fa fa-exclamation-triangle warning-icon"
+                                    *ngIf="!detail.isAcknowledge"></span>
+                            </div>
+                            <div class="col-10 col-sm-11 font-weight-bold align-self-center">
+                                {{resources?.errorMesssageAcknowledge}}
+                            </div>
+                        </div>
+                        <div class="row mb-4" *ngIf="detail.hasWriteAccess">
+                            <div class="col" [class.pl-0]="detail.hasWriteAccess" [class.px-0]="!detail.hasWriteAccess">
+                                <button type="button" class="btn  btn-lg btn-block" [disabled]="isLoading"
+                                    [class.btn-default]="detail.hasWriteAccess"
+                                    [class.btn-primary]="!detail.hasWriteAccess">
+                                    {{ detail.hasWriteAccess ? resources?.cancel : resources?.ok }}
+                                </button>
+                            </div>
+                            <div class="col pr-0">
+                                <button type="button" (click)="onNoticeAcknowledge($event, detail)"
+                                    class="btn btn-primary btn-lg btn-block" [disabled]="isLoading">
+                                    {{resources?.acknowledge}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="detail.isAcknowledge" class="col pl-0">
+                        <div class="row my-2" *ngIf="unAcknowledgeError">
+                            <div class="col-2 col-sm-1 align-self-center">
+                                <span class="fa fa-exclamation-triangle warning-icon"></span>
+                            </div>
+                            <div class="col-10 col-sm-11 font-weight-bold align-self-center">
+                                {{resources?.errorMesssageUnAcknowledge}}
+                            </div>
+                        </div>
+                        <div class="row mt-1 mb-3" *ngIf="!unAcknowledgeError">
+                            <div class="col pl-1 pr-0 font-weight-bold text-left">
+                                {{resources?.acknowledgedBy}} {{detail.updatedBy}} {{resources?.at}}
+                                {{detail.updatedDateTime | dateformat: 'datetime'}}
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col" [class.pl-0]="detail.hasWriteAccess" [class.px-0]="!detail.hasWriteAccess">
+                                <button type="button" class="btn  btn-lg btn-block" [disabled]="isLoading"
+                                    [class.btn-default]="detail.hasWriteAccess"
+                                    [class.btn-primary]="!detail.hasWriteAccess">
+                                    {{ detail.hasWriteAccess ? resources?.cancel : resources?.ok }}
+                                </button>
+                            </div>
+                            <div class="col pr-0" *ngIf="detail.hasWriteAccess">
+                                <button type="button" (click)="onNoticeUnAcknowledge($event, detail)"
+                                    class="btn btn-primary btn-lg btn-block" [disabled]="isLoading">
+                                    {{resources?.unAcknowledge}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay" *ngIf="isLoading">
+    <div class="mobile-loader mobile-spinner"></div>
+</div>

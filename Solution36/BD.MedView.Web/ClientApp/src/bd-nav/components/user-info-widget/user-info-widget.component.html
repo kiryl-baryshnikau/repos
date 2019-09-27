@@ -1,0 +1,45 @@
+<div class="dropdown d-flex"
+     click-outside (clickOutside)="toggle = false"
+     [stopListening]="!toggle"
+     (click)="onToggle()"
+     [ngClass]="{show: toggle}">
+
+    <a class="bdshell--user-info-widget--toggle px-3 bdshell--user-info-widget--username text-light dropdown-toggle text-truncate d-none d-lg-inline"
+       [ngClass]="{'active-icon': toggle}"
+       href="javascript:void(0);"
+       role="button"
+       aria-haspopup="true"
+       [attr.aria-expanded]="toggle">
+        {{user.userInfo.fullName}}
+    </a>
+    <a class="bdshell--user-info-widget--toggle bdshell--user-info-widget--icon-only text-light uss--icon-user-profile-bold d-inline d-lg-none"
+       [ngClass]="{'active-icon': toggle}"
+       href="javascript:void(0);"
+       role="button"
+       aria-haspopup="true"
+       [attr.aria-expanded]="toggle">
+    </a>
+
+    <ul class="bdhsell--user-info-widget--action-items dropdown-menu dropdown-menu-right"
+        [ngClass]="{show: toggle}"
+        aria-labelledby="dropdownMenuLink"
+        x-placement="bottom-start">
+        <li class="d-list-item d-lg-none font-weight-bold dropdown-item"> {{user.userInfo.fullName}}</li>
+        <li class="d-list-item d-lg-none dropdown-divider"></li>
+        <ng-container *ngFor="let drilldownItem of user.actionItems">
+            <ng-container>
+                <li *ngIf="drilldownItem.isSeparator" class="dropdown-divider"></li>
+                <li *ngIf="!drilldownItem.componentName"
+                    [attr.data-menu-code]="drilldownItem.itemCode"
+                    (click)="onDrilldownItemClick(drilldownItem)">
+                    <a class="dropdown-item text-truncate" href="javascript:void(0);"> {{drilldownItem.itemName}}</a>
+                </li>
+                <li *ngIf="drilldownItem.componentName"
+                    [attr.data-menu-code]="drilldownItem.itemCode"
+                    component-factory [componentName]="drilldownItem.componentName"
+                    [model]="drilldownItem">
+                </li>
+            </ng-container>
+        </ng-container>
+    </ul>
+</div>

@@ -1,0 +1,136 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3 );
+    min-height: 3.5rem;
+
+    &.no-shadow {
+        box-shadow: none;
+    }
+
+    ::ng-deep {
+        .topbar--action-container {
+            .topbar--action-menu {
+                height: $navbar-height;
+                width: $navbar-height;
+                font-size: 2rem;
+                color: $off-white;
+                display: block;
+                cursor: pointer;
+                text-align: center;
+
+                &:before {
+                    line-height: $navbar-height;
+                }
+
+                &:not(.disable):hover {
+                    background-color: $core-blue-light;
+                    color: $off-white;
+                }
+            }
+
+            @media only screen and (max-width : $screen-lg-min - 1) {
+                &.show {
+                    > .topbar--action-menu {
+                        background-color: $core-blue-dark;
+                    }
+
+                    > .topbar--action-items {
+                        width: $navbar-height * 3;
+                        min-height: $navbar-height;
+                        position: absolute;
+                        display: block !important;
+                        background-color: $dark;
+                        margin-left: -3.5rem;
+                    }
+                }
+            }
+
+
+            .topbar--action-items {
+
+                .topbar--action-item {
+                    min-height: $navbar-height;
+                    max-height: $navbar-height;
+                    min-width: $navbar-height;
+                    // padding: 1rem;
+                    float: left;
+
+                    &.active {
+                        background-color: $core-blue-dark;
+                    }
+
+                    .topbar--action-item--icon {
+                        width: 3.5rem;
+                        line-height: 3.5rem;
+                        display: block;
+                        font-size: 1.5rem;
+                        text-align: center;
+                        color: $off-white;
+                        cursor: pointer;
+                        text-decoration: none;
+
+
+                        &:hover {
+                            color: $off-white;
+                        }
+
+                        > .text {
+                            font-size: 0.875rem;
+                        }
+
+                        > .notification-count {
+                            font-size: 0.625rem;
+                            font-weight: bold;
+                            border: solid 2px $white;
+                            border-radius: 50%;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            display: block;
+                            background: $red;
+                            padding-top: 3px;
+                            text-align: center;
+                            margin: 1rem;
+                            line-height: normal;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $core-blue-light;
+                    }
+
+                    .dropdown-menu {
+                        position: absolute;
+                        top: inherit;
+                        left: inherit;
+                        font-size: 14px;
+                        margin-left: -1rem;
+
+                        .dropdown-item.input-group:active {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+
+        .active-icon {
+            background-color: $core-blue-dark;
+        }
+
+        .separator-left:before {
+            width: 1px;
+            height: 2rem;
+            content: '';
+            background: $core-blue-light;
+            position: absolute;
+            top: 12px;
+        }
+    }
+
+    .bdshell--topbar--logo-container {
+    }
+
+    .bdshell--topbar--top-widget-container {
+    }
+}

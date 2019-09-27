@@ -1,0 +1,10 @@
+﻿<mvd-widget-toolbar *ngIf="setToolbar" [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="false" [showColumnSelector]="false" [showDataFilter]="false"
+    [showSetTimeframe]="false" [showSettings]="true" (widgetSettingsClicked)="onWidgetSettingsClicked()" #widgetToolbar></mvd-widget-toolbar>
+<div [class.mainContainer]="isExtendedView">
+    <div [class.extendedViewSummaryContainer]="isExtendedView">
+        <mvd-attention-notices-summary #summary [appCode]="appCode" [widgetId]="widgetId" (onItemSelectionChanged)="onElementChanged($event)" [selectedItem]="selectedItem"></mvd-attention-notices-summary>
+    </div>
+    <div class="extendedViewContainer" *ngIf="isExtendedView">
+        <mvd-attention-notices-extended #extendedView (elementClick)="onElementChanged($event)"></mvd-attention-notices-extended>
+    </div>
+</div>

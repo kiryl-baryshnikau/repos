@@ -1,0 +1,46 @@
+﻿<div [ngSwitch]="currentStep">
+    <div *ngSwitchCase="0">
+        <div *ngIf="!displaySelectFacility">
+            <mvd-facilitymgmt-modal #mainForm (onCancelEmit)="onCancelClick($event)" (onDelete)="onDeleteClick($event)" (onSave)="onSaveClick($event)">
+            </mvd-facilitymgmt-modal>
+        </div>
+        <div *ngIf="displaySelectFacility">
+            <mvd-selectfacility-modal [formOptions]="formOptions$" [sourceFacilities]="sourceFacilities$" (onSave)="onSaveClickFromSelection($event)" (onCancelEmit)="onCancelClick($event)" (onDelete)="onDeleteClick($event)">
+            </mvd-selectfacility-modal>
+        </div>
+    </div>
+    <div *ngSwitchCase="1">
+        <div class="mainFormContainer">
+            <div class="titleDeleteContainer">
+                <div class="title red">
+                    {{myResources.deleteFacility}}
+                </div>
+                <div class="subtitleForm">
+                    {{masterFacilityName}} - {{sourceName}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="label">
+                    {{myResources.sourceFacilityName}}
+                </div>
+                <div class="text">
+                    {{dataSource.name}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="label">
+                    {{myResources.facilityId}}
+                </div>
+                <div class="text">
+                    {{dataSource.facilityId}}
+                </div>
+            </div>
+            <div class="containerControls">
+                <input type="button" value="{{myResources.yesBtn}}" (click)="onConfirmDeletion()">
+                <div style="margin-right: 0px; margin-left: auto; padding-top: 15px;">
+                    <input type="button" class="cancelDelete" value="{{myResources.noBtn}}" (click)="onCancelDeletion($event)">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

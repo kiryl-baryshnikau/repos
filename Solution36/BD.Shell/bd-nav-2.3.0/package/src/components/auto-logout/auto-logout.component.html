@@ -1,0 +1,28 @@
+<ng-container>
+    <div class="modal-dialog" style="width:400px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header pb-0 border-0">
+                <h3 class="modal-title mx-auto">{{localeKeys['BD-UI-AutoLogOut-Title']}}</h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="mx-auto time-image">
+                </div>
+                <h5 class="text-center">
+                    {{idleState}}
+                </h5>
+                <div class="text-center font-weight-bold">
+                    {{minutes}}:{{(countdown % 60 < 10 ? '0' : '') + (countdown % 60)}}
+                </div>
+            </div>
+            <div class="modal-footer py-3">
+                <div class="w-100 text-center">
+                    <button class="btn btn-lg btn-primary bdshell--autologout--reset" (click)="hideChildModal()">{{localeKeys['BD-UI-AutoLogOut-ResetText']}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<div #backdrop
+     class="modal-backdrop fade"
+     [ngClass]="{show: displayAutoLogoutDialogFlag}"></div>

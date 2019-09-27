@@ -1,0 +1,29 @@
+<ng-container *ngFor="let subMenuItem of subMenus; index as i">
+    <li *ngIf="!subMenuItem.componentName && subMenuItem.state != 2"
+        (mouseover)="subMenuItem.hover = true"
+        (mouseout)="subMenuItem.hover = false"
+        [ngClass]="getSubMenuCss(subMenuItem)"
+        [attr.data-submenu-code]="subMenuItem.code">
+        <ng-container *ngIf="!subMenuItem.sectionHeader">
+            <a 
+               [ngClass]="{'dropdown-toggle': subMenuItem.subMenus && subMenuItem.subMenus.length}"
+               class="dropdown-item"
+               href="javascript:void(0);"
+               (click)="updateMenuSelection(subMenuItem)">
+                <span>{{subMenuItem.displayName}}</span>
+            </a>
+
+            <ul *ngIf="subMenuItem.subMenus && subMenuItem.subMenus.length" [class.show]="subMenuItem.hover" submenu [subMenus]="subMenuItem.subMenus"></ul>
+        </ng-container>
+        <div *ngIf="subMenuItem.sectionHeader"
+             class="dropdown-header border-top border-bottom text-center"
+             [ngClass]="{'mt-4': i}"
+             >
+            <h6 class="mb-0">{{subMenuItem.displayName}}</h6>
+        </div>
+    </li>
+    <ng-container *ngIf="subMenuItem.componentName && subMenuItem.state != 2"
+                  component-factory
+                  [componentName]="subMenuItem.componentName">
+    </ng-container>
+</ng-container>

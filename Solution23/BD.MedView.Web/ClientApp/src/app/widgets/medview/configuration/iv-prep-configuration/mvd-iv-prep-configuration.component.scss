@@ -1,0 +1,121 @@
+.title{
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #000000;
+}
+
+.body-text{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    color: #000000;
+}
+
+.state-title{    
+    font-family: 'Roboto-Italic', 'Roboto Italic', 'Roboto';
+    font-weight: 700;    
+    color: #999999;
+}
+
+.row-parent,
+.col-parent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.col-parent {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.fx-align-center {
+    align-items: center;
+}
+
+.fx-child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    flex-basis: auto;
+}
+
+.med-state-collumn {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 300px;
+    
+}
+
+.header {
+    height: 90px;
+    margin-bottom: 30px;
+}
+
+.header div {
+    background: #E5E5E5;
+}
+
+.right-margin-15 {
+    margin-right: 15px;
+}
+
+.center-align {    
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body-row {
+    border-top: solid #E5E5E5 1px;
+}
+
+.body-row:last-of-type {
+    border-bottom: solid #E5E5E5 1px;
+}
+
+.cell-content-centered {
+    margin: 9px 0 9px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.cell-content {
+    margin: 9px 0 9px 0;
+}
+
+.help-icon-container {
+    min-width: 30px;
+}
+
+

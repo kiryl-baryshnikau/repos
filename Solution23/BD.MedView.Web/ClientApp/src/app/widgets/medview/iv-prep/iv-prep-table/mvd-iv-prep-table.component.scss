@@ -1,0 +1,133 @@
+th {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    border: 0px !important;
+    border-bottom: 1px !important;
+    color: #808080 !important;
+    padding: 16px !important;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: normal;
+    border-bottom: 1px solid #dddddd !important;
+    background-color: white;
+    position: sticky;
+    top: -2px;
+    z-index: 1;
+}
+
+.ivPrepTable {
+    margin-top: 20px;
+}
+.holdColumn {
+    width: 80px !important;
+}
+.priorityColum {
+    width: 110px !important;
+}
+.statusColumn {
+    width: 270px !important;
+}
+
+$patientNameColumnWidth: 229px;
+
+.patientNameColumn {
+    width: $patientNameColumnWidth !important;
+}
+
+.patientNameCell {
+    width: $patientNameColumnWidth;
+}
+
+
+.patientIdColumn {
+    width: 110px !important;
+}
+.medicationColumn {
+    width: 170px !important;
+}
+.orderNumberColumn {
+    width: 130px !important;
+}
+.doseMedColumn {
+    width: 130px !important;
+}
+.doseMedColumn {
+    width: 130px !important;
+}
+.prepSiteColumn {
+    width: 110px !important;
+}
+.dateTimeNeededColumn {
+    width: 160px !important;
+}
+.facilityColumn {
+    width: 180px !important;
+}
+.unitColumn {
+    width: 160px !important;
+}
+.deliveryStatusColumn {
+    width: 140px !important;
+}
+.locationColumn {
+    width: 110px !important;
+}
+.deliveryDateTimeColumn {
+    width: 200px !important;
+}
+
+.stateTemplate {
+    color: #ffffff;
+    background-color: #ff0000;
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.isOnHold {
+    color: #dddddd
+}
+
+:host ::ng-deep .ivPrepTable .ui-table th.tableColumn {
+    cursor: default;
+}
+
+:host ::ng-deep .ivPrepTable .ui-table th.tableColumn.ui-sortable-column {
+    cursor: pointer;
+}
+
+:host ::ng-deep .ivPrepTable .ui-table th.tableColumn.reorderable-column {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+:host ::ng-deep .ivPrepTable .ui-table th.tableColumn.reorderable-column.ui-sortable-column {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+:host ::ng-deep .ivPrepTable .ui-table th.tableColumn.reorderable-column.ui-sortable-column .ui-table-sort-icon {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+
+:host ::ng-deep .tooltip-inner {
+    max-width: 200px;
+    padding: 0.25rem 0.5rem;
+    color: #ffffff;
+    text-align: left;
+    background-color: #000000;
+    border-radius: 0.25rem;
+    min-width: 100px;
+}
+
+.medmined-alert-column {
+    padding-left: 30px;
+}
+
+.medmined-default-icon {
+    min-width: 35px;
+}

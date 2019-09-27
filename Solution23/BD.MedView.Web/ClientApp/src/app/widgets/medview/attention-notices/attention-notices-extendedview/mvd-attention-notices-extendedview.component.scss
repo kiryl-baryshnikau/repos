@@ -1,0 +1,40 @@
+﻿.attentionNoticesContainer {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0px;
+}
+
+    .attentionNoticesContainer li {
+        margin: 0px 12px 44px 12px;
+    }
+.title .text {
+    align-self: center;
+    flex-grow: 4;
+}
+.titleContainer {
+    border-width: 0px;
+    width: 100%;
+    height: 30px;
+    background: inherit;
+    background-color: rgba(236, 236, 236, 0.5);
+    display: flex;
+    margin-bottom: 32px;
+}
+
+    .titleContainer .title {
+        align-self: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: 'Roboto-Regular', 'Roboto';
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        line-height: normal;
+        color: #f33757;
+        display: flex;
+        width: 100%;
+    }

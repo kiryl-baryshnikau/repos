@@ -1,0 +1,33 @@
+<mvd-sliding-panel [isVisible]="isColumnSelectorVisible">
+    <div menuPanel class="menu-panel-container">
+        <mvd-column-toggle (onToggle)="toggleColumn.emit($event)" [options]="tableColumns"></mvd-column-toggle>
+    </div>
+</mvd-sliding-panel>
+<mvd-sliding-panel [isVisible]="isTimeFilterVisible">
+    <div menuPanel class="menu-panel-container">
+        <mvd-hours-frame-filter *ngIf="useHoursFrameFilter" [options]="hoursOptions" [value]="hourValue"
+                                (cancelClicked)="timeFilterCancelClicked()" (applyClicked)="timeFilterApplyClicked($event)"></mvd-hours-frame-filter>
+
+        <mvd-date-range-picker *ngIf="!useHoursFrameFilter" (dateChanged)="dateFilterDateChange.emit($event)"
+                               (applyClicked)="timeFilterApplyClicked($event)"
+                               (cancelClicked)="timeFilterCancelClicked()"></mvd-date-range-picker>
+    </div>
+</mvd-sliding-panel>
+<mvd-sliding-panel [isVisible]="isIvPrepTimeFilterVisible">
+    <div menuPanel class="menu-panel-container">
+        <mvd-iv-prep-time-filter [pastOptions]="ivPrepFilterPastHourOptions" [futureOptions]="ivPrepFilterFutureHourOptions" [value]="ivPrepHourFilterValue"
+                                (ivPrepTimeFilterCancelClicked)="ivPrepTimeFilterCancelClicked()" (ivPrepTimeFilterApplyClicked)="ivPrepTimeFilterApplyClicked($event)"></mvd-iv-prep-time-filter>        
+    </div>
+</mvd-sliding-panel>
+<mvd-sliding-panel [isVisible]="isExportPanelVisible">
+    <div menuPanel class="menu-panel-container">
+        <mvd-export-table menuPanel (exportClicked)="onExportPanelExport($event)" (cancelClicked)="onExportPanelCancel()"></mvd-export-table>
+    </div>
+</mvd-sliding-panel>
+<mvd-sliding-panel [isVisible]="isDataFilterVisible">
+    <div menuPanel class="menu-panel-container">
+        <mvd-column-multiple-value-new [widerBoxesMode]="wideMultipleValueBoxes" (onApply)="dataFiltersApplyClicked($event)" (onReset)="dataFiltersResetClicked($event)" #multiValueFilter
+        (onInit)="onMultiValueFiltersInit($event)" (cancelClicked)="dataFiltersCancelClicked()">
+        </mvd-column-multiple-value-new>
+    </div>
+</mvd-sliding-panel>

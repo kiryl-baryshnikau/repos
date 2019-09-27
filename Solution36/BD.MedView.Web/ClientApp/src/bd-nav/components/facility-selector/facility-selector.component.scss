@@ -1,0 +1,30 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host.bdshell--site-selection--facility-selector {
+    > .modal-dialog {
+        > .modal-content {
+            width: 41rem;
+
+            > .modal-body {
+                font-size: 0.875rem;
+
+                > table {
+                    > tbody {
+                        max-height: 15rem;
+
+                        > tr {
+                            &.table-active {
+                                background-color: #eaf0ff; // TODO: include variable
+                            }
+
+                            > td {
+                                height: 3rem;
+                                margin-bottom: 1px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,339 @@
+﻿@import "mvd-popup.style";
+
+.chart {
+    text {
+        fill: black;
+        font: 13px 'Roboto', sans-serif;
+        text-anchor: end;
+    }
+
+    .dataBox {
+        fill: white;
+        stroke-width: 1;
+        stroke: lightgray;
+        stroke-dasharray: 5, 5;
+    }
+}
+
+.container rect:first-child {
+    fill: none;
+    stroke: none;
+}
+
+.lastcontainer {
+    fill: none;
+}
+
+.warningZone {
+    fill-opacity: 0.1
+}
+
+.nameContainer {
+    fill: none !important;
+    stroke-width: 1;
+    stroke: lightgray;
+}
+
+.name {
+    text-anchor: start !important;
+    font: 12px 'Roboto', sans-serif !important;
+}
+
+.stoppedname {
+    fill: #CCCCCC !important;
+}
+
+.thresholdContainer {
+    .border-solid {
+        stroke: lightgray;
+    }
+    .border-dotted {
+        stroke: lightgray;
+        stroke-dasharray: 5, 5;
+    }
+    line:first-child {
+        stroke: red;
+        stroke-width: 3px;
+    }
+}
+
+.linegraph {
+    stroke-width: 2;
+}
+
+.line-dotted {
+    stroke-dasharray: 10, 5;
+}
+
+.stopped-line {
+    stroke: #B3B3B3;
+}
+
+.green {
+    fill: #39B549 !important;
+}
+
+.orange {
+    fill: #fe9006 !important;
+}
+
+.red {
+    fill: #FF0000 !important;
+}
+
+.acknowledgedColor {
+    fill: #B3B3B3 !important;
+}
+
+.strokegreen {
+    stroke: #39B549 !important;
+}
+
+.strokeorange {
+    stroke: rgb(254, 144, 6) !important;
+}
+
+.strokered {
+    stroke: #FF0000 !important;
+}
+
+.borderseparators {
+    stroke: lightgray;
+    stroke-width: 1;
+}
+
+.thresholdTagsContainer,
+.thresholdTag {
+    fill: none !important;
+    stroke-width: 2;
+}
+
+.thresholdTagText {
+    text-anchor: middle !important;
+    stroke: none;
+    font-size: 11px !important;
+}
+
+.nostroke {
+    stroke: none;
+}
+
+.resumeContainer rect {
+    stroke: none;
+    fill: #f7f7f7;
+}
+
+.resumeTextContainer text {
+    text-anchor: start
+}
+
+.resumeCounter {
+    font: bold 15px 'Roboto', sans-serif;
+}
+
+.labelCounter {
+    font: normal 13px 'Roboto', sans-serif !important;
+}
+
+.escalateRect {
+    stroke: none;
+}
+
+.escalateText {
+    fill: white !important;
+    font: normal 10px 'Roboto', sans-serif !important;
+    text-anchor: middle !important;
+}
+
+.iconBars {
+    stroke: none;
+    cursor: pointer;
+}
+
+.iconBars:hover {
+    stroke-width: 1;
+    stroke: black;
+}
+
+.headerBarRect {
+    fill: #f7f7f7;
+    stroke: none;
+}
+
+.axisContainer .tick text {
+    fill: none;
+}
+
+.axisContainer .tick line,
+.axisContainer .domain {
+    stroke: lightgray;
+}
+
+.labelbars {
+    text-anchor: start !important;
+}
+
+.textGuardRailWarning {
+    fill: white !important;
+    text-anchor: middle !important;
+    font-weight: bold !important;
+    cursor: pointer;
+}
+
+.flexMarginTop {
+    display: flex;
+    margin-top: 12px;
+
+    .icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .text {
+        color: #333;
+        font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+        font-size: 10px;
+        margin-left: 8px;
+    }
+}
+
+.topMargin {
+    margin-top: 15px;
+}
+
+.normalText {
+    color: #333;
+    font-size: 12px;
+    text-align: left;
+}
+
+.robotoRegular {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+}
+
+.robotoMedium {
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto', sans-serif;
+}
+
+.robotoLight {
+    font-family: 'Roboto-Light', 'Roboto Light', 'Roboto', sans-serif
+}
+
+.robotoBold {
+    font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.buttonContainer {
+    margin-top: 15px;
+    text-align: right;
+    display: flex;
+}
+
+.btngraph {
+    width: 100px;
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border-radius: 3px;
+    border-width: 1px;
+    flex-grow: 1;
+}
+
+.btngraph:nth-of-type(even) {
+    margin-left: 10px;
+}
+
+.btnclose {
+    color: #004593;
+    background-color: white;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btnclose:disabled {
+    color: white;
+    background-color: lightgrey;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btnsave {
+    color: white;
+    background-color: #004593;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btnsave:disabled {
+    color: white;
+    background-color: lightgrey;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix {
+    display: block;
+}
+
+#container {
+    height: 95%;
+}
+
+.marginleft {
+    margin-left: 10px
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.moreInfoContainer {
+    display: flex;
+}
+
+.moreInfoColumn {
+    text-align: left;
+    flex: 1 auto;
+    width: 50%;
+}
+
+.moreInfoIvPrepColumn {
+    text-align: left;
+    width: 100%;
+    flex: 1 auto;
+}
+
+.containerFlexGrow {
+    display: flex;
+    flex-grow: 1;
+}
+
+.labelGuardRails {
+    color: #333;
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 10px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.fixedLineHeight {
+    line-height: 25px !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}

@@ -1,0 +1,90 @@
+@import url(../multi-value-filter/mvd-column-multiple-value.scss);
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.title-image {
+    width: 20px;
+    height: 20px;
+    margin-left: -2px;
+    margin-top: 3px;
+}
+
+.title-text {
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    color: #333333;
+    margin-left: 10px;
+}
+
+.dialog-buttons{
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.dialog-buttons .btn {
+    border-width: 0px;
+    width: 134px;
+    height: 32px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.dialog-buttons .btn-cancel {
+    color: #004593;
+    background-color: white;
+    border-color: rgba(0, 69, 147, 1);
+    margin-right: 0px !important;
+    margin-left: 10px !important;
+}
+
+.dialog-buttons .btn-reset {
+    color: #004593;
+    background-color: white;
+    border-color: rgba(0, 69, 147, 1);
+    margin-right: 0px !important;
+    margin-left: 10px !important;
+}
+
+.dialog-buttons .btn-save {
+    color: white;
+    background-color: #004593;
+    border-color: rgba(0, 69, 147, 1);
+    margin-right: 0px !important;
+    margin-left: 10px !important;
+}
+
+.wd-box {
+    width: 300px;
+}
+
+.scrollable{
+    overflow: auto;
+}
+
+.active.btn-default,
+.focus.btn-default,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover
+{
+    background-color: #ffffff;
+}
+
+.btn-default:hover {
+    color: #ffffff !important;
+    background-color: #315DAF !important;
+    border-color: #315DAF !important;
+}

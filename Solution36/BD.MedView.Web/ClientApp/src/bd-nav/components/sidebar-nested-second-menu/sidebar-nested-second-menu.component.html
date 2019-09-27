@@ -1,0 +1,14 @@
+<a (click)="toggleNestedMenu()" title="{{ configuration.displayName }}">
+    <span>{{ configuration.displayName }}</span>
+    <i class="glyphicon pull-left" [ngClass]="{'glyphicon-chevron-up': open, 'glyphicon-chevron-down': !open}"></i>
+</a>
+<ul class="nav nav-stacked sidebar-nav nested-second-menu" [ngClass]="{hidden: !open}">
+    <li *ngFor="let subMenu of configuration.subMenus"
+        [ngClass]="subMenu.css"
+        (click)="updateSelectedItem(subMenu)"
+        [attr.data-submenu-nested-code]="subMenu.code">
+        <a [ngClass]="{'selected-item': isItemSelected(subMenu.code)}" title="{{ subMenu.displayName }}">
+            <span>{{ subMenu.displayName }}</span>
+        </a>
+    </li>
+</ul>

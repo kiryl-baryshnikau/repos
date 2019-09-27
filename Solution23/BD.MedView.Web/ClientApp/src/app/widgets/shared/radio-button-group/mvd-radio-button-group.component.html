@@ -1,0 +1,5 @@
+﻿<div class="btn-group">  
+    <label class="btn" [class.btn-primary]="option.value === selectedOption" [class.btn-default]="option.value !== selectedOption" [ngModel]="selectedOption" (ngModelChange)="onModelChange($event)" 
+           btnRadio="{{ option.value }}" 
+           *ngFor="let option of options; let i =index"> {{ option.label }}</label>
+</div>

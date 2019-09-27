@@ -1,0 +1,82 @@
+﻿<div [ngSwitch]="currentStep">
+    <div *ngSwitchCase="0">
+        <div style="min-height: 30px;">
+            <mvd-facilitymgmt-modal #mainForm (onCancelEmit)="onCancelClick($event)" (onDelete)="onDeleteClick($event)" (onSave)="onSaveClick($event)">
+            </mvd-facilitymgmt-modal>
+        </div>
+    </div>
+    <div *ngSwitchCase="1">
+        <div class="mainFormContainer">
+            <div class="titleDeleteContainer">
+                <div class="icon">
+                    <i class="icon fa fa-warning"></i>
+                </div>
+                <div class="title">
+                   {{myResources.deleteMasterFacility}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="label">
+                    {{myResources.masterFacilityLbl}}
+                </div>
+                <div class="text">
+                    {{facility.masterFacilityName}}
+                </div>
+                <div class="text red">
+                   {{myResources.deleteText}}
+                </div>
+            </div>
+            <div class="containerControls">
+                <input type="button" value="{{myResources.yesBtn}}" (click)="onFirstConfirmDeletion($event)">
+                <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;" >
+                    <input type="button" class="cancelDelete" value="{{myResources.noBtn}}" (click)="onCancelDeletion($event)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="2">
+        <div class="mainFormContainer">
+            <div class="titleDeleteContainer">
+                <div class="icon">
+                    <i class="icon fa fa-warning"></i>
+                </div>
+                <div class="title">
+                    {{myResources.confirmDelete}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="text red">
+                   {{myResources.cannotUndone}}
+                </div>
+            </div>
+            <div class="containerControls">
+                <input type="button" value="{{myResources.yesBtn}}" (click)="onConfirmDeletion()">
+                <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;">
+                    <input type="button" class="cancelDelete" value="{{myResources.noBtn}}" (click)="onCancelDeletion($event)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="3">
+        <div class="mainFormContainer">
+            <div class="titleDeleteContainer">
+                <div class="icon">
+                    <i class="icon fa fa-warning"></i>
+                </div>
+                <div class="title">
+                    {{myResources.alreadyExists}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="text">
+                    {{myResources.alreadyExistsInfo}}
+                </div>
+            </div>
+            <div class="containerControls">
+                <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;">
+                    <input type="button" class="cancelDelete" value="{{myResources.okBtn}}" (click)="onDismissMessage()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

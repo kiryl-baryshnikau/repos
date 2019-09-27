@@ -1,0 +1,101 @@
+<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="true" [showColumnSelector]="false" [showExportTable]="false" [wideMultipleValueBoxes]="true"
+    [showRemove]="false" [showSetTimeframe]="false" (dataFilterOpened)="initializeMultivalueFiltersControl()" (applyDataFiltersClicked)="applyFilters($event)"
+    (resetDataFiltersClicked)="resetFilters($event)" (exportButtonClicked)="onExportButtonClicked($event)" #widgetToolbar></mvd-widget-toolbar>
+<div class="iv-status">
+    <div class="filtercomponents-container">
+        <div class="component-margin global-search-column delivery-tracking-searchbox" style="display: flex; align-items: center;">
+            <mvd-search-box (onClear)="onClearSearchBox($event)" (onSearchClicked)="onGlobalSearch($event)"
+                            [searchCriteria]="globalSearchCriteria" [placeHolder]="resources.search"></mvd-search-box>
+        </div>
+        <div class="flex-container" style="padding-bottom: 5px; padding-top: 5px;">
+            <div class="flex-container component-margin" style="max-width: 1030px">
+
+                <div>
+                    <mvd-radio-button-group [options]="statusesOptions" [selectedOption]="statusFilterSelected" (onOptionChange)="radioButtonChanged($event)"></mvd-radio-button-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="delivery-tracking-table">
+        <p-table #dt [value]="deliveryTemplateData" [rows]="15" [rowHover]="true" rowExpandMode="single"
+                 [columns]="columns" [responsive]="true" dataKey="internalId" [customSort]="true"
+                 (sortFunction)="sortData($event)" [paginator]="true" resetPageOnSort="false"
+                 (onSort)="onSort($event)" (onPage)="onPage($event)" [reorderableColumns]="true"
+                 tableStyleClass="dtTable" (onColReorder)="onColReorder($event)"
+                 [rowsPerPageOptions]="[5,10,15,20,25,50]" [pageLinks]="3">
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width: 2em"></th>
+                    <th *ngFor="let col of columns" pReorderableColumn
+                        [pSortableColumnDisabled]="col.sortOptions.enabled === 'false'"
+                        [pSortableColumn]="col.field"
+                        [class.medMinedAlerts]="col.field === 'medMinedAlerts'"
+                        [class.sortable-column]="col.sortOptions.enabled === 'true'"
+                        class="tableColumn reorderable-column">
+                        <div [class.medmined-alert-column]="isMedminedEnabled && col.field === 'orderDescription'">
+                            {{col.useAlternativeHeader ? col.alternativeHeader : col.header}}
+                            <p-sortIcon *ngIf="!!col.sortOptions.enabled !== false" [field]="col.field"></p-sortIcon>
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded">
+                <tr [pRowToggler]="rowData">
+                    <td>
+                        <i [ngClass]="expanded ? 'fa fa-angle-up' : 'fa fa-angle-down'" style="font-size: 18px; font-weight: bold;"></i>
+                    </td>
+                    <td *ngFor="let col of columns" [ngSwitch]="col.field" [style.padding]="col.field === 'medMinedAlerts' ? '0px' : '8px'">
+                        <span *ngSwitchCase="'isMultiComponentOrder'">
+                            <img src="./dist/assets/images/multi_affirmative.png" alt="Multi Affirmative" *ngIf="rowData[col.field]" />
+                        </span>
+                        <span *ngSwitchCase="'dateAgeValue'">{{rowData['dateAge']}}</span>
+
+                        <div *ngSwitchCase="'orderDescription'" style="display:flex">
+                            <div *ngIf="isMedminedEnabled" [class.medmined-default-icon]="isMedminedEnabled">
+                                <mvd-patient-alert-icon [patientAlerts]="rowData['medMinedAlerts']" (alertClick)="onPatientAlertsIcon($event)" (mouseClick)="onPatientAlertsMouseClick($event)">
+                                </mvd-patient-alert-icon>
+                            </div>
+                            <div>
+                                {{rowData[col.field]}}
+                            </div>
+                        </div>
+                        <span *ngSwitchCase="'priority'" class="delivery-tracking-item-priority">{{rowData[col.field]}}</span>
+                        <span *ngSwitchDefault>{{rowData[col.field]}}</span>
+
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+                <tr>
+                    <td></td>
+                    <td [attr.colspan]="columns.length">
+                        <div class="ui-grid ui-grid-responsive ui-fluid expander-background">
+                            <p class="expanded-row">
+                                <span class="expanded-row-label">{{resources.description}}:</span>
+                                <span class="expanded-row-data">{{rowData.orderDescription}}</span>
+                            </p>
+                            <p class="expanded-row">
+                                <span class="expanded-row-label">{{resources.doseInfo}}:</span>
+                                <span class="expanded-row-data">{{rowData.giveAmount | number}}{{rowData.maximumGiveAmount ? " - " + (rowData.maximumGiveAmount | number) : ""}} {{preProcessUnitOfMeasure(rowData)}}
+                                </span>
+                            </p>
+                            <p class="expanded-row">
+                                <span class="expanded-row-label">{{rowData.routes && rowData.routes.length > 1 ? resources.routes : resources.route}}:</span>
+                                <span class="expanded-row-data">{{rowData.routes ? rowData.routes.join(", ") : ""}}</span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                    <td [attr.colspan]="columns.length">
+                        {{resources.noRecordsFound}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

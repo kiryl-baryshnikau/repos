@@ -1,0 +1,19 @@
+﻿<div *ngIf="!isExtendedView">
+    <div class="titleContainer">
+        <div class="title">
+            <div class="text">{{myResources.criticalText}}</div>
+            <!--<i class="fa fa-flash fa-pull-left icon"></i>-->
+        </div>
+    </div>
+    <mvd-list-priorities #critical [listData]='criticalData' (onElementClick)="onElementClick($event)" [iconStyleClass]="iconClassCallback" [borderStyleClass]="borderClassCallback" [selectedItem]="selectedItem"></mvd-list-priorities>
+    <p></p>
+</div>
+<div>
+    <div class="titleContainer">
+        <div class="title" style="color: #333333;">
+            <div class="text">{{myResources.nonCriticalText}}</div>
+            <!--<i class="fa fa-bell fa-pull-left icon"></i>-->
+        </div>
+    </div>
+    <mvd-list-priorities #nonCritical [listData]='nonCriticalData' (onElementClick)="onElementClick($event)" [iconStyleClass]="iconClassCallback" [selectedItem]="selectedItem"></mvd-list-priorities>
+</div>

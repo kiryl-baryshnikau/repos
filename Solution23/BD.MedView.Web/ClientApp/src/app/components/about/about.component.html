@@ -1,0 +1,29 @@
+﻿<span (click)="showDialog()">
+    <i class="fa fa-info-circle showAboutDialog" aria-hidden="true" [title]="aboutIconTitle | async"></i>
+</span>
+
+<p-dialog class="aboutContainer" [(visible)]="display" [style]="{'width':'500px'}" closable="False">
+    <div class="aboutHeader splitterdiv">
+        <img class="aboutLogo" src="dist/assets/images/BD_HealthSight_Viewer_Logo_About.png" alt="bd-logo" />
+    </div>
+    <br />
+    <div class="aboutVersion">
+        {{resources.medViewAbout_Version}}
+    </div>
+    <br />
+    <div class="aboutCopyRight">
+        {{resources.medViewAbout_CopyRights}}
+        <br />
+        <br />
+        {{resources.medViewAbout_Support}}
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="splitterdiv"></div>
+    <div class="aboutFooter">
+        <button type="button" class="aboutHelpButton" pButton icon="" (click)="getHelpPages()" label="{{resources.medViewAbout_Help}}"></button>
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" class="aboutCloseButton" pButton icon="" (click)="hideDialog()" label="{{resources.medViewAbout_Close}}"></button>
+    </div>
+</p-dialog>

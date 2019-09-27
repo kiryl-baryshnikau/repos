@@ -1,0 +1,12 @@
+<div class="mvd-radiobuttonlist-container">
+    <ul class="mvd-radiobuttonlist-list">
+        <li class="mvd-radiobuttonlist-element" *ngFor="let item of listItems">
+            <div class="control">
+                <p-radioButton [name]="groupname" [value]="item.value" [(ngModel)]="selectedValue" (onClick)="onElementClick(item)"></p-radioButton>
+            </div>
+            <div class="label">
+                {{item.label}}
+            </div>
+        </li>
+    </ul>
+</div>

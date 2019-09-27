@@ -1,0 +1,53 @@
+﻿<div [ngSwitch]="currentStep" *ngIf="dataSources">
+    <div *ngSwitchCase="0">
+        <div class="mainFormContainer">
+            <div class="titleDeleteContainer">
+                <div class="icon">
+                    <i class="icon fa fa-warning"></i>
+                </div>
+                <div class="title">
+                    {{myResources.disableDataSourceTitle}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="text">
+                    <ul>
+                        <li *ngFor="let item of dataSources">{{item.name}}</li>
+                    </ul>
+                </div>
+                <div class="text red">
+                    {{myResources.disableDataSourceText}}
+                </div>
+            </div>
+            <div class="containerControls">
+                <input type="button" value="{{myResources.yesBtn}}" (click)="onFirstConfirmDeletion()">
+                <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;">
+                    <input type="button" class="cancelDelete" value="{{myResources.noBtn}}" (click)="onCancelClick(dataSources)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="1">
+        <div class="mainFormContainer">
+            <div class="titleDeleteContainer">
+                <div class="icon">
+                    <i class="icon fa fa-warning"></i>
+                </div>
+                <div class="title">
+                    {{myResources.confirmDelete}}
+                </div>
+            </div>
+            <div class="textBody">
+                <div class="text red">
+                    {{myResources.cannotUndone}}
+                </div>
+            </div>
+            <div class="containerControls">
+                <input type="button" value="{{myResources.yesBtn}}" (click)="onConfirmDeletion(dataSources)">
+                <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;">
+                    <input type="button" class="cancelDelete" value="{{myResources.noBtn}}" (click)="onCancelClick(dataSources)">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

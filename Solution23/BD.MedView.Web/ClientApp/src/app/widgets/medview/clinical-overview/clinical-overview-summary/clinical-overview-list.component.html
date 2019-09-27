@@ -1,0 +1,27 @@
+﻿<ul class='listPriorities' *ngIf="listData">
+    <li *ngFor='let item of listData.data' (click)="elementClick($event, item)" [class.selected]="getSelectedClass(item)" [id]="item.key">
+        <div [class]="borderStyleClass ? borderStyleClass(item) : ''">&nbsp;</div>
+        <div class="rowContainer">
+            <div class="iconPlaceHolder">
+                <span class='icon'><i [class]="iconStyleClass ? iconStyleClass(item) : ''"></i></span>
+            </div>
+            <div class="resumeContainer">
+                <div class="title">
+                    {{item.title}}
+                </div>
+                <div class="resume">
+                    <span>{{item.label}}: </span>{{item.value}}
+                </div>
+            </div>
+            <div class="counter">
+                <div class="newCounter">
+                    {{item.counter?.new}}
+                </div>
+                <div class="acknowledgedCounter">
+                    {{item.counter?.total}}
+                </div>
+
+            </div>
+        </div>
+    </li>
+</ul>

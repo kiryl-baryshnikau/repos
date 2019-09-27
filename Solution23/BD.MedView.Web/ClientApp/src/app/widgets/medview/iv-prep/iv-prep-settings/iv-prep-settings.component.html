@@ -1,0 +1,44 @@
+<div class="ivPrepSettingsContainer">
+    <div class="fx-child col-parent">
+        <div class="fx-child bottom-margin">
+            <h3>{{resources.ivPrepSettingsTittle}}</h3>
+        </div>
+        <div class="fx-child row-parent bottom-margin">
+            <div class="fx-child col-parent">
+                <div class="medium-font bottom-margin">{{resources.showHideFacilitiesUnits}}</div>                
+                <div class="fx-child">
+                    <div>
+                        <p-tree [value]="unitOptions" [(selection)]="selectedUnits" selectionMode="checkbox"
+                            styleClass="iv-prep-config-tree" emptyMessage="" (onNodeSelect)="onUnitSelectionChanged($event)"
+                            (onNodeUnselect)="onUnitSelectionChanged($event)">
+                            <ng-template let-node [pTemplate]="facilityNodeType">
+                                    <label type="text" class="treeNode-label facility-treeNode-label">{{node.label}}</label>
+                            </ng-template>
+                            <ng-template let-node [pTemplate]="unitNodeType">
+                                    <label type="text" class="treeNode-label">{{node.label}}</label>
+                                </ng-template>
+                        </p-tree>
+                    </div>
+                </div>
+            </div>
+            <div class="fx-child col-parent">
+                <div class="medium-font bottom-margin">{{resources.showHidePrepSites}}</div>                                
+                <div class="fx-child">
+                    <div>
+                        <p-tree [value]="prepSiteOptions" [(selection)]="selectedPrepSites" selectionMode="checkbox"
+                            styleClass="iv-prep-config-tree" emptyMessage="" (onNodeSelect)="onPrepSiteSelectionChanged($event)"
+                            (onNodeUnselect)="onPrepSiteSelectionChanged($event)">
+                            <ng-template let-node pTemplate="default">
+                                <label type="text" class="treeNode-label">{{node.label}}</label>
+                            </ng-template>
+                        </p-tree>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fx-child dialog-buttons">
+            <button class="btn btn-default btn-cancel" (click)="onCancelDialog()">{{resources.cancel}}</button>
+            <button class="btn btn-primary btn-save" [disabled]="!isControlTouched" (click)="applyConfiguration()">{{resources.apply}}</button>
+        </div>
+    </div>
+</div>

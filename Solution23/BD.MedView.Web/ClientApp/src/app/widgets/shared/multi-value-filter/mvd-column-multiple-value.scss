@@ -1,0 +1,95 @@
+.sub-container {
+    height: 150px;
+    overflow-y: auto;
+    word-break: break-all;
+    border: 1px solid #B3B3B3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 10px;
+}
+
+ul.dropdown-menu {
+    padding: 0;
+}
+
+.multi-value-filter {
+    float: left;
+    padding: 10px 10px 0 0;
+}
+
+.align-verticalcenter {
+    align-self: center;
+}
+
+.flex-container-button {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-item-button {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.btn-filter-primary {
+    color: #fff;
+    border-width: 0px;
+    width: 166px;
+    height: 32px;
+    background: #004593;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.btn-filter-primary:hover {
+    color: #FFF;
+    background: inherit;
+    background-color: #315DAF;
+    border-color: rgba(0, 69, 147, 1);
+    border-radius: 5px;
+    box-shadow: none;
+    border-width: thin;
+}
+
+.btn-filter {
+    color: rgba(0, 69, 147, 1);
+    width: 166px;
+    height: 32px;
+    background: inherit;
+    background-color: #fff;
+    border-color: rgba(0, 69, 147, 1);
+    border-radius: 5px;
+    box-shadow: none;
+    border-width: thin;
+}
+
+.btn-filter:hover {
+    color: #fff;
+    background-color: #315DAF;
+    border: 2px solid #004593;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.st-button-width {
+    width: 190px;
+}
+.st-box {
+    width: 190px;
+}
+.st-buttons-margin {
+    margin-right: 10px; 
+}
+
+
+.wd-button-width {
+    width: 166px;
+}
+.wd-box {
+    width: 350px;
+}
+.wd-buttons-margin {
+    margin-right: 18px;
+}

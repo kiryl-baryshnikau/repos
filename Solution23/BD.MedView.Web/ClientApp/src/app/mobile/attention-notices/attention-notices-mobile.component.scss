@@ -1,0 +1,103 @@
+.titleContainer {
+    border-width: 0px;
+    border-radius: 0 !important;
+    min-height: 2.2em;
+    background: inherit;
+    background-color: #DFDFDF;
+    display: flex;
+}
+
+.titleContainer .title {
+    align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: normal;
+    font-weight: 700;
+    display: flex;
+    color: #333333;
+
+}
+
+.title .icon {
+    align-self: center;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.title .text {
+    align-self: center;
+    flex-grow: 4;
+}
+
+.card-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.mobile-loader {
+    border: 8px solid #E5E5E5;
+    border-top: 8px solid #808080;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    pointer-events: none;
+}
+
+.mobile-spinner {
+    position: absolute;
+    top: 47%;
+    left: 47%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 2;
+}
+
+.lastUpdated {
+    border-width: 0px;
+    border-radius: 0 !important;
+    min-height: 2.2em;
+    background: inherit;
+    background-color: #fff;
+    display: flex;
+    box-shadow: 4px 0px 5px #aaaaaa;
+}
+
+.lastUpdated .lastUpdatedTitle {
+    align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: normal;
+    font-weight: 400;
+    display: flex;
+    color: #333333;
+}
+
+.mobile-content {
+    position: relative;
+    top: 6.3em;
+}
+
+.nav-bar-text {
+    padding-left: 8px;
+    font-size: 24px;
+}

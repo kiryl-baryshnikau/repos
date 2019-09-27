@@ -1,0 +1,103 @@
+.btn {
+    width: 150px;
+    height: 28px;
+    margin-left: 10px;
+    border-color: rgba(0, 69, 147, 1);
+    line-height: 2px;
+    outline: none;
+}
+
+    .btn:first-of-type {
+        margin-left: 0px;
+    }
+
+.btn-default {
+    background-color: rgba(0, 69, 147, 1);
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #315DAF !important;
+    border: 1px solid #003884 !important;
+}
+
+.btn-cancel {
+    color: #004593;
+    background-color: white;
+}
+
+.modal-title {
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.rowParent, .columnParent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.columnParent {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.flx-child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    flex-basis: auto;
+}
+
+
+#rowChild84024 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 7%;
+}
+
+#container {
+    padding: 25px;
+}
+
+.footer {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.header {
+    margin-bottom: 15px;
+}
+
+.header-icon {
+    color: #e50000;
+    font-size: 2rem;
+}

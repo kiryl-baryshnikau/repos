@@ -1,0 +1,77 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host > a {
+    display: block;
+    padding-right: 15px;
+    padding-top: 12px;
+    padding-left: 32px;
+    margin-right: 3px;
+    width: 278px;
+    height: 48px;
+    text-decoration: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid $gray-light;
+    color: $black;
+    background-color: $white;
+    cursor: pointer;
+}
+
+:host a > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    float: left;
+}
+
+:host a > i.glyphicon {
+    width: 16px;
+    padding: 7px;
+    color: $gray;
+}
+
+:host ul.nested-second-menu {
+    margin: 0;
+    padding: 0;
+}
+
+:host ul.nested-second-menu > li a {
+    display: block;
+    padding-top: 12px;
+    padding-left: 48px;
+    margin-right: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 278px;
+    height: 48px;
+    text-decoration: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid $gray;
+    color: $black;
+    background-color: $white;
+    cursor: pointer;
+}
+
+:host ul.nested-second-menu > li a:hover {
+    text-decoration: none;
+    outline: none;
+    color: $core-blue-lighter;
+    background-color: none;
+}
+
+:host ul.nested-second-menu > li a:focus,
+:host ul.nested-second-menu > li a.selected-item {
+    text-decoration: none;
+    outline: none;
+    color: #FFF;
+    background-color: $core-blue;
+}
+
+:host ul.nested-second-menu > li:last-child a {
+    border-bottom: 2px solid #CECECE;
+}

@@ -1,0 +1,53 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+
+    .bdshell--user-info-widget--toggle {
+        line-height: $navbar-height;
+        border: none;
+        min-width: 3.5rem;
+        text-decoration: none;
+        box-shadow: none !important;
+
+        &:hover {
+            background-color: $core-blue-light;
+        }
+    }
+
+    .bdshell--user-info-widget--username {
+        max-width: 31rem; // 496px
+        font-size: .875rem;
+
+        &.dropdown-toggle::after {
+            vertical-align: middle;
+        }
+    }
+
+    .bdshell--user-info-widget--icon-only {
+        text-align: center;
+        font-size: 1.5rem;
+        max-width: 3.5rem;
+        overflow: hidden;
+    }
+
+    .bdhsell--user-info-widget--action-items {
+        font-size: .875rem;
+    }
+
+    .dropdown-menu-right {
+        left: auto;
+        right: 0;
+        max-width: 20rem; // 320px
+    }
+
+    .bdhshell--user-info-widget--line {
+        background: $core-blue-light none repeat scroll 0 0;
+        float: left;
+        height: 2rem; // 32px
+        width: 1px;
+    }
+
+    .dropdown-divider:nth-child(1), .dropdown-divider + .dropdown-divider {
+        display: none;
+    }
+}

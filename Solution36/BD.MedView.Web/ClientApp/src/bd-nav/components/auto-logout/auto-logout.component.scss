@@ -1,0 +1,15 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+    z-index: 1055;
+}
+
+.time-image {
+    display: inline-block;
+    width: 100%;
+    height: 80px;
+    background-image: url("../../../assets/images/TimerLarge.png");
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    background-position: center;
+}

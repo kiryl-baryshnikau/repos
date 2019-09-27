@@ -1,0 +1,39 @@
+<div class="configurationContent modal-dialog modal-lg content">
+    <h3>{{resources.configurationTitle}}</h3>
+
+    <div class="listContainer">
+        <ul class="configurationList">
+            <li>
+                <div class="labelNoticeType">
+                    &nbsp;
+                </div>
+                <div class="control">{{resources.off}}</div>
+                <div class="control">{{resources.nonCritical}}</div>
+                <div class="control">{{resources.critical}}</div>
+            </li>
+        </ul>
+        <ul class="configurationList">
+            <li *ngFor="let item of displayData">
+                <div class="labelNoticeType" [class.disabled]="item.locked">
+                    {{item.noticeTypeDescription}}
+                </div>
+                <div class="control">
+                    <p-radioButton [name]="item.noticeTypeInternalCode" value="0" [(ngModel)]="item.currentValue"
+                        [disabled]="item.locked"></p-radioButton>
+                </div>
+                <div class="control">
+                    <p-radioButton [name]="item.noticeTypeInternalCode" value="2" [(ngModel)]="item.currentValue"
+                        [disabled]="item.locked"></p-radioButton>
+                </div>
+                <div class="control">
+                    <p-radioButton [name]="item.noticeTypeInternalCode" value="1" [(ngModel)]="item.currentValue"
+                        [disabled]="item.locked"></p-radioButton>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="rowmargin btn-container">
+        <button class="btngraph btnclose" (click)="onCancelDialog()">{{resources.cancel}}</button>
+        <button class="btngraph btnsave" (click)="applyConfiguration()">{{resources.apply}}</button>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿{
+  "facilities": [
+    {
+      "id": "YWWZZ1",
+      "masterFacilityName": "Master Facility 3",
+      "dataSources": [
+        {
+          "source": "Pyxis ES Data",
+          "name": "Gort Klaatu",
+          "facilityId": "Borada Nikto"
+        },
+        {
+          "source": "Alaris Data",
+          "name": "",
+          "facilityId": ""
+        }
+      ]
+    },
+    {
+      "id": "YWWZZ2",
+      "masterFacilityName": "Master Facility 12 - really long master facility names will wrap to mutliple lines as necessary",
+      "dataSources": [
+        {
+          "source": "Pyxis ES Data",
+          "name": "",
+          "facilityId": ""
+        },
+        {
+          "source": "Alaris Data",
+          "name": "",
+          "facilityId": ""
+        }
+      ]
+    }
+
+  ],
+  "sourcesEnabled": [
+    {
+      "id": "Pyxis ES Data",
+      "name": "Pyxis ES Data"
+    },
+    {
+      "id": "Alaris Data",
+      "name": "Alaris Data"
+    }
+  ]
+}

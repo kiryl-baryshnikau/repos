@@ -1,0 +1,94 @@
+﻿<div class="wrapper">
+    <div class="errorMessagesContainer" *ngIf="showLoadErrorMessage">
+        <p-message severity="error" [text]="resources.unableToRetrieveFacilityFilters"></p-message>
+    </div>
+    <div style="display: flex;">
+        <div class="treeControlContainer">
+            <div>
+                <span class="header">{{resources.selectedFacilities}}</span>
+            </div>
+            <p-tree class="facilitySelection" [value]="selectedData" [loading]="isTargetTreeLoading" (onNodeSelect)="onSelectedDataSelectionChanged()"
+                    (onNodeUnselect)="onSelectedDataSelectionChanged()" selectionMode="checkbox" [(selection)]="checkedSelectedData">
+                <ng-template let-node pTemplate="default">
+                    <label type="text" class="treeNodeLabel">{{node.label}}</label>
+                </ng-template>
+                <ng-template let-node pTemplate="orphan">
+                    <label type="text" class="treeNodeLabel treeNodeOrphanLabel">{{node.label}}</label>
+                </ng-template>
+                <ng-template let-node pTemplate="partialSelected">
+                    <div style="display: flex;">
+                        <div style="flex-grow: 1;">
+                            <label type="text" class="treeNodeLabel">{{node.label}}</label>
+                        </div>
+                        <div class="treeNodeStatusContainer">
+                            <span class="fa fa-adjust treeNodeStatusIcon"></span>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-node pTemplate="allSelected">
+                    <div style="display: flex;">
+                        <div style="flex-grow: 1;">
+                            <label type="text" class="treeNodeLabel">{{node.label}}</label>
+                        </div>
+                        <div class="treeNodeStatusContainer">
+                            <span class="fa fa-circle  treeNodeStatusIcon"></span>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-tree>
+            <div class="targetTreeActionsContainer">
+                <button class="btngraph btn-purge btn" [disabled]="!isPurgeEnabled" (click)="onClearOrphans()">{{resources.purgeFacilitySelection}}</button>
+                <span>{{resources.purgeDescription}}</span>
+            </div>
+        </div>
+
+        <div class="buttonGroupContainer" style="max-width: 130px; flex-grow: 1; text-align: center;">
+            <div class="buttonContainer">
+                <button class="btn btngraph" [disabled]="!isMoveRightEnabled" [title]="resources.moveRighArrowTooltip" (click)="onMoveToRight()">&gt;</button>
+            </div>
+            <div class="buttonContainer">
+                <button class="btn btngraph" [disabled]="!isMoveAllRightEnabled" [title]="resources.moveAllRighArrowTooltip" (click)="onMoveAllToRight()">&gt;&gt;</button>
+            </div>
+            <div class="buttonContainer">
+                &nbsp;
+            </div>
+            <div class="buttonContainer">
+                <button class="btn btngraph" [disabled]="!isMoveLeftEnabled" [title]="resources.moveLeftArrowTooltip" (click)="onMoveToLeft()">&lt;</button>
+            </div>
+            <div class="buttonContainer">
+                <button class="btn btngraph" [disabled]="!isMoveAllLeftEnabled" [title]="resources.moveAllLeftArrowTooltip" (click)="onMoveAllToLeft()">&lt;&lt;</button>
+            </div>
+        </div>
+        <div class="treeControlContainer">
+            <div>
+                <span class="header">{{resources.availableFacilities}}</span>
+            </div>
+            <p-tree class="facilitySelection" [value]="availableData" [loading]="isSourceTreeLoading" (onNodeSelect)="onAvailableDataSelectionChanged()"
+                    (onNodeUnselect)="onAvailableDataSelectionChanged()" selectionMode="checkbox" [(selection)]="checkedAvailableData">
+                <ng-template let-node pTemplate="default">
+                    <label type="text" class="treeNodeLabel">{{node.label}}</label>
+                </ng-template>
+                <ng-template let-node pTemplate="partialSelected">
+                    <div style="display: flex;">
+                        <div style="flex-grow: 1;">
+                            <label type="text" class="treeNodeLabel">{{node.label}}</label>
+                        </div>
+                        <div class="treeNodeStatusContainer">
+                            <span class="fa fa-adjust treeNodeStatusIcon"></span>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-node pTemplate="allSelected">
+                    <div style="display: flex;">
+                        <div style="flex-grow: 1;">
+                            <label type="text" class="treeNodeLabel">{{node.label}}</label>
+                        </div>
+                        <div class="treeNodeStatusContainer">
+                            <span class="fa fa-circle  treeNodeStatusIcon"></span>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-tree>
+        </div>
+    </div>
+</div>

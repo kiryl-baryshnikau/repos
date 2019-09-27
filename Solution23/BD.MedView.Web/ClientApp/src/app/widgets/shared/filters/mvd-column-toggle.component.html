@@ -1,0 +1,11 @@
+﻿<div class="control-container margin-bottom">
+    <div class="flex-container title-container">
+        <img class="title-image" src="./dist/assets/images/column-selector.png">
+        <span class="title-text">{{resources.showHideColumns}}</span>
+    </div>
+    <div class="checkbox-container" *ngFor='let col of options; let i=index'>
+        <div class="checkbox-label" (click)="toggleColumn($event, col.field)" id="btnHideColumn">
+            <p-checkbox binary="true" [ngModel]="col.hideOptions.visible" [disabled]="!col.hideOptions.enabled"></p-checkbox>&nbsp;{{col.useAlternativeHeader ? col.alternativeHeader : col.header}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div *ngIf="isSidebarVisible" id="sidebar-menu" class="sidebar-nav sidebar-inverse" style="z-index:1001" click-outside (clickOutside)="toggle = false" [stopListening]="!toggle">
+    <div class="sidebar-trigger">
+        <a class="hamburger is-closed sidebar-icon-menu" [ngClass]="{'menu-active': toggle}" data-toggle="offcanvas" (click)="toggle = !toggle">
+            <span class=" bdshell--sidebar--hamburger hamburgerWrapper">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+                <span class="sr-only">Menu</span>
+            </span>
+            <span class="vertical-line">&nbsp;</span>
+        </a>
+        <nav class="sidebar-menu-wrapper" [ngClass]="toggle ? 'sidebar-open-all' : 'sidebar-open-part'">
+            <div class="bdshell--sidebar--scroller sidebar-scroller">
+                <ul class=" bdshell--sidebar--sidebar-menu sidebar-menu">
+                    <!--'hassub' class is required for list item which has subitems -->
+                    <ng-container *ngFor="let sideMenuItem of sideMenuItems">
+                        <ng-container *ngIf="!sideMenuItem.componentName">
+                            <li [ngClass]="getSidebarCss(sideMenuItem)"
+                                (click)="updateSelectedItem(sideMenuItem);"
+                                [attr.data-menu-code]="sideMenuItem.code">
+                                <a href="javascript:;">
+                                    <i [ngClass]="sideMenuItem.iconCss"></i>
+                                    <span class="text">{{sideMenuItem.displayName}}</span>
+                                    <span class="tooltip" (click)="$event.stopPropagation()">{{sideMenuItem.description}}</span>
+                                </a>
+
+                                <ul *ngIf="(sideMenuItem.subMenus && sideMenuItem.subMenus.length)" sidebar-nested-menu class="submenu" [ngClass]="{open: toggleMenu}" [configuration]="sideMenuItem"></ul>
+                            </li>
+                        </ng-container>
+                        <ng-container *ngIf="sideMenuItem.componentName" component-factory [componentName]="sideMenuItem.componentName">
+                        </ng-container>
+                    </ng-container>
+                </ul>
+            </div><!-- /sidebar-scroller -->
+        </nav>
+    </div>
+</div>

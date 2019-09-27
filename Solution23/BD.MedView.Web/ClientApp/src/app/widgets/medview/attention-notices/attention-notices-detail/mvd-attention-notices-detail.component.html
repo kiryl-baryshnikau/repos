@@ -1,0 +1,10 @@
+﻿<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="true" [showColumnSelector]="false" [showDataFilter]="false" [showRemove]="false"
+    [showSetTimeframe]="false" (exportButtonClicked)="onExportButtonClicked($event)" #widgetToolbar></mvd-widget-toolbar>
+<div class="mainContainer">
+    <div class="summary-Container">
+        <mvd-attention-notices [setToolbar]="false" [emitDrillDownEvent]="false" [appCode]="appCode" [widgetId]="widgetId" [user]="user" (onItemSelectionChanged)="onItemSelectionChanged($event)" [selectedItem]="selectedItem" [isDetailView]="true" [isExtendedView]="false"></mvd-attention-notices>
+    </div>
+    <div class="detail-Container">
+        <mvd-attention-notices-datatable [appCode]="appCode" [widgetId]="widgetId" [user]="user"></mvd-attention-notices-datatable>
+    </div>
+</div>

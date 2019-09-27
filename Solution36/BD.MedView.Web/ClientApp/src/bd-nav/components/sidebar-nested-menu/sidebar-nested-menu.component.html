@@ -1,0 +1,6 @@
+<li *ngFor="let subMenu of configuration.subMenus"
+    [ngClass]="{active: highlightedSideMenu ? highlightedSideMenu.code == subMenu.code : false, disable: subMenu.state == 1 || subMenu.isDisabled, 'd-none': subMenu.state == 2}"
+    (click)="updateSelectedItem(subMenu); $event.stopPropagation()"
+    [attr.data-submenu-code]="subMenu.code">
+    <a>{{subMenu.displayName}}</a>
+</li>

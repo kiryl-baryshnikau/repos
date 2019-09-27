@@ -1,0 +1,25 @@
+﻿<div class="maincontainer">
+    <h3>{{resources.continuousInfusionsSettingsTitle}}</h3>
+    <div *ngIf="continuousInfusionsConfiguration">
+        <div class="infusionToShowContainer">
+            <div>
+                <p>
+                    {{resources.infusionShowHideList}}
+                </p>
+                <p>
+                    {{resources.instructionsShowHideList}}
+                </p>
+                <p>&nbsp;</p>
+            </div>
+            <mvd-checkbox-picklist [sourceList]="infusionsToShow" [targetList]="infusionsAvailables"
+                                   [sourceListLabel]="resources.show" [targetListLabel]="resources.hide"
+                                   (selectionToRightEvent)="onTargetToSource($event)" (allSourceToRightEvent)="onAllTargetToSource()"
+                                   (selectionToLeftEvent)="onSourceToTarget($event)" (allTargetToLeftEvent)="onAllSourceToTarget()">
+            </mvd-checkbox-picklist>
+        </div>
+        <div class="rowmargin btn-container">
+            <button class="btngraph btnclose" (click)="onCancelDialog()">{{resources.cancel}}</button>
+            <button class="btngraph btnsave" (click)="applyConfiguration()">{{resources.apply}}</button>
+        </div>
+    </div>
+</div>

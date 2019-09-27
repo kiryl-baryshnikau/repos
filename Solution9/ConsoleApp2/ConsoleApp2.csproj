@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.3.0-preview6-19304-03" />
+    <PackageReference Include="EntityFramework" Version="6.3.0" />
   </ItemGroup>
 
 </Project>

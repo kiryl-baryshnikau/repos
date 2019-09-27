@@ -1,0 +1,386 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set padding to move over fixed position header and keep content from hitting the edges  */
+.body-content {
+  height: 100%;
+  padding: 50px 15px 10px 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 280px;
+}
+
+/* CFW Toolbar tooltip */
+.dashboard-title-tooltip-container {
+  margin-right: 40px !important;
+}
+
+/* CFW Toolbar popover */
+popover-container {
+  border: none !important;
+  background-color: #E4E4E4 !important;
+  border-radius: 0px !important;
+  border: solid 1px black !important;
+}
+
+.popover {
+  max-width: none !important;
+  max-width: unset !important;
+}
+
+.popover.top > .arrow:after {
+  border-top-color: #E4E4E4 !important;
+}
+
+
+/* CFW Toolbar styles */
+.Portlet__Header {
+  z-index: 4;
+}
+
+.menu-panel-container .ui-radiobutton-label {
+  width: 85px;
+  font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.sliding-panel-container {
+  min-width: 10% !important;
+}
+
+/* Timeframe filter component */
+.time-frame-filter-range-dropdown {
+  width: 137px;
+}
+
+.time-frame-filter-current-dropdown {
+  width: 301px;
+}
+
+.menu-panel-container .ui-dropdown-trigger-icon {
+  color: lightgray !important;
+}
+
+.menu-panel-container .ui-dropdown-trigger-icon:hover {
+  color: #004593 !important;
+}
+
+.menu-panel-container .ui-dropdown-label:hover {
+  border-color: #004593 !important;
+}
+
+.menu-panel-container .ui-dropdown:not(.ui-state-disabled):hover {
+  border-color: #004593;
+  background-color: white;
+}
+
+.menu-panel-container .ui-dropdown:not(.ui-state-disabled):hover .ui-dropdown-label {
+  background-color: transparent;
+}
+
+.menu-panel-container .ui-dropdown:not(.ui-state-disabled):hover .ui-dropdown-trigger,
+.menu-panel-container .ui-dropdown.ui-state-focus .ui-dropdown-trigger,
+.menu-panel-container .ui-dropdown.ui-state-focus .ui-dropdown-label,
+.menu-panel-container .ui-dropdown:not(.ui-state-disabled):hover .ui-dropdown-label {
+  background-color: white;
+}
+
+/* Column selector component */
+.menu-panel-container .ui-chkbox-label {
+  font-family: 'ArialMT', 'Arial';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+
+cfw-widget-go-back {
+  margin-top: 10px !important;
+  height: 38px !important;
+}
+
+cfw-widget-go-back .header-text {
+  font-size: 14px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+cfw-widget-go-back .link.button {
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+cfw-grid-portlet .Portlet__HeaderLeft {
+  flex-grow: 1;
+}
+
+cfw-widget-last-update:not(.theme-drill-down) {
+  width: 100%;
+  margin-left: 0px !important;
+  padding-left: 14px;
+}
+
+cfw-widget-last-update.Portlet_LastUpdate.theme-drill-down {
+  width: 100%;
+  margin-left: 0px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  margin-top: -20px;
+}
+
+cfw-widget-last-update.Portlet_LastUpdate.theme-drill-down .last-update-label {
+  margin-left: 0px !important;
+}
+
+cfw-widget-last-update.Portlet_LastUpdate .last-update-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+cfw-widget-no-data-available .button-info i {
+  margin-right: 24px;
+  font-size: 1.6em;
+}
+
+cfw-widget-data-retrieval-error .Button--Error i {
+  margin-right: 24px;
+  font-size: 1.6em;
+}
+
+mvd-widget-toolbar mvd-date-range-picker .currentdate-filter-container p-dropdown .ui-dropdown {
+  width: 100%;
+}
+
+mvd-widget-toolbar mvd-date-range-picker .daterange-filter-container p-dropdown .ui-dropdown {
+  width: 100%;
+}
+
+/* BD Shell styles */
+.uss--icon-bd-logo {
+  font-size: 24px !important;
+}
+
+.bdshell--topbar.bdshell--override {
+  border: 0;
+  min-height: 56px;
+  min-width: 300px;
+}
+
+.bdshell--topbar--logo-container {
+  height: 56px;
+}
+
+.bdshell--topbar--logo-container .insight-group-text {
+  line-height: 56px;
+}
+
+.bdshell--topbar--logo-container .uss--icon-bd-logo {
+  line-height: 56px !important;
+}
+
+.active-primary a {
+  color: #004593 !important;
+  font-weight: 700;
+  cursor: auto;
+  padding-bottom: 7px;
+}
+
+/* BD Shell Top menu */
+#bdshell top-menu {
+  top: 56px;
+  min-height: 41px;
+}
+
+.bdshell--top-menu--navbar {
+  height: auto !important;
+  min-height: 40px;
+  max-height: 80px;
+  overflow: hidden;
+  background: #f7f7f7 none repeat scroll 0 0;
+  border-bottom: 0px;
+  border-top: 1px solid transparent;
+  box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  overflow-x: visible;
+  position: fixed;
+  top: 56px;
+  width: 100% !important;
+  z-index: 999;
+}
+
+/* Menu tabs */
+@media only screen and (min-width: 300px) {
+  #bdshell > top-menu li.nav-item {
+    display: flex !important;
+  }
+}
+
+#bdshell > top-menu .active-primary a,
+#bdshell > top-menu .active-primary a:hover {
+  text-decoration: none !important;
+}
+
+#bdshell > top-menu li.nav-item {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#bdshell > top-menu li.nav-item:hover {
+  background-color: transparent !important;
+  border: 1px solid #004593 !important;
+  border-bottom: 4px solid #004593 !important;
+}
+
+#bdshell > top-menu li.nav-item > a {
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: 'Roboto', sans-serif !important;
+  color: #333333 !important;
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+}
+
+#bdshell > top-menu li.nav-item > a:hover {
+  color: #004593 !important;
+}
+
+#bdshell > top-menu li.nav-item > a:focus {
+  font-weight: 700 !important;
+  color: #004593 !important;
+}
+
+
+#bdshell > top-menu > ul > li.nav-item.active-primary > a {
+  font-weight: 700 !important;
+  color: #004593 !important;
+}
+
+#bdshell .bdshell--topbar--logo-container logo {
+  height: 56px;
+}
+
+/* User information widget */
+
+#bdshell user-info-widget .bdshell--user-info-widget--icon-only,
+#bdshell user-info-widget .bdshell--user-info-widget--icon-only:hover {
+  text-decoration: none !important;
+}
+
+.topbar--action-menu {
+  color: rgb(247, 247, 247) !important;
+}
+
+.topbar--action-item--icon:hover {
+  color: #004593 !important;
+}
+
+#bdshell user-info-widget .bdshell--user-info-widget--username {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none !important;
+  width: 100%;
+}
+
+#bdshell user-info-widget .bdshell--user-info-widget--username:hover {
+  text-decoration: none !important;
+}
+
+#bdshell user-info-widget .bdhsell--user-info-widget--action-items {
+  margin-top: 4px;
+}
+
+#bdshell user-info-widget .dropdown {
+  max-width: 345px;
+}
+
+#bdshell user-info-widget .dropdown-item {
+  max-width: 345px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(51, 51, 51) !important;
+  text-decoration: none !important;
+}
+
+#bdshell user-info-widget .dropdown-item:hover {
+  text-decoration: none !important;
+  color: rgb(51, 51, 51) !important;
+  font-weight: 700;
+}
+
+#bdshell .topbar--action-container .topbar--action-menu,
+#bdshell .topbar--action-container .topbar--action-menu:hover {
+  text-decoration: none !important;
+}
+
+/* Autologout component */
+.bdshell--autologout--reset {
+  color: white;
+  background-color: #004593;
+  border-color: rgba(0, 69, 147, 1);
+}
+
+auto-logout .modal-dialog {
+  transform: translateY(-50%) !important;
+}
+
+auto-logout .modal-dialog .modal-content {
+  transform: translateY(-50%) !important;
+}
+
+auto-logout .modal-title {
+  text-align: center;
+}
+
+.dropdown-menu .open .dropdown-menu li a:hover,
+.dropdown-menu .open .dropdown-menu li a:focus {
+  color: #004593 !important;
+  background: none;
+  outline: none;
+}
+
+.bar-right-main {
+  text-align: right;
+  float: right;
+}
+
+.btn-default.active,
+.btn-default.focus,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover,
+.open > .dropdown-toggle.btn-default {
+  background: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+article[id$="medViewContinuousInfusion"] .Portlet__Body .Widget {
+  height: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+mvd-continuous-infusions div#container {
+  padding-bottom: 0;
+}

@@ -1,0 +1,11 @@
+﻿<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="true" [showColumnSelector]="false"
+ [showDataFilter]="false" [showRemove]="false" [showSetTimeframe]="false" (exportButtonClicked)="onExportButtonClicked($event)"
+  #widgetToolbar></mvd-widget-toolbar>
+<div class="mainContainer">
+    <div class="dose-request-summary-box">
+        <mvd-dose-request-summary [totals]="totals" [selectedItem]="selectedItem" [items]="items" (onSelectionChange)="onSelectionChanged($event)"></mvd-dose-request-summary>
+    </div>
+    <div class="dose-request-table-box">
+        <mvd-dose-request-table [data]="detailData" [selectedItem]="selectedItem" [columns]="columns"></mvd-dose-request-table>
+    </div>
+</div>

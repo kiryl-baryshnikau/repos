@@ -1,0 +1,17 @@
+<auto-logout *ngIf="autoLogoutEnabled && !isMobile" (beforeLogout)="beforeLogout($event)" ></auto-logout>
+<bd-nav *ngIf="!isMobile">
+    <topbar class="no-shadow">
+        <logo data-placement="left"></logo>
+        <topbar-action-item data-placement="right">
+            <mvd-config-icon data-container="options" [configIconTitle]="configIconTitle"></mvd-config-icon>
+        </topbar-action-item>
+        <topbar-action-item data-placement="right">
+            <mvd-about data-container="options" [aboutIconTitle]="aboutIconTitle"></mvd-about>
+        </topbar-action-item>
+        <user-info-widget data-placement="right"></user-info-widget>
+    </topbar>
+    <top-menu></top-menu>
+</bd-nav>
+<div id="main-wrapper" class="body-content" [class.mobile]="isMobile">
+    <router-outlet></router-outlet>
+</div>

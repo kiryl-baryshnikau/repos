@@ -1,0 +1,39 @@
+﻿.counter {
+    font-weight: 700;
+    font-style: normal;
+    min-width: 88px;
+    max-width: 88px;
+    text-align: center;
+    font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    z-index: 10;
+    right: 0;
+    float: right;
+}
+
+.counter > div {
+    background-color: #e4e4e4;
+    width: 88px;
+    font-family: Roboto-Bold, "Roboto Bold", Roboto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 10px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.counter div:first-of-type {
+    margin-bottom: 2px;
+}
+
+.acknowledgedCounter {
+    color: rgb(51,51,51);
+}
+
+.newCounter {
+    color: rgb(249, 51, 84);
+}

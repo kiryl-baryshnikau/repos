@@ -1,0 +1,46 @@
+﻿.icon_alert_system {
+    background: url('../../../../assets/images/system_alert_red.png') no-repeat center;
+    width: 23px;
+    height: 24px;
+    min-width: 23px;
+    max-width: 23px;
+}
+
+.icon_alert_user_high {
+    background: url('../../../../assets/images/user_alert_high.png') no-repeat center;
+    width: 23px;
+    height: 24px;
+    min-width: 23px;
+    max-width: 23px;
+}
+
+.icon_alert_user_med {
+    background: url('../../../../assets/images/user_alert_medium.png') no-repeat center;
+    width: 23px;
+    height: 24px;
+    min-width: 23px;
+    max-width: 23px;
+}
+
+.icon_alert_user_low {
+    background: url('../../../../assets/images/user_alert_low.png') no-repeat center;
+    width: 23px;
+    height: 24px;
+    min-width: 23px;
+    max-width: 23px;
+}
+
+.icon_size_filter {
+    background-size: contain;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px;
+    max-width: 18px;
+}
+
+
+.leftColumn {
+    ::ng-deep .searchBoxComponent.input-group {
+        max-width: 301px;
+    }
+}

@@ -1,0 +1,14 @@
+﻿<div ngSwitch="{{getTimeUntilEmptyThresholdIndicator()}}">
+    <div *ngSwitchCase="'1'">
+        <img src="./dist/app/widgets/medview/iv-status/time-until-empty-warnings/threshold-critical.png" alt="status: critical"/>
+        <span [ngClass]="'time-until-empty-status-critical'">{{timeUntilEmpty | dataformat:'time'}}</span>
+    </div>
+    <div *ngSwitchCase="'2'">
+        <img src="./dist/app/widgets/medview/iv-status/time-until-empty-warnings/threshold-warning.png" alt="status: warning" />
+        <span [ngClass]="'time-until-empty-status-warning'">{{timeUntilEmpty | dataformat:'time'}}</span>
+    </div>
+    <div *ngSwitchDefault>
+        <img src="./dist/app/widgets/medview/iv-status/time-until-empty-warnings/threshold-normal.png" alt="status: normal" />
+        {{timeUntilEmpty | dataformat:'time'}}
+    </div>
+</div> 

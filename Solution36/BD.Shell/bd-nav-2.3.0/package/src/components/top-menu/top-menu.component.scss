@@ -1,0 +1,401 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+    background-color: $white;
+    position: fixed;
+    right: 0;
+    left: 0;
+    margin-left: -10px;
+    border-bottom: 1px solid $gray-lightest;
+    z-index: 1000;
+    padding-left: 15px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3 );
+    font-family: roboto;
+
+    .bdshell--top-menu--more {
+        float: right;
+        line-height: 2.5rem;
+        font-size: 1.2rem;
+        width: 2rem;
+        text-align: center;
+        cursor: pointer;
+        display: none;
+
+        &:hover {
+            background-color: $gray-lightest;
+        }
+    }
+
+    .bdshell--top-menu--navbar {
+        line-height: $collapse-height;
+        height: $collapse-height;
+
+        ::ng-deep {
+            .dropdown-menu:empty {
+                display: none;
+                visibility: hidden;
+            }
+
+            .disable, .disable:hover, .disable > a, .disable:hover > a, .disable.active > a, .disable.active:hover > a {
+                color: $gray-light;
+                background-color: inherit !important;
+                cursor: default;
+
+                .dropdown-menu {
+                    display: none;
+                    visibility: hidden;
+                }
+            }
+
+            .dropdown-menu {
+                font-size: .875rem;
+
+                .dropdown-header {
+                    cursor: default;
+                }
+            }
+        }
+
+        .disable, .disable:hover {
+            border: none;
+            background-color: inherit !important;
+
+            .dropdown-menu {
+                display: none;
+                visibility: hidden;
+            }
+
+            > a {
+                color: $gray-light;
+                background-color: inherit !important;
+                cursor: default;
+            }
+        }
+
+        li {
+            position: relative;
+            height: $dropdown-item-height;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem; // ~14px;
+            border-bottom: 4px solid transparent;
+
+            &:hover {
+                background-color: $gray-lightest !important;
+                color: $core-blue;
+            }
+
+            &.bdshell--top-menu--transclude--default, &.bdshell--top-menu--transclude--default:hover {
+                border-bottom: none;
+                cursor: default;
+            }
+
+            a {
+                line-height: 20px;
+                padding-bottom: 8px;
+                padding-top: 8px;
+                color: $black;
+
+                &:hover {
+                    background-color: inherit;
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+                &:focus {
+                    background-color: $gray-lightest !important;
+                }
+            }
+
+            &.active-primary {
+                color: $core-blue-dark;
+                font-weight: $active-weight;
+                border-bottom: 4px solid $core-blue-dark;
+
+                a {
+                    color: $core-blue-dark;
+                }
+            }
+
+            > ul {
+                top: $dropdown-item-height - 2;
+                left: 0;
+
+                > li {
+                    > ul {
+                        left: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 569px) {
+        margin-bottom: $collapse-height;
+
+        .bdshell--top-menu--more {
+            display: block;
+        }
+
+        .bdshell--top-menu--navbar {
+            > li {
+                width: 100%;
+                display: none;
+
+                ::ng-deep {
+                    .dropdown-menu {
+                        width: 100%;
+
+                        .dropdown-menu {
+                            margin-top: -0.5rem;
+                            margin-left: -0.25rem;
+                            left: 2.5rem;
+                        }
+                    }
+                }
+            }
+
+            > li.active-primary {
+                display: flex;
+            }
+            // Shared style - duplicate
+            &.has-transcluded-content {
+
+                > li:last-child {
+                    display: flex;
+                }
+            }
+            // Shared style - duplicate
+            li.bdshell--top-menu--transclude--default {
+                &:hover {
+                    background-color: inherit !important;
+                    color: inherit;
+                }
+
+                > * {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &.multiple-rows {
+                min-height: $collapse-height * 2;
+                height: auto;
+                // Shared style
+                > li {
+                    display: flex;
+                }
+
+                &.has-transcluded-content {
+                    // Shared style
+                    > li:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 570px /* 570px ==> top-menu for screen width less than 570 should be converted to dropdown*/ ) {
+        .bdshell--top-menu--more {
+            display: block;
+        }
+
+        .bdshell--top-menu--navbar {
+            > li:not(:nth-child(1)) {
+                display: none;
+            }
+
+            &:not(.has-transcluded-content) {
+                > li:nth-child(2) {
+                    display: flex;
+                }
+            }
+            // Shared style
+            &.has-transcluded-content {
+                > li:last-child {
+                    display: flex;
+                }
+            }
+            // Shared style
+            li.bdshell--top-menu--transclude--default {
+                &:hover {
+                    background-color: inherit !important;
+                    color: inherit;
+                }
+
+                > * {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &.multiple-rows {
+                min-height: $collapse-height * 2;
+                height: auto;
+                // Shared style
+                > li {
+                    display: flex;
+                }
+
+                &.has-transcluded-content {
+                    // Shared style
+                    > li:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.show-one-more-item, &.show-two-more-items, &.show-three-more-items {
+            .bdshell--top-menu--navbar {
+                &.has-transcluded-content {
+                    > li:nth-last-child(2) {
+                        display: flex;
+                    }
+                }
+
+                &:not(.has-transcluded-content) {
+                    > li:last-child {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 810px) {
+        .bdshell--top-menu--navbar {
+
+            > li:nth-child(2) {
+                display: flex;
+            }
+
+            &:not(.has-transcluded-content) {
+                > li:nth-child(3) {
+                    display: flex;
+                }
+            }
+        }
+
+        &.show-two-more-items, &.show-three-more-items {
+            .bdshell--top-menu--navbar {
+                &.has-transcluded-content {
+                    > li:nth-last-child(3) {
+                        display: flex;
+                    }
+                }
+
+                &:not(.has-transcluded-content) {
+                    > li:nth-last-child(2) {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1050px) {
+        .bdshell--top-menu--navbar {
+
+            > li:nth-child(3) {
+                display: flex;
+            }
+
+            &:not(.has-transcluded-content) {
+                > li:nth-child(4) {
+                    display: flex;
+                }
+            }
+        }
+
+        &.show-three-more-items {
+            .bdshell--top-menu--navbar {
+                &.has-transcluded-content {
+                    > li:nth-last-child(4) {
+                        display: flex;
+                    }
+                }
+
+                &:not(.has-transcluded-content) {
+                    > li:nth-last-child(3) {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1290px) {
+        .bdshell--top-menu--navbar {
+
+            > li:nth-child(4) {
+                display: flex;
+            }
+
+            &:not(.has-transcluded-content) {
+                > li:nth-child(5) {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1529px) {
+        ::ng-deep {
+            .bdshell--top-menu--navbar {
+                &.multiple-rows {
+                    padding-top: .25rem;
+
+                    > li {
+                        background: $gray-lightest;
+                        margin-right: .25rem;
+                        margin-bottom: .25rem;
+                    }
+                }
+
+                &:not(.has-transcluded-content) {
+                    .dropdown-menu {
+                        .dropdown-menu {
+                            margin-top: -0.5rem;
+                            left: 2.5rem;
+                        }
+                    }
+                }
+
+                &.has-transcluded-content {
+                    &.multiple-rows {
+                        .dropdown-menu {
+                            .dropdown-menu {
+                                margin-top: -0.5rem;
+                                left: 2.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1530px) {
+        .bdshell--top-menu--more {
+            display: none;
+        }
+
+        ul.bdshell--top-menu--navbar {
+
+            > li.nav-item {
+                display: flex;
+            }
+
+            &.multiple-rows {
+                min-height: $collapse-height;
+                max-height: $collapse-height;
+            }
+        }
+    }
+}

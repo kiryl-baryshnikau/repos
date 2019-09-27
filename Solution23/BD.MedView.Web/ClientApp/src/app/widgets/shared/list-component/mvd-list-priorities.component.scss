@@ -1,0 +1,290 @@
+.listPriorities{
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 0;
+    padding-left: 0;
+}
+    .listPriorities .counter {
+        font-weight: 700;
+        font-style: normal;
+        font-size: 16px;
+        min-width: 20px;
+        align-self: center;
+        text-align: right;
+        font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+    }
+.listPriorities li{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-bottom: solid 1px #CCC;
+    cursor: pointer;
+}
+.rowContainer {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+.listPriorities li:hover {
+    background-color: #f5f5f5;
+}
+.iconPlaceHolder{
+    width: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.iconPlaceHolder .icon{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+}
+.resumeContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 10px;
+}
+    .resumeContainer .title {
+        font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+        text-align: justify;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .resumeContainer .resume {
+        text-align: justify;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 12px;
+        font-family: 'Roboto-Regular', 'Roboto';
+        line-height: initial;
+    }
+.fa-rotate-45 {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    color: #f73757 !important;
+}
+.fa-stop {
+    color: #fff200;
+}
+.fa-play {
+    color: #ff9100;
+}
+.fa-circle {
+    color: #2cd182;
+}
+.fa-circle-blue {
+    color: #004592;
+}
+.leftBorder {
+    width: 4px;
+}
+.highPriorityBorder {
+    background-color: #f73757 !important;
+}
+.mediumPriorityBorder {
+    background-color: #ff9100 !important;
+}
+.lowPriorityBorder {
+    background-color: #fff200 !important;
+}
+.normalPriorityBorder {
+    background-color: #2cd182 !important;
+}
+.listPriorities .selected .resumeContainer .title,
+.listPriorities .selected .resumeContainer .resume {
+    color: #004592;
+}
+
+.blinkingText {
+    animation: text 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: text 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: text 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: black;
+}
+.blinkingRow {
+    width: 100%;
+    height: 100%;
+    animation: pulse 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: pulse 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: pulse 3s infinite;
+    -webkit-animation-direction: alternate;
+}
+.blinkingIconHighPriority {
+    animation: highPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: highPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: highPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #f73757;
+}
+.blinkingIconMediumPriority {
+    animation: mediumPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: mediumPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: mediumPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #ff9100;
+}
+.blinkingIconLowPriority {
+    animation: lowPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: lowPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: lowPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #fff200;
+}
+.blinkingIconNormalPriority {
+    animation: normalPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: normalPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: normalPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #2cd182;
+}
+
+@keyframes pulse {
+    0% { background-color: #FFF; }
+
+    100% { background-color: #f73757; }
+}
+@-webkit-keyframes pulse {
+    0% { background-color: #FFF; }
+
+    100% { background-color: #f73757; }
+}
+@-moz-keyframes pulse {
+    0% { background-color: #FFF; }
+
+    100% { background-color: #f73757; }
+}
+@-ms-keyframes pulse {
+    0% { background-color: #FFF; }
+
+    100% { background-color: #f73757; }
+}
+
+@keyframes text {
+    0% { color: black; }
+
+    100% { color: white; }
+}
+@-webkit-keyframes text {
+    0% { color: black; }
+
+    100% { color: white; }
+}
+@-moz-keyframes text {
+    0% { color: black; }
+
+    100% { color: white; }
+}
+@-ms-keyframes text {
+    0% { color: black; }
+
+    100% { color: white; }
+}
+
+@keyframes highPriority {
+    0% { color: #f73757; }
+
+    100% { color: white; }
+}
+@-webkit-keyframes highPriority {
+    0% { color: #f73757; }
+
+    100% { color: white; }
+}
+@-moz-keyframes highPriority {
+    0% { color: #f73757; }
+
+    100% { color: white; }
+}
+@-ms-keyframes highPriority {
+    0% { color: #f73757; }
+
+    100% { color: white; }
+}
+
+@keyframes mediumPriority {
+    0% { color: #ff9100; }
+
+    100% { color: white; }
+}
+@-webkit-keyframes mediumPriority {
+    0% { color: #ff9100; }
+
+    100% { color: white; }
+}
+@-moz-keyframes mediumPriority {
+    0% { color: #ff9100; }
+
+    100% { color: white; }
+}
+@-ms-keyframes mediumPriority {
+    0% { color: #ff9100; }
+
+    100% { color: white; }
+}
+
+@keyframes lowPriority {
+    0% { color: #fff200; }
+
+    100% { color: white; }
+}
+@-webkit-keyframes lowPriority {
+    0% { color: #fff200; }
+
+    100% { color: white; }
+}
+@-moz-keyframes lowPriority {
+    0% { color: #fff200; }
+
+    100% { color: white; }
+}
+@-ms-keyframes lowPriority {
+    0% { color: #fff200; }
+
+    100% { color: white; }
+}
+
+@keyframes normalPriority {
+    0% { color: #2cd182; }
+
+    100% { color: white; }
+}
+@-webkit-keyframes normalPriority {
+    0% { color: #2cd182; }
+
+    100% { color: white; }
+}
+@-moz-keyframes normalPriority {
+    0% { color: #2cd182; }
+
+    100% { color: white; }
+}
+@-ms-keyframes normalPriority {
+    0% { color: #2cd182; }
+
+    100% { color: white; }
+}

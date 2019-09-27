@@ -1,0 +1,115 @@
+﻿<div style="max-width: 530px; padding: 15px; background-color: rgba(236, 236, 236, 1);" class="patientAlertDetailsModal">
+    <div>
+        <div style="display: flex; align-items: center">
+            <div style="flex-grow: 1" class="iconPlaceHolder">
+                <span class='icon'><i class="icon-title"></i></span>
+            </div>
+            <div style="flex-grow: 2; min-width: 400px;" class="headerContainer">
+                <h2>{{alertTitle}}</h2>
+            </div>
+            <div class="iconPlaceHolder" style="cursor: pointer">
+                    <i (click)="closeModal()" class="icon-close"></i>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="totalAlerts" *ngIf="alertsDetailsIds && alertsDetailsIds.length > 0" style="margin-top: 20px;">
+            {{alertsDetailsIds.length}} {{ alertsDetailsIds.length > 1 ? resources.patientAlertCounterTitle : resources.patientAlertModalTitle}}
+        </div>
+        <div class="Widget__Loader" *ngIf="loading" style="margin-left: auto; margin-right: auto">
+            <div class="loader-large" style="margin-left: auto; margin-right: auto;"></div>
+        </div>
+
+        <div *ngIf='showError' class="error-message">
+            {{resources.unableToRetrieveDetails}}
+        </div>
+        <div style="max-height: 450px; overflow: auto;" *ngIf="!loading && currentPage">
+            <div class="patientName">
+                {{currentPage.patientName}}
+            </div>
+            <div class="navigateLabel" style="cursor: pointer" (click)="navigateToAlert(currentPage)">
+                {{resources.clickHereToOpenAlert}}
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <div style="padding-right: 10px;" class="columnContainer">
+                    <div class="column" *ngIf="currentPage && currentPage.drugInfo && currentPage.drugInfo.length > 0">
+                        <h4>{{resources.drug}}</h4>
+                        <div class="text columnContainer">
+                            <div class="columnContainer itemSpace" *ngFor="let drugInfo of currentPage.drugInfo; let i = index">
+                                <div class="fx-container">
+                                    <div class="label">{{resources.drugName}}: </div>
+                                    <div>{{ drugInfo.drugName}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.drugAmount}}: </div>
+                                    <div>{{ drugInfo.drugDose}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.startDate}}: </div>
+                                    <div>{{drugInfo.startDate}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.endDate}}: </div>
+                                    <div>{{ drugInfo.endDate}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.orderingPhysician}}: </div>
+                                    <div>{{drugInfo.orderingPhysician}}</div>
+                                </div>
+                                <hr *ngIf="currentPage.drugInfo.length > 1 && i < (currentPage.drugInfo.length-1)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column" *ngIf="currentPage && currentPage.labInfo && currentPage.labInfo.length > 0">
+                        <h4>{{resources.labResults}}</h4>
+                        <div class="text columnContainer">
+                            <div class="columnContainer" *ngFor="let labInfo of currentPage.labInfo; let i = index" class="itemSpace">
+                                <div class="fx-container">
+                                    <div class="label">{{resources.testName}}: </div>
+                                    <div>{{ labInfo.testName}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.value}}: </div>
+                                    <div>{{ labInfo.rawValue}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.resultedDate}}: </div>
+                                    <div>{{labInfo.resultedDate}}</div>
+                                </div>
+                                <div *ngIf="labInfo && labInfo.referenceRange && (labInfo.referenceRange.length > 0)" class="fx-container">
+                                    <div class="label">{{resources.referenceRange}}: </div>
+                                    <div>{{labInfo.referenceRange}}</div>
+                                </div>
+                                <hr *ngIf="currentPage.labInfo.length > 1 && i < (currentPage.labInfo.length-1)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column" *ngIf="currentPage && currentPage.organismInfo && currentPage.organismInfo.length > 0">
+                        <h4>{{resources.organism}}</h4>
+                        <div class="text columnContainer">
+                            <div class="columnContainer" *ngFor="let organismInfo of currentPage.organismInfo; let i = index" class="itemSpace">
+                                <div class="fx-container">
+                                    <div class="label">{{resources.organism}}: </div>
+                                    <div>{{ organismInfo.organism}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.mappedSourceTest}}: </div>
+                                    <div>{{ organismInfo.siteTest}}</div>
+                                </div>
+                                <div class="fx-container">
+                                    <div class="label">{{resources.resultedDate}}: </div>
+                                    <div>{{organismInfo.resultedDate}}</div>
+                                </div>
+                                <hr *ngIf="currentPage.organismInfo.length > 1 && i < (currentPage.organismInfo.length-1)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 20px">
+            <p-paginator [rows]="1" [totalRecords]="totalRecords" (onPageChange)="paginate($event)" pageLinkSize="3" alwaysShow="false"></p-paginator>
+    </div>
+
+</div>

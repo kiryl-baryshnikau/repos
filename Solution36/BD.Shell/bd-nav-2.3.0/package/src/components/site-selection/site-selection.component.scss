@@ -1,0 +1,87 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+    top: 3.5rem; // 56 pixels
+    right: 0;
+    left: 3.5rem;
+    position: fixed;
+    z-index: 1001;
+}
+.singleIdnLabel {
+    color: $gray-darker;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+:host {
+    .bdshell--site-selection--breadcrumb {
+        height: 2rem;
+        overflow: hidden;
+        font-size: 0.8rem;
+        background: $gray-lightest;
+        font-family: Roboto;
+
+        .selection-group-container {
+            height: 1.125rem;
+            overflow: hidden;
+
+            > .tooltip {
+                height: auto;
+
+                > div {
+                    > b {
+                        width: 6rem;
+                        float: left;
+                    }
+                }
+
+                -webkit-transition-delay: .5s;
+                transition-delay: .5s;
+                position: absolute;
+                top: 1.25rem;
+                opacity: 0;
+                visibility: hidden;
+                z-index: -1;
+                text-align: left;
+                border-radius: .18rem; // < 3 pixels
+                background: $gray-darkest;
+                color: $white;
+                min-width: 25rem;
+                font-size: .75rem;
+                -webkit-transition: all .5s;
+                transition: all .5s;
+                cursor: default;
+            }
+
+            > div {
+                height: inherit;
+
+                .selection-group {
+                    .text-truncate {
+                        max-width: 25rem;
+                    }
+
+                    .tooltip-icon {
+                        font-size: 1rem;
+                        color: $gray-dark;
+                        margin-top: .1rem;                    
+                        cursor: pointer;
+                    }
+                }
+
+                &:hover {
+                    + .tooltip {
+                        opacity: 1;
+                        visibility: visible;
+                        z-index: auto;
+                        -webkit-transition: all .5s;
+                        transition: all .5s;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1 @@
+Attempt to migrate BD.MedView.Web to Core 2.2

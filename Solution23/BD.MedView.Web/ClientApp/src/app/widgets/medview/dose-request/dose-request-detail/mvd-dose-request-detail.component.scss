@@ -1,0 +1,22 @@
+﻿.fa-circle-blue {
+    color: #004592;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.dose-request-summary-box {
+    flex-grow: 1;
+    min-width: 320px;
+    max-width: 320px;
+    padding-right: 12px;
+    border-right: solid 1px #CCC;
+}
+
+.dose-request-table-box {
+    flex-grow: 3;
+    padding-left: 12px;
+}

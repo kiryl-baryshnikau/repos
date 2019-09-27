@@ -1,0 +1,8 @@
+﻿<div [class]="statusClass">
+    <div *ngIf="iconStatus==='CANCELED'">
+        {{canceledLabel}}
+    </div>
+    <div *ngIf="iconStatus==='ONHOLD' || iconStatus==='ONHOLDSTAT'">
+        {{onHoldLabel}}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="mvd-radiobuttonlist-container">
+    <ul class="mvd-radiobuttonlist-list">
+        <li class="mvd-radiobuttonlist-element" *ngFor="let item of listItems">
+            <div class="control">
+                <p-checkbox [name]="groupname" [value]="item.value.id" [(ngModel)]="item.value.checked" (onChange)="onElementClick($event, item)" binary="true"></p-checkbox>
+            </div>
+            <div class="label">
+                {{item.label}}
+            </div>
+        </li>
+    </ul>
+</div>

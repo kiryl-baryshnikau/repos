@@ -1,0 +1,20 @@
+﻿<div class="modal-header">
+    <div class="close-button">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeFormDialog()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="documentation" *ngIf="(documentationData$ || patientData$)">
+        <div class="spinner" *ngIf="loadingData">
+            <div class="loader-large"></div>
+        </div>
+        <div class="error" *ngIf="error">
+                {{resources.unableToRetrieveData}}
+        </div>
+        <div *ngIf="!error">
+            <iframe #iframe width="100%" height="600" frameborder="0" *ngIf="(documentationData$ || patientData$)"></iframe>
+        </div>        
+    </div>
+</div>

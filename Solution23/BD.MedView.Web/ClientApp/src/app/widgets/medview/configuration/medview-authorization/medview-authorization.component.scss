@@ -1,0 +1,89 @@
+﻿.authorizationcomponent {
+    margin-left: 20px;
+}
+
+.rowmargin {
+    margin-bottom: 20px !important;
+}
+
+.btn.btn-email{
+    width: auto;
+    background: #dddddd;
+    &:focus{
+        box-shadow: 0 0 0 0;
+    }
+}
+
+.btngraph {
+    border-width: 0px;
+    width: 150px;
+    height: 32px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    margin-right: 10px;
+}
+
+.btnclose {
+    color: #004593;
+    background-color: white;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btnsave {
+    color: white;
+    background-color: #004593;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.role-checkbox {
+    width: 18px;
+    height: 18px;
+}
+
+.width-spinner {
+    width: 30px;
+}
+
+.mouseover-hand {
+    cursor: pointer;
+}
+
+.tr-div {
+    margin-top: 25px;
+    padding-left: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.superadmin-label {
+    height: 20px;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.aligh-right {
+    float: right;
+}
+
+.global-search-column {
+    margin-left: 15px;
+    max-width: 350px;
+    width: 300px;
+}
+
+.div-inline {
+    display: flex;
+}
+
+.div-inline > div {
+    margin-right: 20px;
+}
+
+.dropdown-label{
+    margin-right: 5px;
+}

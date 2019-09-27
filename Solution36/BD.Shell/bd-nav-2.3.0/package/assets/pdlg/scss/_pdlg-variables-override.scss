@@ -1,0 +1,151 @@
+////UXDCode Standards//
+
+//----Colors----//
+
+//Core Colors//
+$core-blue-dark: #003884;
+$core-blue: #004593;
+$core-blue-light: #315DAF;
+$core-blue-lightest: #96B4FF;
+$core-blue-lighter: #6AA1EA;
+
+//Grays//
+$gray-darkest: #1A1A1A;
+$gray-darker: #333333;
+$gray-dark: #808080;
+$gray: #B3B3B3;
+$gray-light: #CCCCCC;
+$gray-lightest: #E5E5E5;
+$gray-lighter: #B8B8B8;
+$core-gray: #A3AFBF;
+
+//Notification Colors//
+$alert-primary-dark: #007FD1;
+$alert-primary: #009BFF;
+$alert-primary-light: #14ABFF;
+$alert-success-dark: #367200;
+$alert-success: #4CA000;
+$alert-success-light: #39B54A;
+$alert-warning-dark: #C97818;
+$alert-warning: #F7931E;
+$alert-warning-light: #FFB032;
+$alert-danger-dark: #A30013;
+$alert-danger: #D10018;
+$alert-danger-light: #FF0000;
+
+//Background-colors//
+$midnight: #123438;
+$black: #000000;
+$white: #ffffff;
+$off-white: #f7f7f7;
+
+//Accent Colors//
+$accent-pink: #E64398;
+$accent-purple: #8D2A90;
+$accent-teal: #00B8B0;
+$accent-cyan: #00BCE8;
+$accent-green: #81C341;
+$accent-yellow: #FFE000;
+
+//Navbar & Menu Colors//
+$core-blue-hover: #023970;
+$navbar-submenu-dark: #0A3463;
+$navbar-submenu-darker: #102B4A;
+$navbar-submenu-lightest: #efefef;
+//Typography & font variants//
+
+
+
+//Navbars & Headers//
+$active-weight: 700; //when link is active//
+$navbar-height: 3.5rem;
+$collapse-height: 40px;
+$dropdown-item-height: $collapse-height;
+$left-nav: 256px;
+$right-nav: 256px;
+$sidebar-nav-default: $white;
+
+// BOOTSTRAP 4.0.0 VARIABLES
+
+$enable-shadows: true !default;
+$blue: #004593 !default;
+$green: #39B54A !default;
+$yellow: #F7931E !default;
+$red: #d10018 !default;
+$white: #fff !default;
+$secondary: $white !default;
+$input-btn-padding-x: 1rem !default;
+$line-height-base: 1.5 !default;
+$input-btn-line-height: $line-height-base !default;
+$primary: $blue !default;
+$gray-800: #333333 !default;
+$dark: $gray-800 !default;
+$pink: #E64398 !default;
+$purple: #8D2A90 !default;
+$cyan: #00BCE8 !default;
+$teal: #00B8B0 !default;
+$gray-100: $off-white !default;
+$gray-200: #E5E5E5 !default;
+$gray-400: #CCCCCC !default;
+$gray-500: #B3B3B3 !default;
+$gray-600: #808080 !default;
+$gray-900: #1A1A1A !default;
+$text-muted: $gray-600 !default;
+$dropdown-link-color: $dark !default;
+$dropdown-link-hover-color: $core-blue !default;
+$screen-lg-min: 1200px !default;
+
+/* DIMENSIONS */
+//** Padding applied to the modal body
+$modal-inner-padding: 24px !default;
+
+//** Padding applied to the modal title
+$modal-title-padding: 24px !default;
+
+$input-height-base: 40px !default;
+$input-height-lagre: 48px !default;
+
+
+//Fonts Global//
+$icon-font-path: '../../../node_modules/bd-nav/assets/fonts/bootstrap/' !default;
+$uss--icon-font-path: '../../../node_modules/bd-nav/assets/fonts/' !default;
+$font-family-roboto-regular-path: '../../../node_modules/bd-nav/assets/fonts/roboto/roboto-regular' !default; // node_modules directory of Consuming application (not BDShell)
+$font-family-sans-serif: "Roboto, Segoe UI, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" !default;
+$font-family-roboto: 'Roboto', sans-serif;
+$font-family-base: $font-family-roboto;
+
+$font-size-base: 1rem;
+$font-size-large: ceil(($font-size-base * 1.12)); // ~16px
+$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1: floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2: floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3: ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+// Custom controls
+$custom-control-indicator-bg: $white !default;
+
+$custom-control-indicator-disabled-bg: $white !default;
+$custom-control-label-disabled-color: $gray-400 !default; // initial value = $gray-600
+
+$custom-control-indicator-checked-color: $core-blue !default; // initial value = $component-active-color;
+$custom-control-indicator-checked-bg: $white !default; // initial value = $component-active-bg;
+$custom-control-indicator-checked-disabled-bg: $white !default;
+
+$custom-control-indicator-active-color: $core-blue !default; // initial value = $component-active-color !default;
+$custom-control-indicator-active-bg: $white !default; // lighten($component-active-bg, 35%) !default;
+$custom-checkbox-indicator-indeterminate-bg: $white !default;
+
+// TODO: move this in seprate override css file
+.custom-checkbox {
+    .custom-control-label {
+        color: $gray;
+
+        &::before {
+            border: 1px solid; // $input-btn-border-width solid $gray;
+        }
+    }
+}

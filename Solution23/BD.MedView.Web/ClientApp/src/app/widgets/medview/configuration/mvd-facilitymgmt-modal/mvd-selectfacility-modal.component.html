@@ -1,0 +1,58 @@
+﻿<div class="mainFormContainer" *ngIf="(formOptions$ | async) as formOptions">
+    <div class="titleContainer">
+        <div class="titleForm">
+            {{formOptions.titleForm}}
+        </div>
+        <div *ngIf="formOptions.subTitleForm" class="subtitleForm">
+            {{formOptions.subTitleForm}}
+        </div>
+    </div>
+    <form [formGroup]="formGroup">
+        <div *ngFor="let question of formOptions.questions" class="form-row">
+            <div class="questionContainer" style="width: 100%">
+                <div>
+                    <label [attr.for]="question.fieldName">
+                        {{question.label}}
+                    </label>
+                    <div>
+                        <p-dropdown [options]="sourceFacilities$ | async | sortingPipe:fieldLabelConst:ascOrderConst:sortingMethodConst" [(ngModel)]="selectedFacility" [formControlName]="question.fieldName" placeholder="{{question.label}}" [style]="{'width': '90%'}"></p-dropdown>
+                    </div>
+                </div>
+                <div class="errorMessage" *ngIf="!formGroup.controls[question.fieldName].valid && (formGroup.controls[question.fieldName].dirty || formGroup.controls[question.fieldName].touched)">{{question.label}} is required</div>
+            </div>
+        </div>
+        <div *ngIf="selectedFacility">
+            <div class="form-row">
+                <div class="questionContainer" style="width: 100%">
+                    <div>
+                        <label>
+                            Facility Id
+                        </label>
+                        <div>
+                            <input type="text" value="{{selectedFacility?.id}}" readonly style="width: 90%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="questionContainer" style="width: 100%">
+                    <div>
+                        <label>
+                            Facility Name
+                        </label>
+                        <div>
+                            <input type="text" value="{{selectedFacility?.name}}" readonly style="width: 90%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="containerControls">
+            <input type="button" (click)="emitDeleteAction()" [value]="formOptions.actionsFormsLabels.deleteOptionLabel || 'DELETE'" *ngIf="formOptions.editForm">
+            <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;">
+                <input type="reset" (click)="emitCancelAction()" [value]="formOptions.actionsFormsLabels.cancelOptionLabel || 'CANCEL'">
+                <input type="submit" (click)="emitSaveAction()" [value]="formOptions.actionsFormsLabels.saveOptionLabel" [disabled]="!formGroup.valid">
+            </div>
+        </div>
+    </form>
+</div>

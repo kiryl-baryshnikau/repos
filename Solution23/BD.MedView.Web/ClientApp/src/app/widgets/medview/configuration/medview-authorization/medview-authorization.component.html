@@ -1,0 +1,93 @@
+<div class="authorizationcomponent">
+    <div *ngIf="isListView">
+        <div class="aligh-right">
+            <button class="btngraph btn btn-email" type="button" (click)="updateUsersPrimaryEmail()">{{ resources.updateUsersPrimaryEmail }}</button>
+            <button class="btngraph btnsave" type="button" (click)="newUser()">{{resources.newUser}}</button>
+        </div>
+        <div>
+            <div class="col-md-12" style="float: left">
+                <p-dataTable [value]="users" [rows]="15" [paginator]="true" [pageLinks]="3"
+                            [responsive]="true" [tableStyle]="{'table-layout':'auto'}" [rowsPerPageOptions]="[5,10,15,20,25,50]">
+                    <p-column field="name" header="{{resources.userName}}" [sortable]="true"></p-column>
+                    <p-column field="primaryEmail" header="{{resources.primaryEmail}}" [sortable]="true"></p-column>
+                    <p-column header="{{resources.facilities}}" field="isMultipleRealms" sortable="custom" (sortFunction)="sortData($event)">
+                        <ng-template let-col let-data="rowData" pTemplate="body">
+                            <span>{{ getFacilityName(data) }}</span>
+                        </ng-template>
+                    </p-column>
+                    <p-column>
+                        <ng-template let-col let-data="rowData" pTemplate="body">
+                            <a href="javascript:void(0);" (click)="editUser(data)">{{resources.edit}}</a>
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isListView" class="userAuthorizationComponent">
+        <div class="flex-container">
+            <div class="col-md-6" *ngIf="!isCreateUserView">
+                <div class="div-inline">
+                    <div><h4 *ngIf="currentUser">{{currentUser.name}}</h4></div>
+                    <div>
+                        <label class="dropdown-label">{{resources.primaryEmailText}}</label>
+                        <p-dropdown *ngIf="currentUser" placeholder="{{resources.selectEmailText}}" [options]="currentUserEmails" [(ngModel)]="currentUser.primaryEmail" (onChange)="selectedUser()"></p-dropdown>
+                    </div>
+                    <div><a href="javascript:void(0);" (click)="addNewEmail()">{{resources.addNewEmailText}}</a></div>
+                </div>
+                <div>
+                    <div class="tr-div" *ngIf="superAdminPrincipalRole">
+                        <p-checkbox inputId="superadmincheck" binary="true" [(ngModel)]="superAdminPrincipalRole.isChecked" (onChange)="onCheckBoxChange()" [style]="{ 'lineHeight': 0 }"></p-checkbox>
+                        <label for="superadmincheck" class="mouseover-hand superadmin-label" style="margin-bottom: 0px; margin-top: 5px">{{ resourcesService.resource(getRoleResourceName('bD.MedView.Web.Super')) }}</label>
+                    </div>
+                    <div class="tr-div" *ngIf="systemAdminPrincipalRole">
+                        <p-checkbox inputId="systemadmincheck" binary="true" [(ngModel)]="systemAdminPrincipalRole.isChecked" (onChange)="onCheckBoxChange()" [style]="{ 'lineHeight': 0 }"></p-checkbox>
+                        <label for="systemadmincheck" class="mouseover-hand superadmin-label" style="margin-bottom: 0px; margin-top: 5px">{{ resourcesService.resource(getRoleResourceName('bD.MedView.Web.System')) }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="component-margin global-search-column" *ngIf="isCreateUserView">
+                <mvd-search-box (onClear)="onClearSearchBox($event)" (onSearchClicked)="searchUser($event)"
+                                [searchCriteria]="usernamelike" [placeHolder]="resources.keyword" [setFocusOnLoad]="true"></mvd-search-box>
+            </div>
+            <div class="aligh-right">
+                <button class="btngraph btnclose" type="button" (click)="cancelUpdateUserRole()">{{ resources.back }}</button>
+                <button class="btngraph btnsave btn" [disabled]="!hasUserDataChanged" type="button" (click)="updateUserRole()">{{resources.apply}}</button>
+            </div>
+        </div>
+        <div class="flex-container rowmargin">
+            <div class="col-md-12" *ngIf="isCreateUserView">
+                <div *ngIf="isLoadingData">
+                    <div class="main-spinner loader-large"></div>
+                </div>
+                <p-dataTable *ngIf="userSearched && !isLoadingData" [value]="idmUsers" [rows]="15" [paginator]="true" [pageLinks]="3"
+                             [rowsPerPageOptions]="[5,10,15,20,25,50]" [responsive]="true" [tableStyle]="{'table-layout':'auto'}">
+                    <p-column field="username" header="{{resources.userName}}" [sortable]="true"></p-column>
+                    <p-column field="primaryEmailAddress" header="{{resources.primaryEmail}}" [sortable]="true"></p-column>
+                    <p-column field="firstName" header="{{resources.firstName}}" [sortable]="true"></p-column>
+                    <p-column field="lastName" header="{{resources.lastName}}" [sortable]="true"></p-column>
+                    <p-column>
+                        <ng-template let-col let-data="rowData" pTemplate="body">
+                            <a href="javascript:void(0);" (click)="onSelectedUser(data)">{{resources.assignRoles}}</a>
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+            <div class="col-md-12" *ngIf="userDetailLoaded">
+                <div *ngIf="isLoadingData">
+                    <div class="main-spinner loader-large"></div>
+                </div>
+                <div *ngIf="!isLoadingData">
+                    <p-dataTable [value]="facilities" [responsive]="true" [tableStyle]="{'table-layout':'auto'}">
+                        <p-column field="name" header="{{resources.facilities}}"></p-column>
+                        <p-column *ngFor="let roleName of roleNames; let i = index" [attr.data-index]="i" header="{{ resourcesService.resource(getRoleResourceName(roleName)) }}">
+                            <ng-template let-data="rowData" pTemplate="body">                               
+                                <p-checkbox binary="true" *ngIf="data.id > -1" [(ngModel)]="data.principalRoles[i].isChecked" (onChange)="onCheckBoxChange()"></p-checkbox>
+                            </ng-template>
+                        </p-column>
+                    </p-dataTable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

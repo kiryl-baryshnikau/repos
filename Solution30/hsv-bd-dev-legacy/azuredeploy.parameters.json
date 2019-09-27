@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sites_bd_hsv_dev_legacy_idm_api_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_idm_sts_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_idm_admin_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_medview_web_name": {
+      "value": null
+    },
+    "namespaces_bd_hsv_dev_legacy_relay_name": {
+      "value": null
+    },
+    "servers_bd_hsv_dev_legacy_sql_server_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_medview_web_tv_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_medview_services_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_idm_api_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_idm_sts_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_idm_admin_name": {
+      "value": null
+    },
+    "serverfarms_bd_hsv_dev_legacy_appserviceplan_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_medview_web_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_bdportal_configuration_name": {
+      "value": null
+    },
+    "sites_bd_hsv_dev_legacy_containerframework_data_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_medview_web_tv_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_medview_services_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_bdportal_configuration_name": {
+      "value": null
+    },
+    "components_bd_hsv_dev_legacy_containerframework_data_name": {
+      "value": null
+    },
+    "certificates_E840C679E7CF4AFBA57D3932A6B865F1A7F7661A_bd_hsv_dev_legacy_WestUS2webspace_name": {
+      "value": null
+    }
+  }
+}

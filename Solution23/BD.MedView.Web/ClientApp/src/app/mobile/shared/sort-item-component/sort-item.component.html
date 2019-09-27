@@ -1,0 +1,7 @@
+<div class="sort-item-container align-middle" (click)="onClicked()">
+    <span class="sort-item-label">{{label}}</span>
+    <span class="sort-item-icon align-middle">
+        <i class="pi" [class.pi-sort-up]="isAscending()" [class.pi-sort-down]="isDescending()"
+            [class.pi-sort]="isUnset()"></i>
+    </span>
+</div>

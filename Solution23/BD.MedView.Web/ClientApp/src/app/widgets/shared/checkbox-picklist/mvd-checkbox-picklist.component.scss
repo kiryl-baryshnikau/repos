@@ -1,0 +1,23 @@
+﻿.flex-container{
+    display: flex;
+}
+.flex-child3{
+    flex-grow: 3;
+}
+.flex-child1{
+    flex-grow: 1
+}
+.side-column {
+    width: 500px;
+}
+.labelList {
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+#picklistComponent {
+    margin-bottom: 20px;
+}

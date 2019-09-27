@@ -1,0 +1,94 @@
+<div *ngIf="detailViewCollapsed || isError" [class.fixed-top]="!isError">
+    <nav class="navbar navbar-dark bg-primary pt-0 pb-0">
+        <div class="navbar-brand">
+            <div class="bdshell--logo--brand navbar-brand">
+                <div class="row align-items-center">
+                    <div class="uss--icon-bd-logo col pr-0"></div>
+                    <div class="col nav-bar-text">{{ resources?.attentionNotices | titlecase }}</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="lastUpdated">
+        <div class="lastUpdatedTitle">{{ resources.lastUpdatedOn }} {{ lastUpdatedDate }} {{ resources.at }} {{ lastUpdatedTime }}</div>
+    </div>
+</div>
+<div class="container-fluid px-0" [class.mobile-content]="!isError">
+    <div *ngIf="detailViewCollapsed">
+        <div *ngIf="attentionNotices$ | async as notices; else loadingOrError">
+            <div class="row mr-0 ">
+                <div class="col pr-0">
+                    <div class="titleContainer card-1">
+                        <div class="title critical">
+                            <div class="text">{{ resources.critical | uppercase }}</div>
+                        </div>
+                    </div>
+                    <div *ngIf="notices?.critical?.data?.length > 0; else emptyCriticalNotices">
+                        <mvd-notices-list [notices]="notices.critical" (noticeSelected)="noticeSelected($event)">
+                        </mvd-notices-list>
+                    </div>
+                </div>
+            </div>
+            <div class="row mr-0">
+                <div class="col pr-0">
+                    <div class="titleContainer card-1">
+                        <div class="title nonCritical">
+                            <div class="text">{{ resources.nonCritical | uppercase }}</div>
+                        </div>
+                    </div>
+                    <div *ngIf="notices?.nonCritical?.data?.length > 0; else emptyNonCriticalNotices">
+                        <mvd-notices-list [notices]="notices.nonCritical" (noticeSelected)="noticeSelected($event)">
+                        </mvd-notices-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-0" *ngIf="!detailViewCollapsed;">
+    <div *ngIf="noticeDetail$ | async as noticesDetails; else loadingOrError">
+        <mvd-notice-detail [selectedNotice]="selectedNotice" [noticesDetails]="noticesDetails"
+         [lastUpdatedTime]="lastUpdatedTime" [lastUpdatedDate]="lastUpdatedDate"
+            (statusChanged)="onDetailsStatusChanged($event)" (backButtonClick)="onBackNavigation()"></mvd-notice-detail>
+    </div>
+</div>
+
+<ng-template #emptyCriticalNotices>
+    <div class="px-3 py-4">
+        <div>
+            {{ resources.emptyCriticalNoticesMessage}}
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #emptyNonCriticalNotices>
+    <div class="px-3 py-4">
+        <div>
+            {{ resources.emptyNonCriticalNoticesMessage}}
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #loadingOrError>
+    <div *ngIf="loadingError$ | async; else loading" class="container-fluid px-0">
+        <div class="row mr-0 ">
+            <div class="col pr-0">
+                <div class="titleContainer card-1">
+                    <div class="title critical">
+                        <div class="text">{{ resources.unableToConnectTittle | uppercase }}</div>
+                    </div>
+                </div>
+                <div class="px-3 py-4">
+                    <div>
+                        {{ resources.unableToConnectMessage}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #loading>
+        <div class="overlay">
+            <div class="mobile-loader mobile-spinner"></div>
+        </div>
+    </ng-template>
+</ng-template>

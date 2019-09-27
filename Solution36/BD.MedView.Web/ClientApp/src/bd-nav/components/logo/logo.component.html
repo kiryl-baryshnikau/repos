@@ -1,0 +1,15 @@
+<div class="bdshell--logo--brand navbar-brand p-0 my-0 d-flex align-items-stretch text-light">
+    <span class="uss--icon-bd-logo float-left d-none d-md-block"></span>
+    <span *ngIf="brandName" class="ml-1">
+        <span class="insight-group-text">
+            {{brandName}}
+            <span class="trade-class">&trade;</span>
+        </span>
+    </span>
+    <span *ngIf="productName" class="insight-group-text ml-1">
+        {{productName}}
+    </span>
+    <span *ngIf="moduleName" class="insight-application-text ml-3" [ngClass]="{'separator-left': (productName || brandName) && moduleName}">
+        {{moduleName}}
+    </span>
+</div>

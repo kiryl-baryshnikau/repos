@@ -1,0 +1,43 @@
+﻿<div class="container" #templateContainer>
+    <div class="header">
+        <h4 class="modal-title pull-left">{{resources.clinicAlalertSettings}}</h4>
+    </div>
+    <div class="content flex-container">
+        <div class="Widget__Loader" *ngIf="loadingData" style="margin-left: auto; margin-right: auto">
+            <div class="loader-large"></div>
+        </div>
+        <p-table [value]="alertCategories" *ngIf="!loadingData">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th></th>
+                    <th class="small-th">{{resources.on}}</th>
+                    <th class="small-th">{{resources.off}}</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-alertCategory>
+                <tr style="background-color: #e4e4e4">
+                    <td class="category-title">{{alertCategory.category}}</td>
+                    <td>
+                        <p-radioButton name="{{alertCategory.category}}" value="1" (click)="turnOnCategoryAlerts(alertCategory.category)"></p-radioButton>
+                    </td>
+                    <td>
+                        <p-radioButton name="{{alertCategory.category}}" value="0" (click)="turnOffCategoryAlerts(alertCategory.category)"></p-radioButton>
+                    </td>
+                </tr>
+                <tr *ngFor="let alert of alertCategory.alerts | sortingPipe:fieldTitleConst:ascOrderConst:sortingMethodConst">
+                    <td>{{alert.title}}</td>
+                    <td>
+                        <p-radioButton name="{{alert.title}}" (click)="hasChange()" value="1" [(ngModel)]="alert.status"></p-radioButton>
+                    </td>
+                    <td>
+                        <p-radioButton name="{{alert.title}}" (click)="hasChange()" value="0" [(ngModel)]="alert.status"></p-radioButton>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="footer flex-container">
+        <button type="button" class="btn btn-cancel" (click)="cancel()">{{resources.cancel}}</button>
+        <button type="button" class="btn btn-primary btn-default" [disabled]="!isApplyEnabled" (click)="apply()">{{resources.apply}}</button>
+    </div>
+</div>

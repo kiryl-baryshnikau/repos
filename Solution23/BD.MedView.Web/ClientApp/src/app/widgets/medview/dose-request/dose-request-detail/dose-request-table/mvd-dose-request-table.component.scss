@@ -1,0 +1,25 @@
+:host ::ng-deep th {
+    background-color: white;
+    position: sticky;
+    top: 0px;
+}
+
+.fa-circle-blue {
+    color: #004592;
+}
+
+p {
+    margin: 0;
+    line-height: 19px;
+    font-size: 14px;
+}
+.titleComponent {
+    font-family: "Roboto-Bold", "Roboto Bold", "Roboto";
+    color: #333333;
+    font-size: 12pt;
+    font-weight: 700;
+    padding-left: 10px;
+    height: 30px;
+    display:flex;
+    align-items: center;
+}

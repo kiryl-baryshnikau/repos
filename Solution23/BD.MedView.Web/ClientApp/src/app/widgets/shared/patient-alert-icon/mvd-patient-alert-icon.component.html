@@ -1,0 +1,20 @@
+<div class="patient-alert-icon" *ngIf="alertsNumber > 0" (click)="onClick($event)">
+    <div container="body" class="container-alert" containerClass="patient-alert-tooltip"
+        (mouseover)="setMouseOverImage()" (mouseout)="setMouseOutImage()">
+        <div class="cont-counteralerts" [tooltip]="tooltipTemplate">
+            {{alertsNumber}}
+        </div>
+        <img [src]='imgUrl' class="iconAlerts" />
+    </div>
+    <ng-template #tooltipTemplate>
+        <p></p>
+        <ul *ngFor="let alertName of alertNames" class="display-hint">
+            <li>{{alertName}}</li>
+        </ul>
+        <ul class="display-hint">
+            <li>
+                <p>{{resources.clickHelpWordings}}</p>
+            </li>
+        </ul>
+    </ng-template>
+</div>

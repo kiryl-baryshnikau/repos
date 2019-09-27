@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Locale]
+    AUTHORIZATION [dbo];
+

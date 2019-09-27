@@ -1,0 +1,25 @@
+﻿<div *ngIf="summaryData" style="margin-bottom: 24px" class="accordion-container" #accordionContainer>
+    <div class="expandCollapseContainer" (click)="collapseExpandAll()" *ngIf="summaryData.length > 0">
+        <span class="expandCollapseIconContainer">
+            <i style="font-size: 15px; font-weight: bold;" [ngClass]="allExpanded ? 'fa fa-angle-up' : 'fa fa-angle-down'"></i>
+        </span>
+        <span class="expandCollapseLabel">
+            {{allExpanded ? resources.colapseAll : resources.expandAll}}
+        </span>
+    </div>
+    <p-accordion [multiple]="true" [expandIcon]="'fa fa-angle-down'" [collapseIcon]="'fa fa-angle-up'" #accordion (onOpen)="tabOpened($event)" (onClose)="tabClosed($event)">
+        <p-accordionTab *ngFor="let summaryCategory of summaryData; let i = index"
+                        [selected]="summaryCategory.selected">
+            <p-header>
+                {{summaryCategory.category}}
+                <div class="counter">
+                    <div class="acknowledgedCounter" style="background-color: #f7f7f7 !important">
+                        {{getAlertCountByCategory(summaryCategory.summary)}}
+                    </div>
+                </div>
+            </p-header>
+            <clinical-overview-list [listData]='summaryCategory.summary' [iconStyleClass]="iconPriorityClassCallback"
+                                    (onElementClick)="itemSelectedChanged($event)" [selectedItem]="currentItemSelected"></clinical-overview-list>
+        </p-accordionTab>
+    </p-accordion>
+</div>

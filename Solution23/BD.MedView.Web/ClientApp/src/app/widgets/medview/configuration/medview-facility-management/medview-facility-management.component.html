@@ -1,0 +1,117 @@
+<div class="facility-management-container" style="padding-top: 5px">
+
+    <div>
+        <div class="facility-management-tittle">{{resources.dataSourcesEnabled}}</div>
+        <ul style="padding: 10px 0;">
+            <li *ngFor="let source of dataSourcesEnabledModel" style="display: flex; padding: 7px 0;">
+                <div>
+                    <p-checkbox [(ngModel)]="source.checked" (onChange)="onSourcesEnabledChange($event)" binary="true" ></p-checkbox>{{ source.name }}
+                </div>
+            </li>
+        </ul>
+        <div>
+            <button class="btngraph btnsave btn" type="button" (click)="onApplyChanges()"
+                    [disabled]="!applyChangesEnabled"  style="width: 170px;">
+                {{resources.applyChanges}}
+            </button>
+        </div>
+    </div>
+    <div class="flexChild rowParent" style="padding-top: 35px;">
+        <div class="flexChild">
+            <div class="facility-management-tittle">
+                {{resources.facilityMapping}}
+            </div>
+        </div>
+        <div class="flexChild">
+            <div class="aligh-right">
+                <div class="bottom-padding">
+                    <button class="btngraph btnsave" type="button" (click)="newMasterFacility()" style="width: 200px">
+                        {{resources.createNewMasterFacility}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flexChild columnParent">
+        <!-- HEADER -->
+        <div class="flexChild columnParent" style="flex-basis: auto">
+            <div class="flexChild rowParent main-header">
+                <div class="flexChild">
+                    <div class="main-header-item span-main-header">
+                        {{resources.masterFacilities}}
+                    </div>
+
+                </div>
+                <div class="flexChild">
+                    <div class="main-header-item">
+                        {{resources.facilityMapping}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flexChild rowParent sub-header" style="flex-basis: auto">
+            <div class="flexChild columnParent">
+                <div class="flexChild rowParent" style="flex-basis: auto">
+                    <div class="flexChild">
+                        {{resources.masterFacilityName}}
+                    </div>
+                    <div class="flexChild"></div>
+                </div>
+            </div>
+            <div class="flexChild columnParent">
+                <div class="flexChild rowParent" style="flex-basis: auto">
+                    <div class="flexChild">
+                        {{resources.dataSource}}
+                    </div>
+                    <div class="flexChild">
+                        {{resources.sourceFacilityName}}
+                    </div>
+                    <div class="flexChild">
+                        {{resources.facilityId}}
+                    </div>
+                    <div class="flexChild"></div>
+                </div>
+            </div>
+        </div>
+        <!-- END HEADER -->
+
+        <!-- BODY -->
+        <div class="flexChild columnParent row-item" *ngFor="let masterFacility of masterFacilitiesData">
+            <div class="flexChild rowParent sub-row-item-left">
+                <div class="flexChild rowParent top-padding">
+                    <div class="flexChild">
+                        {{masterFacility.masterFacilityName}}
+                    </div>
+                    <div class="flexChild centered-text">
+                        <a (click)="onEditMasterFacilityClick(masterFacility)">{{resources.edit}}</a>
+                    </div>
+                </div>
+                <div class="flexChild columnParent">
+                    <div class="flexChild rowParent sub-row-item-right" *ngFor="let dataSource of masterFacility.dataSources">
+                        <div class="flexChild">
+                            {{dataSource.source}}
+                        </div>
+                        <div class="flexChild">
+                            {{dataSource.name || ''}}
+                        </div>
+                        <div class="flexChild" style="word-break: break-all">
+                            {{dataSource.facilityId || ''}}
+                        </div>
+                        <div class="flexChild centered-text">
+                            <a (click)="onFacilityMappingClick(dataSource, masterFacility)">{{resources.edit}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flexChild columnParent row-item" *ngIf="masterFacilitiesData.length === 0">
+            <div style="margin-bottom: auto; margin-top: auto">
+                {{resources.noDataToDisplay}}
+            </div>
+        </div>
+        <!--<div class="flexChild columnParent row-item" *ngFor="let index of emptyFacilities">
+            &nbsp;
+        </div>-->
+        <!--END BODY-->
+    </div>
+</div>

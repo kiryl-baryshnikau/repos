@@ -1,0 +1,32 @@
+<div class="mainFormContainer" *ngIf="formOptions && questions">
+    <div class="titleContainer">
+        <div class="titleForm">
+            {{formOptions.titleForm}}
+        </div>
+        <div *ngIf="formOptions.subTitleForm" class="subtitleForm">
+            {{formOptions.subTitleForm}}
+        </div>
+    </div>
+  <form [formGroup]="formGroup">
+    <div *ngFor="let question of questions" class="form-row">
+      <div class="questionContainer">
+        <div>
+          <label [attr.for]="question.fieldName">
+            {{question.label}}
+          </label>
+          <div>
+            <input type="text" [formControlName]="question.fieldName" [id]="question.fieldName" [(ngModel)]="question.value">
+          </div>
+        </div>
+        <div class="errorMessage" *ngIf="!formGroup.controls[question.fieldName].valid && (formGroup.controls[question.fieldName].dirty || formGroup.controls[question.fieldName].touched)">{{question.label}} is required</div>
+      </div>
+    </div>
+    <div class="containerControls">
+      <input type="button" (click)="emitDeleteAction()" [value]="formOptions.actionsFormsLabels.deleteOptionLabel || 'DELETE'" *ngIf="formOptions.editForm">
+      <div style="margin-right: 0px; margin-left: auto; margin-right: 0px;margin-left: auto;">
+        <input type="reset" (click)="emitCancelAction()" [value]="formOptions.actionsFormsLabels.cancelOptionLabel || 'CANCEL'">
+        <input type="submit" (click)="emitSaveAction()" [value]="formOptions.actionsFormsLabels.saveOptionLabel" [disabled]="!formGroup.valid">
+    </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,212 @@
+.titleContainer {
+    border-width: 0px;
+    border-radius: 0 !important;
+    max-height: 3em;
+    min-height: 2.2em;
+    background: inherit;
+    background-color: #DFDFDF;
+    display: flex;
+
+    &.notice-name-container {
+        max-height: none;
+        max-height: unset;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+}
+
+.titleContainer .title {
+    align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: normal;
+    font-weight: 700;
+    display: flex;
+    color: #333333;
+
+}
+
+.card-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.tile {
+    border-bottom: solid 1px #CCC;
+    min-height: 5em;
+    margin: 1em 0;
+    opacity: 1;
+}
+
+.acknowledged {
+    opacity: 0.5;
+}
+
+@media (min-width: 576px) {
+    .tile {
+        border-bottom: solid 1px #CCC;
+        min-height: 4em;
+    }
+}
+
+.text {
+    font-family: 'Roboto-Regular', 'Roboto';
+
+    &.critical-text {
+        color: #f93354;
+        font-size: 1.4em;
+        font-weight: 400;
+    }
+
+    &.non-critical-text {
+        color: #333333;
+        font-size: 1.4em;
+        font-weight: 400;
+    }
+
+    &.tileTitle {
+        font-weight: 700;
+    }
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #003884 !important;
+    border: 1px solid #003884 !important;
+}
+
+.btn-primary.active,
+.btn-primary:active {
+    color: #fff;
+    background-color: #003884 !important;
+    border: 1px solid #003884 !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #315DAF !important;
+    border: 1px solid #003884 !important;
+}
+
+.btn-default {
+    color: #003884;
+    background-color: #fff !important;
+    border: 1px solid #003884 !important;
+}
+
+.btn-default:hover {
+    color: #fff;
+    background-color: #315DAF !important;
+    border: 1px solid #003884 !important;
+}
+
+.fa-circle-blue {
+    color: #004592;
+}
+
+.fa-empty-circle {
+    color: transparent;
+    opacity: 0;
+}
+
+.warning-icon {
+    color: #ff9100;
+    font-size: 2em;
+}
+
+.errorMessage {
+    font-weight: 700;
+}
+
+.mobile-loader {
+    border: 8px solid #E5E5E5;
+    border-top: 8px solid #808080;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    pointer-events: none;
+}
+
+.mobile-spinner {
+    position: absolute;
+    top: 47%;
+    left: 47%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 2;
+}
+.back-element {
+    font-size: 1.5em;
+    color: #004593 !important;
+    cursor: pointer;
+    line-height: 2.5;
+}
+
+.left-margin {
+    margin-left: 10px;
+}
+
+.right-margin {
+    margin-right: 5px;
+}
+
+@media (min-width: 576px) {
+    .flex-column.col-sm-2 {
+        flex: 0 0 16.66666667% !important;
+        max-width: 20% !important;
+        min-width: 20% !important;
+    }
+}
+
+.lastUpdated {
+    border-width: 0px;
+    border-radius: 0 !important;
+    min-height: 2.2em;
+    background: inherit;
+    background-color: #fff;
+    display: flex;
+    box-shadow: 1px 5px 6px -5px #aaaaaa;
+    border-top: solid 1px #CCC;
+}
+
+.lastUpdated .lastUpdatedTitle {
+    align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: normal;
+    font-weight: 400;
+    display: flex;
+    color: #333333;
+}
+
+.mobile-content {
+    position: relative;
+    top: 6em;
+}
+
+.break-word-text {
+    word-break: break-all; // for Compatibility: break-word is not supported in all browsers
+    word-break: break-word;
+}
+
+

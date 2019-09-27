@@ -1,0 +1,11 @@
+﻿
+<div class="titleContainer">
+    <div class="title">
+        <div class="text">{{myResources.criticalText}}</div>
+    </div>
+</div>
+<ul class="attentionNoticesContainer" *ngIf="criticalData">
+    <li *ngFor="let item of criticalData">
+        <mvd-attention-notices-item [itemData]="item" (elementClick)="onElementClick($event)"></mvd-attention-notices-item>
+    </li>
+</ul>

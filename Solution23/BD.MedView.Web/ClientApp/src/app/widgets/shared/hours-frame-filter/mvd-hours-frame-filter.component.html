@@ -1,0 +1,39 @@
+<div>
+    <div style="overflow: auto; width: 100%;">
+        <div class="title-container">
+            <img class="title-image" src="./dist/assets/images/clock.png">
+            <span class="title-text">{{resources.setTimeframe}}</span>
+        </div>
+        <div class="flex-container flex-row">
+            <div class="component-margin currentdate-filter-container">
+                <div class="flex-container">
+                    <div class="align-verticalcenter radio-container">
+                        <p-radioButton name="date-range-picker" value="-1" [(ngModel)]="hourOptionSelected" (onClick)="pastRadioButtonClick($event)"></p-radioButton>{{resources.past}}
+                    </div>
+                    <div style="flex-grow: 1;padding-left: 5px;padding-right: 5px" class="align-verticalcenter">
+                        <p-dropdown [options]="pastOptions" [autoWidth]="false" [autoDisplayFirst]="false" appendTo="body" [style]="{'width':'250px'}"
+                                    [disabled]="hourOptionSelected == 1" [(ngModel)]="pastHourSelected" (onChange)="pastDropdownChange($event)"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="component-margin daterange-filter-container">
+                <div class="flex-container">
+                    <div class="align-verticalcenter radio-container">
+                        <p-radioButton name="date-range-picker" [(ngModel)]="hourOptionSelected" value="1" (onClick)="futureRadioButtonClick($event)"></p-radioButton>{{resources.future}}
+                    </div>
+                    <div class="align-verticalcenter flex-column-container">
+                        <div class="align-verticalcenter dropdown-date-picker">
+                            <p-dropdown [options]="futureOptions" [(ngModel)]="futureHourSelected" [autoWidth]="false" [autoDisplayFirst]="false" appendTo="body"
+                                        [disabled]="hourOptionSelected == -1" [style]="{'width':'250px'}" (onChange)="futureDropdownChange($event)"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="dialog-buttons">
+        <button class="btn btn-cancel" (click)="onCancel()">{{resources.cancel}}</button>
+        <button class="btn btn-save" [disabled]="!isModified" (click)="onSave()">{{resources.apply}}</button>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿.containerControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    width: 103px;
+    height: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type=button],
+.cancelDelete {
+    color: white;
+}
+
+input[type=button] {
+    background-color: rgba(255, 0, 0, 1);
+    border-color: rgba(255, 0, 0, 1);
+}
+
+.cancelDelete {
+    background-color: rgba(0, 69, 147, 1) !important;
+    border-color: rgba(0, 69, 147, 1) !important;
+}
+
+input.cancelDelete:hover {
+    color: #fff;
+    background-color: #315DAF !important;
+    border: 1px solid #003884 !important;
+}
+
+
+input:hover[type=button]:not(.cancelDelete) {
+    color: #fff;
+    background-color: #E81B1B !important;
+    border: 1px solid #D44949 !important;
+}
+
+.containerControls div input {
+    margin-left: 10px;
+}
+
+.mainFormContainer {
+    padding: 32px 24px 24px 24px;
+}
+
+
+
+    .titleDeleteContainer .title {
+        font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+        font-weight: 500;
+        font-style: normal;
+        font-size: 20px;
+        color: #FF0000;
+    }
+
+    .titleDeleteContainer .icon {
+        font-size: 30px;
+        color: rgba(255, 0, 0, 1);
+    }
+
+.textBody {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+    .textBody .label {
+        font-family: 'Roboto-Regular', 'Roboto';
+        font-weight: 400;
+        font-style: normal;
+        color: #8C8C8C;
+        font-size: 14px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        padding: 0px;
+        display: block;
+        text-align: left;
+    }
+
+    .textBody .text {
+        font-size: 14px;
+        text-align: left;
+        font-family: 'Roboto-Regular', 'Roboto';
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .textBody .red {
+        color: #FF0000;
+        margin-top: 15px;
+    }
+.titleDeleteContainer .subtitleForm {
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 5px;
+}
+

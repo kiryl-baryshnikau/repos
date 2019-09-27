@@ -1,0 +1,66 @@
+.container-alert {
+  width: 35px;
+  margin: auto;
+}
+
+.iconAlerts {
+  width: 80% !important;
+  max-width: 18px !important;
+  min-width: 15px !important;
+}
+
+.cont-counteralerts {
+  position: relative;
+  top: -4px;
+  left: -10px;
+  width: 15px;
+  height: 15px;
+  font-size: 9px;
+  background-color: rgb(0, 69, 147);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  float: right;
+}
+
+.display-hint {
+  color: white;
+  font-size: 14px;
+  font-family: "Roboto-Regular", "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;  
+}
+
+.display-hint li {
+  padding: 0px;
+  margin-left: 16px;
+  margin-right: 16px;
+  line-height: 1.42857143;
+}
+
+.display-hint li p {
+  padding: 0px;
+  margin-top: 16px;  
+  font-style: italic;
+  line-height: 1.42857143;
+}
+
+:host ::ng-deep .tooltip-inner {
+  max-width: 225px;
+  padding: 0.25rem 0.5rem;
+  color: #ffffff;
+  text-align: left;
+  background-color: #000000;
+  border-radius: 0.25rem;
+  min-width: 225px;
+  word-wrap: break-word;
+}
+
+.patient-alert-icon {
+  cursor: pointer;
+}
+
+

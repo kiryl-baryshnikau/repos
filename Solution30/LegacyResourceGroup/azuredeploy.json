@@ -1,0 +1,480 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environment_name": {
+      "defaultValue": "environment",
+      "type": "string"
+    },
+    "certificate_thumbprint": {
+      "defaultValue": "",
+      "type": "string"
+    },
+    "appserviceplanName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "appserviceplanSkuName": {
+      "type": "string",
+      "defaultValue": "F1",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "metadata": {
+        "description": "Describes plan's pricing tier and capacity. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+      }
+    },
+    "sql-serverAdminLogin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sql-serverAdminLoginPassword": {
+      "type": "securestring"
+    },
+    "db-idmName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "db-idmCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "db-idmEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "db-idmRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "db-bdportalName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "db-bdportalCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "db-bdportalEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "db-bdportalRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "db-containerframeworkName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "db-containerframeworkCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "db-containerframeworkEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "db-containerframeworkRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    },
+    "db-medviewName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "db-medviewCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "db-medviewEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "db-medviewRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    }
+  },
+  "variables": {
+    "sql-serverName": "[concat('sql-server', uniqueString(resourceGroup().id))]",
+    "bdportal-configurationName": "[concat('bdportal-configuration', uniqueString(resourceGroup().id))]",
+    "containerframework-dataName": "[concat('containerframework-data', uniqueString(resourceGroup().id))]",
+    "idm-adminName": "[concat('idm-admin', uniqueString(resourceGroup().id))]",
+    "idm-apiName": "[concat('idm-api', uniqueString(resourceGroup().id))]",
+    "idm-stsName": "[concat('idm-sts', uniqueString(resourceGroup().id))]",
+    "medview-servicesName": "[concat('medview-services', uniqueString(resourceGroup().id))]",
+    "medview-webName": "[concat('medview-web', uniqueString(resourceGroup().id))]",
+    "medview-web-tvName": "[concat('medview-web-tv', uniqueString(resourceGroup().id))]"},
+  "resources": [
+    {
+      "name": "[parameters('appserviceplanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "[parameters('appserviceplanSkuName')]"
+      },
+      "dependsOn": [ ],
+      "tags": {
+        "displayName": "appserviceplan"
+      },
+      "properties": {
+        "name": "[parameters('appserviceplanName')]",
+        "numberOfWorkers": 1
+      }
+    },
+    {
+      "name": "[variables('sql-serverName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01-preview",
+      "dependsOn": [ ],
+      "tags": {
+        "displayName": "sql-server"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('sql-serverAdminLogin')]",
+        "administratorLoginPassword": "[parameters('sql-serverAdminLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "AllowAllWindowsAzureIps",
+          "type": "firewallrules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        },
+        {
+          "name": "[parameters('db-idmName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]"
+          ],
+          "tags": {
+            "displayName": "db-idm"
+          },
+          "properties": {
+            "collation": "[parameters('db-idmCollation')]",
+            "edition": "[parameters('db-idmEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('db-idmRequestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "name": "[parameters('db-bdportalName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]"
+          ],
+          "tags": {
+            "displayName": "db-bdportal"
+          },
+          "properties": {
+            "collation": "[parameters('db-bdportalCollation')]",
+            "edition": "[parameters('db-bdportalEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('db-bdportalRequestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "name": "[parameters('db-containerframeworkName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]"
+          ],
+          "tags": {
+            "displayName": "db-containerframework"
+          },
+          "properties": {
+            "collation": "[parameters('db-containerframeworkCollation')]",
+            "edition": "[parameters('db-containerframeworkEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('db-containerframeworkRequestedServiceObjectiveName')]"
+          }
+        },
+        {
+          "name": "[parameters('db-medviewName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]"
+          ],
+          "tags": {
+            "displayName": "db-medview"
+          },
+          "properties": {
+            "collation": "[parameters('db-medviewCollation')]",
+            "edition": "[parameters('db-medviewEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('db-medviewRequestedServiceObjectiveName')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('bdportal-configurationName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "bdportal-configuration"
+      },
+      "properties": {
+        "name": "[variables('bdportal-configurationName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+        "siteConfig": {
+          "connectionStrings": [
+            {
+              "name": "ConfigurationUnitOfWork",
+              "connectionString": "Server=tcp:bd-hsv-dev-legacy-sql-server.database.windows.net,1433;Initial Catalog=bd-hsv-dev-legacy-db-bdportal;Persist Security Info=False;User ID=bdadmin;Password=pass@word1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+              "type": "SQLServer"
+            }
+          ],
+          "appSettings": [
+            {
+              "name": "IDMSTSUrl",
+              "value": "https://bd-hsv-dev-legacy-idm-sts.azurewebsites.net/ids/"
+            }
+          ]
+        }
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('bdportal-configurationName'))]"
+          ],
+          "tags": {
+            "displayName": "IDMSTSUrl"
+          },
+          "properties": {
+            "key1": "value1",
+            "key2": "value2"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('containerframework-dataName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "containerframework-data"
+      },
+      "properties": {
+        "name": "[variables('containerframework-dataName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    },
+    {
+      "name": "[variables('idm-adminName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "idm-admin"
+      },
+      "properties": {
+        "name": "[variables('idm-adminName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    },
+    {
+      "name": "[variables('idm-apiName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "idm-api"
+      },
+      "properties": {
+        "name": "[variables('idm-apiName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    },
+    {
+      "name": "[variables('idm-stsName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "idm-sts"
+      },
+      "properties": {
+        "name": "[variables('idm-stsName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    },
+    {
+      "name": "[variables('medview-servicesName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "medview-services"
+      },
+      "properties": {
+        "name": "[variables('medview-servicesName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    },
+    {
+      "name": "[variables('medview-webName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "medview-web"
+      },
+      "properties": {
+        "name": "[variables('medview-webName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    },
+    {
+      "name": "[variables('medview-web-tvName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName')))]": "Resource",
+        "displayName": "medview-web-tv"
+      },
+      "properties": {
+        "name": "[variables('medview-web-tvName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appserviceplanName'))]"
+      }
+    }],
+  "outputs": {}
+}

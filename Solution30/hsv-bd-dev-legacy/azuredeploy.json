@@ -1,0 +1,2466 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sites_bd_hsv_dev_legacy_idm_api_name": {
+      "defaultValue": "bd-hsv-dev-legacy-idm-api",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_idm_sts_name": {
+      "defaultValue": "bd-hsv-dev-legacy-idm-sts",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_idm_admin_name": {
+      "defaultValue": "bd-hsv-dev-legacy-idm-admin",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_medview_web_name": {
+      "defaultValue": "bd-hsv-dev-legacy-medview-web",
+      "type": "String"
+    },
+    "namespaces_bd_hsv_dev_legacy_relay_name": {
+      "defaultValue": "bd-hsv-dev-legacy-relay",
+      "type": "String"
+    },
+    "servers_bd_hsv_dev_legacy_sql_server_name": {
+      "defaultValue": "bd-hsv-dev-legacy-sql-server",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_medview_web_tv_name": {
+      "defaultValue": "bd-hsv-dev-legacy-medview-web-tv",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_medview_services_name": {
+      "defaultValue": "bd-hsv-dev-legacy-medview-services",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_idm_api_name": {
+      "defaultValue": "bd-hsv-dev-legacy-idm-api",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_idm_sts_name": {
+      "defaultValue": "bd-hsv-dev-legacy-idm-sts",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_idm_admin_name": {
+      "defaultValue": "bd-hsv-dev-legacy-idm-admin",
+      "type": "String"
+    },
+    "serverfarms_bd_hsv_dev_legacy_appserviceplan_name": {
+      "defaultValue": "bd-hsv-dev-legacy-appserviceplan",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_medview_web_name": {
+      "defaultValue": "bd-hsv-dev-legacy-medview-web",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_bdportal_configuration_name": {
+      "defaultValue": "bd-hsv-dev-legacy-bdportal-configuration",
+      "type": "String"
+    },
+    "sites_bd_hsv_dev_legacy_containerframework_data_name": {
+      "defaultValue": "bd-hsv-dev-legacy-containerframework-data",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_medview_web_tv_name": {
+      "defaultValue": "bd-hsv-dev-legacy-medview-web-tv",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_medview_services_name": {
+      "defaultValue": "bd-hsv-dev-legacy-medview-services",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_bdportal_configuration_name": {
+      "defaultValue": "bd-hsv-dev-legacy-bdportal-configuration",
+      "type": "String"
+    },
+    "components_bd_hsv_dev_legacy_containerframework_data_name": {
+      "defaultValue": "bd-hsv-dev-legacy-containerframework-data",
+      "type": "String"
+    },
+    "certificates_E840C679E7CF4AFBA57D3932A6B865F1A7F7661A_bd_hsv_dev_legacy_WestUS2webspace_name": {
+      "defaultValue": "E840C679E7CF4AFBA57D3932A6B865F1A7F7661A-bd-hsv-dev-legacy-WestUS2webspace",
+      "type": "String"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_bdportal_configuration_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Redfield",
+        "Request_Source": "AppServiceEnablementCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_containerframework_data_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Redfield",
+        "Request_Source": "AppServiceEnablementCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_idm_admin_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Redfield",
+        "Request_Source": "AppServiceEnablementCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_idm_api_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Request_Source": "IbizaWebAppExtensionCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_idm_sts_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Request_Source": "IbizaWebAppExtensionCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_medview_services_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Redfield",
+        "Request_Source": "AppServiceEnablementCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_medview_web_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Redfield",
+        "Request_Source": "AppServiceEnablementCreate"
+      }
+    },
+    {
+      "type": "microsoft.insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[parameters('components_bd_hsv_dev_legacy_medview_web_tv_name')]",
+      "location": "westus2",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Redfield",
+        "Request_Source": "AppServiceEnablementCreate"
+      }
+    },
+    {
+      "type": "Microsoft.Relay/namespaces",
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('namespaces_bd_hsv_dev_legacy_relay_name')]",
+      "location": "West US 2",
+      "sku": {
+        "name": "Standard",
+        "tier": "Standard"
+      },
+      "properties": {
+        "provisioningState": "Succeeded",
+        "metricId": "[concat('8a846abe-5945-4dd7-a38e-123e39d0ad16:', parameters('namespaces_bd_hsv_dev_legacy_relay_name'))]",
+        "createdAt": "2019-07-25T17:08:26.963Z",
+        "updatedAt": "2019-07-25T17:09:13.94Z",
+        "serviceBusEndpoint": "[concat('https://', parameters('namespaces_bd_hsv_dev_legacy_relay_name'), '.servicebus.windows.net:443/')]"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[parameters('servers_bd_hsv_dev_legacy_sql_server_name')]",
+      "location": "westus2",
+      "kind": "v12.0",
+      "properties": {
+        "administratorLogin": "bdadmin",
+        "version": "12.0"
+      }
+    },
+    {
+      "type": "Microsoft.Web/certificates",
+      "apiVersion": "2016-03-01",
+      "name": "[parameters('certificates_E840C679E7CF4AFBA57D3932A6B865F1A7F7661A_bd_hsv_dev_legacy_WestUS2webspace_name')]",
+      "location": "West US 2",
+      "properties": {
+        "hostNames": [
+          "bd-hsv-dev-legacy-idm-sts.azurewebsites.net"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2016-09-01",
+      "name": "[parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name')]",
+      "location": "West US 2",
+      "sku": {
+        "name": "S1",
+        "tier": "Standard",
+        "size": "S1",
+        "family": "S",
+        "capacity": 1
+      },
+      "kind": "app",
+      "properties": {
+        "name": "[parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name')]",
+        "perSiteScaling": false,
+        "reserved": false,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
+      }
+    },
+    {
+      "type": "Microsoft.Relay/namespaces/AuthorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_bd_hsv_dev_legacy_relay_name'), '/RootManageSharedAccessKey')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_bd_hsv_dev_legacy_relay_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Listen",
+          "Manage",
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Relay/namespaces/hybridConnections",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_bd_hsv_dev_legacy_relay_name'), '/bd-hsv-dev-legacy-hybrid-connection')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_bd_hsv_dev_legacy_relay_name'))]"
+      ],
+      "properties": {
+        "createdAt": "2019-07-25T17:10:09.6974177Z",
+        "updatedAt": "2019-07-25T17:10:56.1579604Z",
+        "requiresClientAuthorization": true
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "auditActionsAndGroups": [],
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/master/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/master/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/master/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "status": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/master/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/elasticPools",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-elasticpool')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "kind": "vcore,pool",
+      "properties": {
+        "edition": "GeneralPurpose",
+        "storageMB": 32768,
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/encryptionProtector",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/current')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "kind": "servicemanaged",
+      "properties": {
+        "serverKeyName": "ServiceManaged",
+        "serverKeyType": "ServiceManaged"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/AllowAllWindowsAzureIps')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "0.0.0.0"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/KB')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "startIpAddress": "174.213.11.159",
+        "endIpAddress": "174.213.11.159"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/TS')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "startIpAddress": "207.114.139.254",
+        "endIpAddress": "207.114.139.254"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/keys",
+      "apiVersion": "2015-05-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/ServiceManaged')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "kind": "servicemanaged",
+      "properties": {
+        "serverKeyType": "ServiceManaged"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/securityAlertPolicies",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": true,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/vulnerabilityAssessments",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "storageContainerPath": "https://sqlva4u7zay7ohyofq.blob.core.windows.net/vulnerability-assessment/",
+        "recurringScans": {
+          "isEnabled": true,
+          "emailSubscriptionAdmins": true,
+          "emails": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "kind": "app",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_containerframework_data_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "kind": "api",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_idm_admin_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "kind": "app",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_admin_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_admin_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": false
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_idm_api_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "kind": "app",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_api_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_api_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": false
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_idm_sts_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "kind": "app",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_sts_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_sts_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": false
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_medview_services_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "kind": "api",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_services_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_services_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_medview_web_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "kind": "app",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2016-08-01",
+      "name": "[parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "kind": "app",
+      "properties": {
+        "enabled": true,
+        "hostNameSslStates": [
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'), '.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Standard"
+          },
+          {
+            "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'), '.scm.azurewebsites.net')]",
+            "sslState": "Disabled",
+            "hostType": "Repository"
+          }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_bd_hsv_dev_legacy_appserviceplan_name'))]",
+        "reserved": false,
+        "scmSiteAlsoStopped": false,
+        "clientAffinityEnabled": true,
+        "clientCertEnabled": false,
+        "hostNamesDisabled": false,
+        "containerSize": 0,
+        "dailyMemoryTimeQuota": 0,
+        "httpsOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$bd-hsv-dev-legacy-bdportal-configuration",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": false,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$bd-hsv-dev-legacy-containerframework-data",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": false,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "apiDefinition": {
+          "url": "https://bd-hsv-dev-legacy-containerframework-data.azurewebsites.net/swagger/docs/v1"
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_admin_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_admin_name'))]"
+      ],
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$bd-hsv-dev-legacy-idm-admin",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": true,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": true,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_api_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_api_name'))]"
+      ],
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$bd-hsv-dev-legacy-idm-api",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": true,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": true,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_sts_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_sts_name'))]"
+      ],
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$bd-hsv-dev-legacy-idm-sts",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": true,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": true,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_services_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_medview_services_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": true,
+        "requestTracingExpirationTime": "9999-12-31T23:59:00Z",
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2019",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": true,
+        "publishingUsername": "$bd-hsv-dev-legacy-medview-services",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": false,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "apiDefinition": {
+          "url": "https://bd-hsv-dev-legacy-medview-services.azurewebsites.net/swagger/docs/v1"
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_medview_web_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": true,
+        "requestTracingExpirationTime": "9999-12-31T23:59:00Z",
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2019",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": true,
+        "publishingUsername": "$bd-hsv-dev-legacy-medview-web",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": false,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'), '/web')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'))]"
+      ],
+      "tags": {
+        "hidden-related:/subscriptions/8a846abe-5945-4dd7-a38e-123e39d0ad16/resourceGroups/bd-hsv-dev-legacy/providers/Microsoft.Web/serverfarms/bd-hsv-dev-legacy-appserviceplan": "empty"
+      },
+      "properties": {
+        "numberOfWorkers": 1,
+        "defaultDocuments": [
+          "Default.htm",
+          "Default.html",
+          "Default.asp",
+          "index.htm",
+          "index.html",
+          "iisstart.htm",
+          "default.aspx",
+          "index.php",
+          "hostingstart.html"
+        ],
+        "netFrameworkVersion": "v4.0",
+        "phpVersion": "5.6",
+        "pythonVersion": "",
+        "nodeVersion": "",
+        "linuxFxVersion": "",
+        "requestTracingEnabled": false,
+        "remoteDebuggingEnabled": false,
+        "remoteDebuggingVersion": "VS2017",
+        "httpLoggingEnabled": false,
+        "logsDirectorySizeLimit": 35,
+        "detailedErrorLoggingEnabled": false,
+        "publishingUsername": "$bd-hsv-dev-legacy-medview-web-tv",
+        "scmType": "VSTSRM",
+        "use32BitWorkerProcess": true,
+        "webSocketsEnabled": false,
+        "alwaysOn": false,
+        "appCommandLine": "",
+        "managedPipelineMode": "Integrated",
+        "virtualApplications": [
+          {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false,
+            "virtualDirectories": null
+          }
+        ],
+        "winAuthAdminState": 0,
+        "winAuthTenantState": 0,
+        "customAppPoolIdentityAdminState": false,
+        "customAppPoolIdentityTenantState": false,
+        "loadBalancing": "LeastRequests",
+        "routingRules": [],
+        "experiments": {
+          "rampUpRules": []
+        },
+        "autoHealEnabled": false,
+        "vnetName": "",
+        "siteAuthEnabled": false,
+        "siteAuthSettings": {
+          "enabled": null,
+          "unauthenticatedClientAction": null,
+          "tokenStoreEnabled": null,
+          "allowedExternalRedirectUrls": null,
+          "defaultProvider": null,
+          "clientId": null,
+          "clientSecret": null,
+          "clientSecretCertificateThumbprint": null,
+          "issuer": null,
+          "allowedAudiences": null,
+          "additionalLoginParams": null,
+          "isAadAutoProvisioned": false,
+          "googleClientId": null,
+          "googleClientSecret": null,
+          "googleOAuthScopes": null,
+          "facebookAppId": null,
+          "facebookAppSecret": null,
+          "facebookOAuthScopes": null,
+          "twitterConsumerKey": null,
+          "twitterConsumerSecret": null,
+          "microsoftAccountClientId": null,
+          "microsoftAccountClientSecret": null,
+          "microsoftAccountOAuthScopes": null
+        },
+        "localMySqlEnabled": false,
+        "http20Enabled": false,
+        "minTlsVersion": "1.2",
+        "ftpsState": "AllAllowed",
+        "reservedInstanceCount": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/deployments",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_admin_name'), '/1401564266581335')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_admin_name'))]"
+      ],
+      "properties": {
+        "id": "1401564266581335",
+        "status": 4,
+        "author": "Kiryl Baryshnikau",
+        "deployer": "VSTS",
+        "message": "{\"type\":\"Deployment\",\"commitId\":\"89597874fd680c87387b30c557be44a5ec3a1772\",\"buildId\":\"6812\",\"releaseId\":\"140\",\"buildNumber\":\"20190727.2\",\"releaseName\":\"Release-7\",\"repoProvider\":\"TfsGit\",\"repoName\":\"HealthSight Viewer (Legacy)\",\"collectionUrl\":\"https://bdtechnologysolutions.visualstudio.com/\",\"teamProject\":\"153fb726-d154-4b04-8ebd-ed5e2a2d20d0\",\"slotName\":\"production\"}",
+        "start_time": "2019-07-27T22:29:41.9783493Z",
+        "end_time": "2019-07-27T22:29:41.9783493Z",
+        "active": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/deployments",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_api_name'), '/1401564266708230')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_api_name'))]"
+      ],
+      "properties": {
+        "id": "1401564266708230",
+        "status": 4,
+        "author": "Kiryl Baryshnikau",
+        "deployer": "VSTS",
+        "message": "{\"type\":\"Deployment\",\"commitId\":\"89597874fd680c87387b30c557be44a5ec3a1772\",\"buildId\":\"6812\",\"releaseId\":\"140\",\"buildNumber\":\"20190727.2\",\"releaseName\":\"Release-7\",\"repoProvider\":\"TfsGit\",\"repoName\":\"HealthSight Viewer (Legacy)\",\"collectionUrl\":\"https://bdtechnologysolutions.visualstudio.com/\",\"teamProject\":\"153fb726-d154-4b04-8ebd-ed5e2a2d20d0\",\"slotName\":\"production\"}",
+        "start_time": "2019-07-27T22:31:51.9619611Z",
+        "end_time": "2019-07-27T22:31:51.9619611Z",
+        "active": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/deployments",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_sts_name'), '/1401564266820473')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_sts_name'))]"
+      ],
+      "properties": {
+        "id": "1401564266820473",
+        "status": 4,
+        "author": "Kiryl Baryshnikau",
+        "deployer": "VSTS",
+        "message": "{\"type\":\"Deployment\",\"commitId\":\"89597874fd680c87387b30c557be44a5ec3a1772\",\"buildId\":\"6812\",\"releaseId\":\"140\",\"buildNumber\":\"20190727.2\",\"releaseName\":\"Release-7\",\"repoProvider\":\"TfsGit\",\"repoName\":\"HealthSight Viewer (Legacy)\",\"collectionUrl\":\"https://bdtechnologysolutions.visualstudio.com/\",\"teamProject\":\"153fb726-d154-4b04-8ebd-ed5e2a2d20d0\",\"slotName\":\"production\"}",
+        "start_time": "2019-07-27T22:34:36.6433761Z",
+        "end_time": "2019-07-27T22:34:36.6433761Z",
+        "active": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'), '/', parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_bdportal_configuration_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-bdportal-configuration",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'), '/', parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_containerframework_data_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-containerframework-data",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_admin_name'), '/', parameters('sites_bd_hsv_dev_legacy_idm_admin_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_admin_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-idm-admin",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_api_name'), '/', parameters('sites_bd_hsv_dev_legacy_idm_api_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_api_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-idm-api",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_idm_sts_name'), '/', parameters('sites_bd_hsv_dev_legacy_idm_sts_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_idm_sts_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-idm-sts",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_services_name'), '/', parameters('sites_bd_hsv_dev_legacy_medview_services_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_medview_services_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-medview-services",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_name'), '/', parameters('sites_bd_hsv_dev_legacy_medview_web_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_medview_web_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-medview-web",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/hostNameBindings",
+      "apiVersion": "2016-08-01",
+      "name": "[concat(parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'), '/', parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'), '.azurewebsites.net')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('sites_bd_hsv_dev_legacy_medview_web_tv_name'))]"
+      ],
+      "properties": {
+        "siteName": "bd-hsv-dev-legacy-medview-web-tv",
+        "hostNameType": "Verified"
+      }
+    },
+    {
+      "type": "Microsoft.Relay/namespaces/hybridConnections/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_bd_hsv_dev_legacy_relay_name'), '/bd-hsv-dev-legacy-hybrid-connection/listen')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Relay/namespaces/hybridConnections', parameters('namespaces_bd_hsv_dev_legacy_relay_name'), 'bd-hsv-dev-legacy-hybrid-connection')]",
+        "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_bd_hsv_dev_legacy_relay_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Listen"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Relay/namespaces/hybridConnections/authorizationRules",
+      "apiVersion": "2017-04-01",
+      "name": "[concat(parameters('namespaces_bd_hsv_dev_legacy_relay_name'), '/bd-hsv-dev-legacy-hybrid-connection/send')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Relay/namespaces/hybridConnections', parameters('namespaces_bd_hsv_dev_legacy_relay_name'), 'bd-hsv-dev-legacy-hybrid-connection')]",
+        "[resourceId('Microsoft.Relay/namespaces', parameters('namespaces_bd_hsv_dev_legacy_relay_name'))]"
+      ],
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal')]",
+      "location": "westus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]",
+        "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]"
+      ],
+      "sku": {
+        "name": "ElasticPool",
+        "tier": "GeneralPurpose"
+      },
+      "kind": "v12.0,user,vcore,pool",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 34359738368,
+        "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]",
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework')]",
+      "location": "westus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]",
+        "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]"
+      ],
+      "sku": {
+        "name": "ElasticPool",
+        "tier": "GeneralPurpose"
+      },
+      "kind": "v12.0,user,vcore,pool",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 34359738368,
+        "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]",
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm')]",
+      "location": "westus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]",
+        "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]"
+      ],
+      "sku": {
+        "name": "ElasticPool",
+        "tier": "GeneralPurpose"
+      },
+      "kind": "v12.0,user,vcore,pool",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 34359738368,
+        "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]",
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview')]",
+      "location": "westus2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]",
+        "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]"
+      ],
+      "sku": {
+        "name": "ElasticPool",
+        "tier": "GeneralPurpose"
+      },
+      "kind": "v12.0,user,vcore,pool",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 34359738368,
+        "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-elasticpool')]",
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "zoneRedundant": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/CreateIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/DbParameterization')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/DefragmentIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/DropIndex')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/advisors",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/ForceLastGoodPlan')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "autoExecuteValue": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "auditingState": "Disabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/auditingSettings",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "retentionDays": 0,
+        "storageAccountSubscriptionId": "00000000-0000-0000-0000-000000000000",
+        "isStorageSecondaryKeyInUse": false
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/Default')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/securityAlertPolicies",
+      "apiVersion": "2018-06-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "state": "Disabled",
+        "disabledAlerts": [
+          ""
+        ],
+        "emailAddresses": [
+          ""
+        ],
+        "emailAccountAdmins": false,
+        "retentionDays": 0
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "status": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "status": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "status": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/current')]",
+      "location": "West US 2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "status": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-bdportal/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-bdportal')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true,
+          "emails": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-containerframework/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-containerframework')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true,
+          "emails": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-idm/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-idm')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true,
+          "emails": []
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[concat(parameters('servers_bd_hsv_dev_legacy_sql_server_name'), '/bd-hsv-dev-legacy-db-medview/Default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_bd_hsv_dev_legacy_sql_server_name'), 'bd-hsv-dev-legacy-db-medview')]",
+        "[resourceId('Microsoft.Sql/servers', parameters('servers_bd_hsv_dev_legacy_sql_server_name'))]"
+      ],
+      "properties": {
+        "recurringScans": {
+          "isEnabled": false,
+          "emailSubscriptionAdmins": true,
+          "emails": []
+        }
+      }
+    }
+  ]
+}

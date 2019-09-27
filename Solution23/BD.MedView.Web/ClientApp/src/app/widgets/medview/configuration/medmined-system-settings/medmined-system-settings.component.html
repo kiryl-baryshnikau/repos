@@ -1,0 +1,8 @@
+﻿<div class="system-admin-title" style="margin-top: 20px">{{resources.medminedSettingsTitle}}</div>
+<div id="medminedSystemSettingContainer">
+<mvd-checkbox-picklist [sourceListLabel]="resources.subscribeListLabel" [targetListLabel]="resources.unsubscribeListLabel"
+                       [sourceList]="subscribedAlerts" [targetList]="unsubscribedAlerts"
+                       (selectionToRightEvent)="unsubscribeSelected($event)" (allSourceToRightEvent)="unsubscribeAll()"
+                       (selectionToLeftEvent)="subscribeSelected($event)" (allTargetToLeftEvent)="subscribeAll()"
+                       ></mvd-checkbox-picklist>
+</div>

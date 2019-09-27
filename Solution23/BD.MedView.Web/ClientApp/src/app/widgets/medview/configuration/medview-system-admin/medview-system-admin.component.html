@@ -1,0 +1,228 @@
+﻿<div class="widget-loader" *ngIf="isLoading">
+    <div class="loader-large"></div>
+</div>
+<div class="system-admin-container">
+    <div class="system-admin-controls">
+        <button class="btn btn-cancel" (click)="onCancel()" [disabled]="!adminSettingsForm.dirty">{{resources.cancel}}</button>
+        <button class="btn btn-save" (click)="onSave()" [disabled]="!adminSettingsForm.dirty || !adminSettingsForm.valid">{{resources.apply}}</button>
+    </div>
+    <div class="system-admin-title">{{resources.systemSettingsTitle}}</div>
+    <div class="horizontal-flex">
+        <form class="refresh-container refresh-page" [formGroup]="adminSettingsForm" novalidate>
+            <div>
+                <label for="refreshRate" class="refreshRateTitle">{{resources.refreshRateTitle}} </label>
+            </div>
+            <p-spinner size="30" formControlName="refreshRate" name="refreshRate"></p-spinner>
+            <span class="refreshUnits">{{resources.refreshUnits}}</span>
+            <div class="refreshRateFooter">{{resources.refreshRateFooter}}</div>
+            <div class="refreshRateErrorMessage" *ngIf="!adminSettingsForm.get('refreshRate').valid">
+                <p-message severity="error" [text]="resources.refreshRateIsRequired" *ngIf="!!adminSettingsForm.get('refreshRate').errors.required"></p-message>
+                <p-message severity="error" [text]="resources.refreshRateOutOfRangeError" *ngIf="!!adminSettingsForm.get('refreshRate').errors.min || !!adminSettingsForm.get('refreshRate').errors.max"></p-message>
+            </div>
+            <div class="refreshRateErrorMessage" *ngIf="hasDataLoadError">
+                <p-message severity="error" [text]="resources.refreshRateNoDataAvailable" ></p-message>
+            </div>
+            <div class="refreshRateErrorMessage" *ngIf="hasRefreshRateSaveError">
+                <p-message severity="error" [text]="resources.unableToSaveRefreshRate" ></p-message>
+            </div>
+        </form>
+        <form class="order-service-params-container" [formGroup]="adminSettingsForm" novalidate>
+            <div formGroupName="orderServiceFormGroup">
+                <label class="title">{{resources.orderServiceSearchParameters}}</label>
+                <div>
+                    <label class="item-label">{{resources.variance}}</label>
+                    <p-dropdown styleClass="order-service-variance-dropdown" [options]="orderServiceOptions" formControlName="selectedVariance"></p-dropdown>
+                </div>
+                <div class="description">
+                    <span class="text">{{resources.varianceDescriptionTextLine1}}</span>
+                    <span class="text">{{resources.varianceDescriptionTextLine2}}</span>
+                    <span class="text">{{resources.varianceDescriptionTextLine3}}</span>
+                </div>
+                <div>
+                    <a class="restore-link" (click)="onClickResetOrderServiceVariance()">{{resources.resetToDefault}}</a>
+                </div>
+                <div class="error-message" *ngIf="hasOrderServiceSaveError">
+                    <p-message severity="error" [text]="resources.unableToSaveOrderServiceSearchParameters" ></p-message>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="isInfusionProviderEnabled">
+        <div class="system-admin-title" style="margin-top: 20px">{{resources.alarisDataSettingsTitle}}</div>
+        <div id="alarisDataSettingsContainer">
+            <div class="infusionToShowContainer">
+                <div>
+                    <p>
+                        {{resources.infusionShowHideList}}
+                    </p>
+                    <p>
+                        {{resources.instructionsShowHideList}}
+                    </p>
+                </div>
+                <div style="display: flex; min-width: 1010px; flex-direction: column; margin-top: 20px">
+                    <form class="refresh-container" [formGroup]="adminSettingsForm">
+                        <div style="display: flex;" formGroupName="infusionsToDisplayForm">
+                            <div style="max-width: 440px; flex-grow: 3">
+                                <span style="margin-bottom: 5px; display: block">{{resources.show}}:</span>
+                                <p-listbox [options]="infusionsToShow" [(ngModel)]="selectedInfusionsToShow" [style]="{'width':'190px'}" multiple="multiple" checkbox="checkbox" showToggleAll="" formControlName="infusionsToShow">
+                                </p-listbox>
+                            </div>
+                            <div style="max-width: 130px; flex-grow: 1">
+                                <mvd-button-selection (selectionToRight)="onSelectionToRight()" (allToRight)="onAllToRight()" (selectionToLeft)="onSelectionToLeft()" (allToLeft)="onAllToLeft()"></mvd-button-selection>
+                            </div>
+                            <div style="max-width: 440px; flex-grow: 3">
+                                <span style="margin-bottom: 5px; display: block">{{resources.hide}}:</span>
+                                <p-listbox [options]="infusionsToHide" [(ngModel)]="selectedInfusionsToHide" [style]="{'width':'190px'}" multiple="multiple" checkbox="checkbox" showToggleAll="" formControlName="infusionsToHide">
+                                    <ng-template let-item let-i="index" pTemplate="item">
+                                        <span [class.manuallyAdded]="item.value.addedByUser">{{item.label}}</span>
+                                    </ng-template>
+                                </p-listbox>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="add-unlisted-infusion">
+                        <div style="align-self: stretch; max-width: 580px; flex-grow: 4">
+                            &nbsp;
+                        </div>
+                        <div style="max-width: 440px; flex-grow: 3">
+                            <div style="display: flex">
+                                <div style="flex-grow: 3; min-width: 345px;">
+                                    <input type="text" [(ngModel)]="unlistedInfusion" class="textbox tbxUnlistedInfusion" placeholder="{{resources.addUnlistedInfusionText}}" />
+                                </div>
+                                <div>
+                                    <button class="btnAddInfusion" (click)="onAddUnlistedInfusionClick()">{{resources.add}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="thresholdSettingsContainer">
+                <div>
+                    {{resources.infusionUpperThresholds}}:
+                </div>
+                <div class="infusionUpperThresholdsContainer margintop20">
+                    <form [formGroup]="adminSettingsForm" novalidate>
+                        <div formGroupName="infusionThresholdForm">
+                            <div class="row">
+                                <div class="leftColumn">
+                                    <div class="iconContainer">
+                                        <i class="fa fa-play fa-rotate-270 warningThresholdIcon"></i>
+                                    </div>
+                                    <div class="titleContainer">
+                                        {{resources.warning}}
+                                    </div>
+                                </div>
+                                <div class="rightColumn">
+                                    <div>
+                                        <p-spinner size="30" formControlName="warningThreshold" name="warningThreshold"></p-spinner>
+                                        <span class="thresholdUnits">{{resources.thresholdUnits}}</span>
+                                    </div>
+                                    <div>
+                                        <div class="thresholdFooter">{{resources.warningThresholdFooter}}</div>
+                                        <div class="refreshRateErrorMessage" *ngIf="!adminSettingsForm.get('infusionThresholdForm').get('warningThreshold').valid">
+                                            <p-message severity="error" [text]="resources.warningThresholdIsRequired" *ngIf="!!adminSettingsForm.get('infusionThresholdForm').get('warningThreshold').errors.required"></p-message>
+                                            <p-message severity="error" [text]="resources.thresholdWarningErrorRangeMessage" *ngIf="!!adminSettingsForm.get('infusionThresholdForm').get('warningThreshold').errors.min || !!adminSettingsForm.get('infusionThresholdForm').get('warningThreshold').errors.max"></p-message>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="leftColumn">
+                                    <div class="iconContainer">
+                                        <i class="fa fa-stop fa-rotate-45 priorityThresholdIcon"></i>
+                                    </div>
+                                    <div class="titleContainer">
+                                        {{resources.priority}}
+                                    </div>
+                                </div>
+                                <div class="rightColumn">
+                                    <div>
+                                        <p-spinner size="30" formControlName="priorityThreshold" name="priorityThreshold"></p-spinner>
+                                        <span class="thresholdUnits">{{resources.thresholdUnits}}</span>
+                                    </div>
+                                    <div>
+                                        <div class="thresholdFooter">{{resources.priorityThresholdFooter}}</div>
+                                        <div class="refreshRateErrorMessage" *ngIf="!adminSettingsForm.get('infusionThresholdForm').get('priorityThreshold').valid">
+                                            <p-message severity="error" [text]="resources.priorityThresholdIsRequired" *ngIf="!!adminSettingsForm.get('infusionThresholdForm').get('priorityThreshold').errors.required"></p-message>
+                                            <p-message severity="error" [text]="resources.thresholdPriorityErrorRangeMessage" *ngIf="!!adminSettingsForm.get('infusionThresholdForm').get('priorityThreshold').errors.min || !!adminSettingsForm.get('infusionThresholdForm').get('priorityThreshold').errors.max"></p-message>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="leftColumn">
+                                    <div class="titleContainer escalate">
+                                        {{resources.escalate}}
+                                    </div>
+                                </div>
+                                <div class="rightColumn">
+                                    <div>
+                                        <p-spinner size="30" formControlName="escalateThreshold" name="escalateThreshold"></p-spinner>
+                                        <span class="thresholdUnits">{{resources.thresholdUnits}}</span>
+                                    </div>
+                                    <div>
+                                        <div class="thresholdFooter">{{resources.escalateThresholdFooter}}</div>
+                                        <div class="refreshRateErrorMessage" *ngIf="!adminSettingsForm.get('infusionThresholdForm').get('escalateThreshold').valid">
+                                            <p-message severity="error" [text]="resources.escalateThresholdIsRequired" *ngIf="!!adminSettingsForm.get('infusionThresholdForm').get('escalateThreshold').errors.required"></p-message>
+                                            <p-message severity="error" [text]="resources.thresholdEscalateErrorRangeMessage" *ngIf="!!adminSettingsForm.get('infusionThresholdForm').get('escalateThreshold').errors.min || !!adminSettingsForm.get('infusionThresholdForm').get('escalateThreshold').errors.max"></p-message>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="margintop20">
+                    {{resources.otherSettingsTitle}}
+                </div>
+                <div class="margintop20">
+                    {{resources.preserveRecordsTitle}}:
+                </div>
+                <form [formGroup]="adminSettingsForm" novalidate>
+                    <div formGroupName="otherSettingsForm">
+                        <div class="preserveRecordsContainer">
+                            <div class="row" style="margin-bottom: 0px">
+                                <p-spinner size="30" formControlName="preserveRecordsHours"></p-spinner>
+                                <span class="thresholdUnits">&nbsp;{{resources.preserveRecordsUnits}}</span>
+                            </div>
+                            <div>
+                                <div class="thresholdFooter">{{resources.preserveRecordsFooter}}</div>
+                                <div class="refreshRateErrorMessage" *ngIf="!adminSettingsForm.get('otherSettingsForm').get('preserveRecordsHours').valid">
+                                    <p-message severity="error" [text]="resources.preserveRecordsIsRequired" *ngIf="!!adminSettingsForm.get('otherSettingsForm').get('preserveRecordsHours').errors.required"></p-message>
+                                    <p-message severity="error" [text]="resources.preverveRecordsRangeError" *ngIf="!!adminSettingsForm.get('otherSettingsForm').get('preserveRecordsHours').errors.min || !!adminSettingsForm.get('otherSettingsForm').get('preserveRecordsHours').errors.max"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="margintop20">
+                            {{resources.containerToleranceTitle}}:
+                        </div>
+                        <div class="row">
+                            <p-dropdown [autoDisplayFirst]="false" [options]="containerToleranceOptions" formControlName="containerToleranceValue"></p-dropdown>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isCatoProviderEnabled">
+        <div class="system-admin-title" style="margin-top: 20px">{{resources.pixysIvPrepSettingsTittle}}</div>
+        <p class="rowmargin">&nbsp;</p>
+        <div>
+                <mvd-iv-prep-configuration #ivPrepConfiguration [appCode]="appCode" [widgetId]="widgetId" (changed)="onElementChange()" ></mvd-iv-prep-configuration>
+        </div>
+
+    </div>
+    <div *ngIf="isMedminedProviderEnabled">
+        <div class="system-admin-title" style="margin-top: 20px">{{resources.medminedSettingsTittle}}</div>
+        <p class="rowmargin">&nbsp;</p>
+        <p-message severity="error" [text]="resources.medminedDataRetrievalError" *ngIf="errorMedminedDataRetrieval"></p-message>
+        <p-message severity="error" [text]="resources.medminedDataEmpty" *ngIf="errorMedminedDataEmpty"></p-message>
+        <p-message severity="error" [text]="resources.medminedDataSaveError" *ngIf="errorMedminedDataSave"></p-message>
+        <form class="refresh-container" [formGroup]="adminSettingsForm">
+            <div formGroupName="alertSubscriptionGroup">
+                <medmined-system-settings [appCode]="appCode" [widgetId]="widgetId" formControlName="alertsSubscription" [subscribedAlerts]="subscribedAlerts" [unsubscribedAlerts]="unsubscribedAlerts"></medmined-system-settings>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<a class="topbar--action-item--icon" [ngClass]="iconStyle" (click)="onIconClick($event)">
+    <ng-content select="[data-container='icon']"></ng-content>
+</a>
+<ng-content select="[data-container='options']"></ng-content>

@@ -1,0 +1,113 @@
+.listPriorities{
+    list-style-type: none;
+    padding: 0 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 0;
+}
+.listPriorities .counter {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    min-width: 20px;
+    align-self: center;
+    text-align: right;
+    font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+}
+.listPriorities li{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-bottom: solid 1px #CCC;
+    cursor: pointer;
+}
+.rowContainer {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*.listPriorities li:hover:not(:first-child) {
+    background-color: #f5f5f5;
+}*/
+
+/*.listPriorities li:first-child {
+    background-color: #f5f5f5;
+}*/
+
+.iconPlaceHolder{
+    width: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.iconPlaceHolder .icon{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+}
+.resumeContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 10px;
+}
+.resumeContainer .title {
+    font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+    text-align: justify;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 14px;
+}
+.resumeContainer .resume {
+    text-align: justify;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    line-height: initial;
+}
+
+.fa-circle-blue {
+    color: #004592;
+}
+.leftBorder {
+    width: 4px;
+}
+
+.listPriorities .selected .resumeContainer .title,
+.listPriorities .selected .resumeContainer .resume {
+    color: #004592;
+}
+.dose-selected {
+    color: #004592;
+}
+
+.header {
+    align-items: center;
+    align-self: center;
+    cursor: default;
+    background-color: #f5f5f5;
+    padding: 0px;
+    height: 30px
+}
+
+.summary-cell {
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.summary-requests-cell {
+    min-width: 110px;
+    max-width: 110px;
+}
+.innerHeaderWidget {
+    padding-bottom: 24px;
+    min-height: 54px;
+    max-height: 54px;
+    border-bottom: solid 1px #CCC;
+}

@@ -1,0 +1,111 @@
+<div class="Widget__Loader" *ngIf="loadingData">
+    <div class="loader-large"></div>
+</div>
+
+<p-growl [(value)]="msgs" [baseZIndex]="20000" [style]="{'top': '260px', 'right': '92px'}" [sticky]="false"></p-growl>
+
+<div class="configurationcomponent">
+    <div>
+        <div class="rowmargin btn-container">
+            <button class="btngraph btnclose btn" (click)="cancelConfig()" [disabled]="!isFormTouched">{{resources.cancel}}</button>
+            <button class="btngraph btnsave btn" (click)="applyConfig()" [disabled]="disableApplyButton()">{{resources.apply}}</button>
+        </div>
+        <div class="section-title ">{{resources.userSystemSettingsTitle}}</div>
+        <p class="rowmargin">&nbsp;</p>
+        <div class="flex-container rowmargin">
+            <div style="flex-grow: 2; max-width: 800px" class="borderRight">
+                <div class="userSystemHelp">{{resources.userSystemSettingsHelpText}}</div>
+                <div style="display: flex">
+                    <div class="flex-col1" *ngIf="isStandardUser" style="max-width: 425px">
+                        <div class="select-facility" style="padding-right: 25px">
+                            <div>
+                                <span class="header" style="height: 43px">{{resources.selectFacility}}:</span>
+                            </div>
+                            <div>
+                                <div class="container-errorrange labelcheckbox" *ngIf="!selectedFacilities || selectedFacilities.length === 0">
+                                    <span class="text-danger">
+                                        {{resources.selectAtLeastOneFacility}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="full-height" id="containerFacilities">
+                                <mvd-checkbox-list [listItems]="facilities" (onItemSelectionChanged)="changeFacility($event)" #radioButtonList></mvd-checkbox-list>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col1" *ngIf="isStandardUser" style="max-width: 425px">
+                        <div class="select-facility" style="padding-left: 25px">
+                            <div>
+                                <span class="header">{{resources.widgetsToDisplay}}</span>
+                                <div class="container-errorrange labelcheckbox" *ngIf="displayErrorWidgets && (selectedFacilities && selectedFacilities.length > 0)">
+                                    <span class="text-danger">
+                                        {{resources.selectAtLeastOneWidget}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="full-height">
+                                <ul class="ul-config-options">
+                                    <li *ngFor="let widget of widgetsAvailables" style="display: flex">
+                                        <div class="flex-col3" [class.textdisabled]="!widget.enabled">
+                                            <p-checkbox [(ngModel)]="widget.checked" [disabled]="!widget.enabled" (onChange)="checkedWidgetChanged($event, widget)" binary="true"></p-checkbox>{{widget.name}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="userSystemHelp" style="margin-bottom: 10px">{{resources.allFacilitiesOverrideHelpText}}</div>
+            </div>
+            <div class="flex-col3">
+                <div class="select-facility" style="max-width: inherit">
+                    <span class="header">{{resources.otherSettings}}</span>
+                    <div>
+                        <div class="rowmargin">
+                            <div class="flex-container sessiontimeout">
+                                <div class="checkbox-container">
+                                    <p-checkbox [(ngModel)]="maskDataEnabled" (onChange)="checkedChangeMaskData()" binary="true" ></p-checkbox>
+                                </div>
+                                <span class="flex-col1 labelcheckbox">{{resources.maskphi}}</span>
+                            </div>
+                        </div>
+                        <div class="rowmargin">
+                            <div class="flex-container sessiontimeout">
+                                <div class="checkbox-container">
+                                    <p-checkbox [(ngModel)]="enableTimeOut" (onChange)="checkedChangeTimeOut($event)" binary="true"></p-checkbox>
+                                </div>
+                                <span class="flex-col1 labelcheckbox">{{resources.sessionTimeout}}</span>
+                                <input class="input-timeout" type="text" maxlength="3" [value]="sessionTimeOut" (keydown)="onKeyDownTimeOut($event)" (keyup)="onKeyUpTimeOut($event)" (blur)="validateTimeOut()" />
+                                <span class="labelcheckbox labelunits"> {{resources.timeoutUnit}}</span>
+                                <div class="container-errorrange labelcheckbox">
+                                    <span *ngIf="displayRangeError" class="text-danger">
+                                        {{rangeErrorMessage}}
+                                    </span>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="signInNote">
+                                {{resources.effectNextSignIn}}
+                            </div>
+                        </div>
+                        <div class="rowmargin">
+                            <span class="header">{{resources.setDefaultPageText}}</span>
+                            <div>
+                                <div class="radio-in-line" *ngFor="let tab of widgetsChecked">
+                                    <p-radioButton (click)="setDefaultWidget(tab)" [(ngModel)]="defaultWidget" name="widgetDefault" value="{{tab.routeUrl}}" label="{{tab.routeName}}"></p-radioButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="isStandardUser && isInfusionSectionEnabled">
+            <div class="section-title ">{{resources.alarisDataSettings}}</div>
+            <p class="rowmargin">&nbsp;</p>
+            <mvd-facility-selection #mvdFacilitySelection [appCode]="appCode" [widgetId]="widgetId" (changed)="onElementChange()"></mvd-facility-selection>
+        </div>
+    </div>
+</div>

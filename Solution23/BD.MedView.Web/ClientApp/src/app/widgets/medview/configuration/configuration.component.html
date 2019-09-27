@@ -1,0 +1,20 @@
+<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="false" [showColumnSelector]="false" [showDataFilter]="false"
+    [showExportTable]="false" [showRemove]="false" [showSetTimeframe]="false"></mvd-widget-toolbar>
+<div class="configurationcomponent" *ngIf="isInitialized">
+    <p-tabView (onChange)="tabChanged($event)">
+        <p-tabPanel header="{{resources.settings}}" *ngIf="isStandardUser" [selected]="isConfigurationTabSelected">
+            <medview-configuration [isStandardUser]="isStandardUser" [appCode]="appCode"
+                                   [widgetId]="widgetId" [user]="user" [isInfusionSectionEnabled]="isUserInfusionSettingsEnabled"></medview-configuration>
+        </p-tabPanel>
+        <p-tabPanel header="{{resources.globalSystemAdminSettings}}" *ngIf="isSystemAdmin" [selected]="isSystemAdminTabSelected">
+            <medview-system-admin [appCode]="appCode" [widgetId]="widgetId" [isCatoProviderEnabled]="isPixysIvPrepEnabled"
+                                  [isInfusionProviderEnabled]="isSystemInfusionSettingsEnabled"></medview-system-admin>
+        </p-tabPanel>
+        <p-tabPanel header="{{resources.userAuthorization}}" *ngIf="isAdmin" [selected]="isAuthorizationTabSelected">
+            <medview-authorization [appCode]="appCode" [widgetId]="widgetId" [user]="user" (userRoleChanged)="initConfiguration()"></medview-authorization>
+        </p-tabPanel>
+        <p-tabPanel header="{{resources.facilityManagement}}" *ngIf="isSuperAdmin" [selected]="isFacilityManagementTabSelected">
+            <medview-facility-management (onSourceEnabledChanged)="initConfiguration()" [appCode]="appCode" [widgetId]="widgetId" [user]="user"></medview-facility-management>
+        </p-tabPanel>
+    </p-tabView>
+</div>

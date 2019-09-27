@@ -1,0 +1,19 @@
+<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showColumnSelector]="false"
+    [showExportTable]="false" [showSetTimeframe]="false" [showIvPrepTimeFrameFilter]="true" [setIvPrepTimeFrameDisabled] = "setIvPrepTimeFrameDisabled"
+    [showSettings]="true" [wideMultipleValueBoxes]="true" [ivPrepHourFilterValue]="ivPrepFilterValue"
+    (widgetSettingsClicked)="onWidgetSettingsClicked()" (dataFilterOpened)="initializeMultivalueFiltersControl()"
+    (applyDataFiltersClicked)="applyFilters($event)" (resetDataFiltersClicked)="resetFilters($event)"
+    (ivPrepDateFilterDateChange)="applyIvPrepFilter($event)" (ivPrepDateFilterPanelOpened)="initializeIvPrepDateFilter()"
+    #widgetToolbar></mvd-widget-toolbar>
+<div id="container" class="fx-child fx-col" #canvasWidth>
+    <div>
+        <mvd-infusions-line-chart [canvasWidth]="width" [canvasHeight]="height"  [orderServiceEnabled]="orderServiceEnabled"
+                                  [authorizationConfig]="authorizationConfig"
+                                  (onAcknowledgement)="onAcknowledgementRecord($event)" (onRequestRefresh)="onRequestRefreshGraph()"
+                                  (onRequestOrderService)="onRequestOrderService($event)"
+                                  (changePriority)="onChangePriority($event)"
+                                  (orderSelected)="onOrderSelected($event)"
+                                  (onDisplayAlertsDetails)="onDisplayAlertsDetails($event)"
+                                  ></mvd-infusions-line-chart>
+    </div>
+</div>

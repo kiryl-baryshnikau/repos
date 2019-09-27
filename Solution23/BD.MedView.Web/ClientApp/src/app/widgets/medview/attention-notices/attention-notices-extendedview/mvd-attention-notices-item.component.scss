@@ -1,0 +1,434 @@
+﻿.itemContainer {
+    min-width: 275px;
+    max-width: 275px;
+    display: flex;
+    background-color: rgba(247, 247, 247, 1);
+    cursor: pointer;
+}
+.detailsContainer {
+    display: flex;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.critical {
+    min-height: 130px;
+    max-height: 130px;
+}
+.noncritical{
+    min-height: 100px;
+    max-height: 100px;
+}
+.borderPlaceHolder{
+    width: 4px;
+  }
+  .redBackground{
+    background-color: #f93354;
+  }
+.noncritical .redBackground {
+    background-color: transparent !important;
+}
+  .iconPlaceHolder{
+    min-width: 25px;
+  }
+  .counter{
+    min-width: 40px;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    color: #1E1E1E;
+  }
+  .textContainer{
+    display: flex;
+    /*padding-right: 20px;*/
+    flex-flow: row wrap;
+    flex-grow: 1;
+    max-width: 100%;
+    /*min-width: 100%;*/
+    width: 200px;
+  }
+    .textContainer .title {
+        word-wrap: break-word;
+        font-weight: 700;
+        font-style: normal;
+        color: #1E1E1E;
+        align-self: flex-start;
+        flex: 1 100%;
+        font-family: 'Roboto-Bold', 'Roboto Bold', 'Roboto';
+    }
+.critical .textContainer .title {
+    font-size: 19px;
+}
+  .noncritical .textContainer .title{
+    font-size: 17px;
+  }
+  .textContainer .subtitle{
+    word-wrap: break-word;
+    align-self: flex-end;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color: #1E1E1E;
+    flex: 1 100%;
+    min-width: 100%;
+  }
+  .fa-rotate-45 {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    color: #f73757 !important;
+}
+.fa-stop {
+    color: #fff200;
+}
+.fa-play {
+    color: #ff9100;
+}
+.fa-circle {
+    color: #2cd182;
+}
+.fa-circle-blue {
+    color: #004592;
+}
+.iconPlaceHolder{
+    text-align: center;
+}
+.icon i{
+    line-height: 25px;
+}
+
+/*For IE*/
+.noncritical .borderPlaceHolder{
+    min-height: 100px;
+    max-height: 100px;
+}
+.noncritical .iconPlaceHolder{
+    min-height: 100px;
+    max-height: 100px;
+}
+.noncritical .counter{
+    min-height: 100px;
+    max-height: 100px;
+}
+.noncritical .textContainer{
+    min-height: 70px;
+    max-height: 70px;
+}
+.critical .borderPlaceHolder{
+    min-height: 130px;
+    max-height: 130px;
+}
+.critical .iconPlaceHolder{
+    min-height: 130px;
+    max-height: 130px;
+}
+.critical .counter{
+    min-height: 130px;
+    max-height: 130px;
+}
+.critical .textContainer{
+    min-height: 100px;
+    max-height: 100px;
+}
+
+.blinkingText {
+    animation: text 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: text 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: text 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: black;
+}
+
+.blinkingRow {
+    width: 100%;
+    height: 100%;
+    animation: pulse 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: pulse 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: pulse 3s infinite;
+    -webkit-animation-direction: alternate;
+}
+
+.blinkingIconHighPriority {
+    animation: highPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: highPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: highPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #f73757;
+}
+
+.blinkingIconMediumPriority {
+    animation: mediumPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: mediumPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: mediumPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #ff9100;
+}
+
+.blinkingIconLowPriority {
+    animation: lowPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: lowPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: lowPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #fff200;
+}
+
+.blinkingIconNormalPriority {
+    animation: normalPriority 3s infinite;
+    animation-direction: alternate;
+    -moz-animation: normalPriority 3s infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation: normalPriority 3s infinite;
+    -webkit-animation-direction: alternate;
+    color: #2cd182;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #FFF;
+    }
+
+    100% {
+        background-color: #f73757;
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        background-color: #FFF;
+    }
+
+    100% {
+        background-color: #f73757;
+    }
+}
+
+@-moz-keyframes pulse {
+    0% {
+        background-color: #FFF;
+    }
+
+    100% {
+        background-color: #f73757;
+    }
+}
+
+@-ms-keyframes pulse {
+    0% {
+        background-color: #FFF;
+    }
+
+    100% {
+        background-color: #f73757;
+    }
+}
+
+@keyframes text {
+    0% {
+        color: black;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes text {
+    0% {
+        color: black;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-moz-keyframes text {
+    0% {
+        color: black;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-ms-keyframes text {
+    0% {
+        color: black;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@keyframes highPriority {
+    0% {
+        color: #f73757;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes highPriority {
+    0% {
+        color: #f73757;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-moz-keyframes highPriority {
+    0% {
+        color: #f73757;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-ms-keyframes highPriority {
+    0% {
+        color: #f73757;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@keyframes mediumPriority {
+    0% {
+        color: #ff9100;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes mediumPriority {
+    0% {
+        color: #ff9100;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-moz-keyframes mediumPriority {
+    0% {
+        color: #ff9100;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-ms-keyframes mediumPriority {
+    0% {
+        color: #ff9100;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@keyframes lowPriority {
+    0% {
+        color: #fff200;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes lowPriority {
+    0% {
+        color: #fff200;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-moz-keyframes lowPriority {
+    0% {
+        color: #fff200;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-ms-keyframes lowPriority {
+    0% {
+        color: #fff200;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@keyframes normalPriority {
+    0% {
+        color: #2cd182;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes normalPriority {
+    0% {
+        color: #2cd182;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-moz-keyframes normalPriority {
+    0% {
+        color: #2cd182;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@-ms-keyframes normalPriority {
+    0% {
+        color: #2cd182;
+    }
+
+    100% {
+        color: white;
+    }
+}

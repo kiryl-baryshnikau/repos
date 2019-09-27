@@ -1,0 +1,15 @@
+﻿<div class="flex-container" id="picklistComponent">
+    <div class="flex-child3 side-column">
+        <div class="labelList">{{sourceListLabel}}:</div>
+        <p-listbox [options]="sourceList" [(ngModel)]="selectedItemsSource" multiple="multiple" checkbox="checkbox" showToggleAll="" [style]="{ 'width':'100%' }">
+        </p-listbox>
+    </div>
+    <div class="flex-child1">
+        <mvd-button-selection (selectionToRight)="onSelectionToRight()" (allToRight)="onAllToRight()" (selectionToLeft)="onSelectionToLeft()" (allToLeft)="onAllToLeft()"></mvd-button-selection>
+    </div>
+    <div class="flex-child3 side-column">
+        <div class="labelList">{{targetListLabel}}:</div>
+        <p-listbox [options]="targetList" [(ngModel)]="selectedItemsTarget" multiple="multiple" checkbox="checkbox" showToggleAll="" [style]="{ 'width':'100%' }">
+        </p-listbox>
+    </div>
+</div>

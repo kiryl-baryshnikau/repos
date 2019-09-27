@@ -1,0 +1,83 @@
+﻿<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="true" [showDataFilter]="true"
+                    [showSetTimeframe]="false" [showSettings]="true" #widgetToolbar [tableColumns]="tableColumns"
+                    (initDataFilters)="onMultiValueFiltersInit($event)" (dataFilterOpened)="initializeMultivalueFiltersControl()"
+                    (applyDataFiltersClicked)="applyMultiValueFilter($event)" (resetDataFiltersClicked)="resetMultiValueFilter($event)"
+                    (widgetSettingsClicked)="onWidgetSettingsClicked()" (exportButtonClicked)="onExportButtonClicked($event)"
+                    [dataFilterDisabled]="disableFilter" (toggleColumn)="onToggleColumn($event)">
+
+</mvd-widget-toolbar>
+
+<div class="clinicalDashboardFiltersContainer" [ngClass]="advanceSubscription ? '' : 'selectorBasicClass'">
+    <div class="leftColumn" style="display: flex; align-items: center; border-right: none; max-width: 314px; min-width: 314px">
+        <div style="flex-grow: 1; min-width: 100%; max-width: 301px;">
+            <mvd-search-box (onClear)="onClearSearchBox($event)" (onSearchClicked)="onGlobalSearch($event)" [searchCriteria]="globalSearchCriteria"
+                            [placeHolder]="resources.searchAllClinicalAlerts"></mvd-search-box>
+        </div>
+    </div>
+    <div class="rightColumn" style="flex-grow: 1;"  [style.minWidth]="advanceSubscription ? '1042px' : 'auto'">
+        <p-selectButton [options]="filterItems$ | async" (onChange)="onItemClicked($event)" [(ngModel)]="currentStatus" dataKey="id" optionLabel="label">
+            <ng-template let-item>
+                <div class="listitem" style="justify-content: space-between">
+                    <div class="flex flexRowWrap" style="flex-grow: 15">
+                        <div [class]="item.value.iconClass ? 'displayIcon' : 'hideRow'">
+                            <i [class]="item.value.iconClass ? item.value.iconClass : ''"></i>
+                        </div>
+                        <div class="labelStatus" style="width: 100%; text-align: center;" [class.alignSelfCenter]="!item.value.iconClass">{{item.value.label}}</div>
+                    </div>
+                    <div class="flex flexRowWrap counter" style="flex-grow: 1; max-width: 80px; padding: 2px 0; flex-direction: row;" [ngClass]="item.value.id === '-' ? '' : 'boxCounter'">
+                        <div *ngIf="item.value.id === '-'" class="labeledCounter">
+                            <div style="text-align: center; font-size: 10px; flex-grow: 1;">
+                                {{resources.new}}
+                            </div>
+                            <div class="newCounter">
+                                {{item.value.counters.new}}
+                            </div>
+                        </div>
+                        <div *ngIf="item.value.id === '-'" class="labeledCounter">
+                            <div style="text-align: center; font-size: 10px; flex-grow: 1;">
+                                {{resources.total}}
+                            </div>
+                            <div class="acknowledgedCounter">
+                                {{item.value.counters.total}}
+                            </div>
+                        </div>
+                        <div [ngClass]="'uCounter ' + item.value.id" *ngIf="item.value.id !== '-'">
+                            {{item.value.counters.total}}
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-selectButton>
+    </div>
+</div>
+<div class="mainContainer" [style.display]="emptyFilteredData ? 'none' : 'flex'" style="justify-content: space-between;">
+    <div class="leftColumn" style="max-width: 314px; min-width: 314px">
+        <clinical-overview-summary [summaryData]="summaryData$" (onElementClick)="itemSelectedChanged($event)"
+            [appCode]="appCode" [widgetId]="widgetId"
+            (summaryExpandedCollapsed)="onSummaryExpandedCollapsed($event)" (expandAllClick)="onSummaryExpandAllClick($event)" (collapseAllClick)="onSummaryCollapseAllClick()">
+        </clinical-overview-summary>
+    </div>
+    <div class="rightColumn" style="flex-grow: 1;" [style.minWidth]="advanceSubscription ? '1042px' : 'auto'">
+        <div style="display:flex"  *ngIf="loadingDetails">
+            <div class="Widget__Loader" style="margin-left: auto; margin-right: auto">
+                <div class="loader-large"></div>
+            </div>
+        </div>
+        <div *ngIf="!loadingDetails">
+            <div *ngIf="tableTitle" class="tableTitle"><span class="category">{{tableTitle.category}}</span> - <span class="title">{{tableTitle.title}}</span></div>
+            <clinical-overview-datatable [userHasWriteAccess]="writeAccess" [clinicalDashboardData]="clinicalDashboardData$"
+                                         (onClickDocumentation)="showDocumentationForm($event)" (onClickPatient)="showPatientForm($event)" (onRowExpand)="onRowExpand()"
+                                         (onColumnReorder)="onColumnReorder($event)" (onPageChange)="onPage($event)" [defaultRows]="rows" [paginationData]="paginationDataSubject$.asObservable()"
+                                         #ClinicalOverviewDatatableComponent>
+            </clinical-overview-datatable>
+        </div>
+    </div>
+</div>
+<div class="mainContainer" *ngIf="emptyFilteredData">
+    {{resources.noRecordsFound}}
+</div>
+<form ngNoForm #htmlForm hidden action="{{formData.redirectUrl}}" method="post" target="_blank">
+    <input type="hidden" name="RelayState" value="{{formData.RelayState}}" />
+    <input type="hidden" name="SAMLResponse" value="{{formData.SAMLResponse}}" />
+    <input name="autoSubmit" value="true" />
+</form>

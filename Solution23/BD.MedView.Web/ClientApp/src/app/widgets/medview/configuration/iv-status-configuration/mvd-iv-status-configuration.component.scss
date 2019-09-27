@@ -1,0 +1,85 @@
+﻿.maincontainer{
+    width: 100%;
+    padding: 24px;
+}
+.infusionToShowContainer p {
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+}
+h3 {
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+}
+.generalSettings {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.infusionToShowContainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.generalSettings ul{
+    padding: 0px;
+    margin: 0px;
+}
+.generalSettings ul li{
+    margin: 0px 40px 0px 0px;
+    padding: 10px 0px;
+    display: inline-block;
+}
+    .generalSettings ul li div{
+        display: flex;
+        align-items: center;
+    }
+        .generalSettings ul li div input,
+        .generalSettings ul li div label {
+            margin: 0px;
+        }
+.rowmargin {
+    margin-bottom: 20px !important;
+}
+.btn-container {
+    text-align: right;
+}
+
+.btnclose {
+    color: #004593;
+    background-color: white;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btngraph {
+    border-width: 0px;
+    width: 150px;
+    height: 32px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    line-height: 32px;
+    margin-right: 10px;
+}
+
+.btnsave {
+    color: white;
+    background-color: #004593;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btngraph:nth-of-type(even) {
+    margin-left: 10px;
+}
+
+.listContainer {
+    overflow: auto;
+    max-height: 650px;
+    margin-bottom: 40px;
+}

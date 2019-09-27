@@ -1,0 +1,189 @@
+.flex-col1 {
+    flex-grow: 1;
+}
+.flex-col3 {
+    flex-grow: 3;
+}
+
+.ul-config-options {
+    width: 300px;
+    padding: 10px 0 10px 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+    .ul-config-options li {
+        border-bottom: 1px solid #dcdcdc;
+        padding-top: 7.1px;
+        padding-bottom: 7.1px;
+        padding-left: 20px;
+        line-height: 31px;
+    }
+        .ul-config-options li:first-of-type {
+            border-top: 1px solid #dcdcdc;
+        }
+.header {
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.rowmargin {
+    margin-bottom: 20px !important;
+}
+
+.sessiontimeout {
+    width: 500px;
+}
+
+.labelcheckbox {
+    font-size: 14px !important;
+    align-self: center;
+}
+
+.checkbox-container {
+    width: 20px;
+}
+
+.full-height {
+    /*height: 100%;*/
+}
+
+.select-facility {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90%;
+    max-width: 400px;
+}
+
+.input-timeout {
+    width: 75px;
+}
+
+.btngraph {
+    border-width: 0px;
+    width: 150px;
+    height: 32px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    margin-right: 10px;
+}
+
+.btnclose {
+    color: #004593;
+    background-color: white;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.btnsave {
+    color: white;
+    background-color: #004593;
+    border-color: rgba(0, 69, 147, 1);
+}
+
+.labelunits {
+    padding-left: 10px;
+}
+
+.text-danger {
+    color: red;
+    padding-left: 10px;
+}
+
+.container-errorrange {
+    min-width: 250px;
+}
+.Widget__Loader {
+    position: absolute;
+    text-align: center;
+    padding-top: 0;
+    padding-left: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 15;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.widget-loader-img{
+    width: 50px;
+    height: 50px;
+}
+.borderRight {
+    border-right: 1px solid #808080;
+}
+.signInNote {
+    font-style: italic;
+    color: #999999;
+    padding-left: 20px;
+}
+.btn-container {
+    text-align: right;
+}
+.editText {
+    text-align: center;
+    max-width: 50px;
+}
+.textdisabled {
+    color: #999999;
+}
+
+.section-title {
+    background-color: #D7D7D7;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-align: left;
+    top: 10px;
+    padding-left: 20px;
+    margin-left: 40px;
+}
+
+.userSystemHelp {
+    margin: 0 50px 50px 50px;
+    font-family: 'Roboto-Italic', 'Roboto Italic', 'Roboto';
+    font-weight: 400;
+    font-style: italic;
+    color: #999999;
+}
+
+::ng-deep .ui-growl {
+    width: 312px;
+}
+
+/*Message element.*/
+::ng-deep .ui-growl-item {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    height: 50px;
+    border-radius: 4px;
+}
+
+/*Close icon of a message.*/
+::ng-deep .ui-growl-icon-close {
+    top: 20px;
+    right: 16px;
+}
+
+/*Severity icon.*/
+::ng-deep .ui-growl-image {
+    display: none;
+}
+
+/*Container of message texts.*/
+::ng-deep .ui-growl-message {
+    margin-left: 0 !important;
+}

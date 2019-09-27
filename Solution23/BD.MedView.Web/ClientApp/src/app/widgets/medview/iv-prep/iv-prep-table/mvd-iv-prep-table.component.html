@@ -1,0 +1,97 @@
+<div class="ivPrepTable">
+    <p-table #ivPrepTable [columns]="cols" [value]="templateData" [responsive]="true"
+        [rowsPerPageOptions]="[5,10,15,20,25,50]" (onPage)="onPage($event)" (onSort)="onSort($event)" [resetPageOnSort]="false"
+        (onColReorder)="onColReorder($event)" [lazy]="true" (onLazyLoad)="onLazyLoadData($event)" [loading]="loading"
+        [pageLinks]="3" [reorderableColumns]="true" [totalRecords]="totalRecords" [paginator]="true" [rows]="rows"
+    >
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumnDisabled]="col.sortOptions.enabled === 'false'"
+                    [pSortableColumn]="col.field" pReorderableColumn
+                    [class.patientNameColumn]="col.field === 'patientName'"
+                    [class.statusColumn]="col.field === 'status'" [class.holdColumn]="col.field === 'isOnHold'"
+                    [class.patientIdColumn]="col.field === 'patientNumber'" [class.priorityColum]="col.field === 'priority'"
+                    [class.medicationColumn]="col.field === 'medication'" [class.orderNumberColumn]="col.field === 'orderNumber'"
+                    [class.doseMedColumn]="col.field === 'doseMedNumber'" [class.prepSiteColumn]="col.field === 'prepSite'"
+                    [class.dateTimeNeededColumn]="col.field === 'dateTimeNeeded'" [class.facilityColumn]="col.field === 'masterFacility'"
+                    [class.unitColumn]="col.field === 'unit'" [class.deliveryStatusColumn]="col.field === 'deliveryStatus'"
+                    [class.locationColumn]="col.field === 'location'" [class.deliveryDateTimeColumn]="col.field === 'deliveryDateTime'"
+                    [class.sortable-column]="col.sortOptions.enabled === 'true'"
+                    class="tableColumn reorderable-column">
+                    <div [class.medmined-alert-column]="isMedminedEnabled && col.field === 'medication'">
+                        {{col.header}}
+                        <p-sortIcon *ngIf="col.sortOptions.enabled !== 'false'" [field]="col.field"></p-sortIcon>
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dose let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns" [ngSwitch]="col.field" [class.holdColumn]="col.field === 'isOnHold'"
+                    [class.patientIdColumn]="col.field === 'patientNumber'" [class.statusColumn]="col.field === 'status'"
+                    [class.priorityColum]="col.field === 'priority'" [class.isOnHold]="dose['isOnHoldView']"
+                    [class.medicationColumn]="col.field === 'medication'" [class.orderNumberColumn]="col.field === 'orderNumber'"
+                    [class.doseMedColumn]="col.field === 'doseMedNumber'" [class.prepSiteColumn]="col.field === 'prepSite'"
+                    [class.dateTimeNeededColumn]="col.field === 'dateTimeNeeded'" [class.facilityColumn]="col.field === 'masterFacility'"
+                    [class.unitColumn]="col.field === 'unit'" [class.deliveryStatusColumn]="col.field === 'deliveryStatus'"
+                    [class.locationColumn]="col.field === 'location'" [class.deliveryDateTimeColumn]="col.field === 'deliveryDateTime'">
+
+                    <div *ngSwitchCase="'patientName'" class="patientNameCell multi-line-cell" [clamp]="2" tooltip="{{dose.patientName}}" container="body">
+                        {{dose.patientName}}
+                    </div>
+                    <div *ngSwitchCase="'medication'" class="medicationColumn" style="display:flex" >
+                        <div *ngIf="isMedminedEnabled" [class.medmined-default-icon]="isMedminedEnabled">
+                            <mvd-patient-alert-icon [patientAlerts]="dose['medMinedAlerts']" (alertClick)="onPatientAlertsIcon($event)">
+                            </mvd-patient-alert-icon>
+                        </div>
+                        <div class="multi-line-cell medicationColumn" [clamp]="2">
+                            {{dose.medication}}
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="'masterFacility'" class="facilityColumn multi-line-cell" [clamp]="2">
+                        {{dose.masterFacility}}
+                    </div>
+                    <div *ngSwitchCase="'unit'" class="unitColumn multi-line-cell" [clamp]="2">
+                        {{dose.unit}}
+                    </div>
+
+                    <p-dropdown *ngSwitchCase="'priority'" [options]="priorityOptions" appendTo="body" (onChange)="priorityChange($event, dose.doseId)"
+                                [(ngModel)]="dose[col.field]" [disabled]="dose['isOnHoldView'] || dose['cancelled'] || dose['isPriorityChangeDisabled']">
+                        <ng-template let-item pTemplate="selectedItem">
+                            <div>
+                                <span>&nbsp;{{ item.label}}</span>
+                            </div>
+                        </ng-template>
+                        <ng-template let-car pTemplate="item">
+                            <div>
+                                <div>&nbsp;{{ car.label}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                    <span *ngSwitchCase="'isOnHold'" style="display: block; text-align: center">
+                        <p-checkbox (onChange)="holdChange($event, dose.doseId)" binary="true" value="{{dose[col.field]}}"
+                                    [disabled]="!isHoldEnabled(dose)" [(ngModel)]="dose[col.field]">
+                        </p-checkbox>
+                    </span>
+                    <div *ngSwitchCase="'status'" style="display: flex;">
+                        <div style="display: flex; width: 120px; margin-right: 10px">
+                            <iv-prep-table-icons style="align-self:center" [doseStatus]="dose[col.field]" [iconStatus]="dose['doseViewStatus']"
+                                                 [deliveryMode]="deliveryMode"></iv-prep-table-icons>
+                        </div>
+                        <div style="flex-shrink: 0;line-height: 40px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">
+                            {{dose['statusDisplayName']}}
+                        </div>
+                    </div>
+                    <span *ngSwitchDefault>{{dose[col.field]}}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length" class="ui-table-empty-message">
+                    <span class="records-not-found">{{resources.noRecordsFound}}</span>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,9 @@
+﻿<div class="searchBoxComponent input-group">
+    <div class="form-group has-feedback has-clear">
+        <input type="text" #tbxComponent (keyup.enter)="executeSearch(searchCriteria)" style="border-right: none;" class="form-control pull-right clear-ms-clear" [(ngModel)]="searchCriteria" placeholder="{{placeHolder}}">
+        <span *ngIf="searchCriteria" class="clear fa fa-times form-control-feedback" (click)="clearSearch()"></span>
+    </div>
+    <span class="input-group-btn">
+        <button type="button" (click)="executeSearch(searchCriteria)" class="btn btn-default"><i class="fa fa-search"></i></button>
+    </span>
+</div>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WebApplication2</title>
+  <!--<base href="/">-->
+  <script>
+    //document.write("<base href=\"" + window.location.pathname.split('/')[1] + "\"/>");
+    //var uri = "\\" + "WebApplication2" + "\\";
+    var uri = "\\" + window.location.pathname.split('/')[1] + "\\";
+    document.write("<base href=\"" + uri + "\"/>");
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+</body>
+</html>

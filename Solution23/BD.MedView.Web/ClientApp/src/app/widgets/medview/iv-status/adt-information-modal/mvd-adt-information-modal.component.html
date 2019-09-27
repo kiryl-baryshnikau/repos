@@ -1,0 +1,118 @@
+<div class="modal-header">
+    <div style="flex-grow: 2">
+        <h4 class="modal-title pull-left" style="width: 90%">{{resources.patientAndDeviceInformation}}</h4><br />
+        <h4 class="modal-title pull-left">{{adtInformationModel?.patientName}}</h4>
+    </div>
+    <div>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="fx-child col-parent content-co">
+        <div class="fx-child adt-section-tittle">
+            <p>{{resources.patientInformation}}</p>
+        </div>
+        <div class="fx-child row-parent" *ngIf="showPatientInfo; else noDataAvailable">
+            <div class="fx-child col-parent">
+                <div class="fx-child">
+                    <dl>
+                        <dt>{{resources.patientIdentifier}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.patientIdentifier}}</dd>
+
+                        <dt>{{resources.dateOfBirth}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.dateOfBirth}}</dd>
+
+                        <dt>{{resources.gender}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.gender}}</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="fx-child col-parent">
+                <div class="fx-child">
+                    <dl>
+                        <dt>{{resources.physician}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.physician}}</dd>
+
+                        <dt>{{resources.accountNumber}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.accountNumber}}</dd>
+
+                        <dt>{{resources.admit}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.admit}}</dd>
+
+                        <dt>{{resources.discharge}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.discharge}}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="fx-child adt-section-tittle">
+            <p>{{resources.patientLocation}}</p>
+        </div>
+        <div class="fx-child row-parent" *ngIf="showPatientLocation; else noDataAvailable">
+            <div class="fx-child col-parent">
+                <div class="fx-child">
+                    <dl>
+                        <dt>{{resources.facility}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.facility}}</dd>
+
+                        <dt>{{resources.unit}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.unit}}</dd>
+
+                        <dt>{{resources.floor}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.floor}}</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="fx-child col-parent">
+                <div class="fx-child">
+                    <dl>
+                        <dt>{{resources.room}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.room}}</dd>
+
+                        <dt>{{resources.bed}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.bed}}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="fx-child adt-section-tittle">
+            <p>{{resources.deviceInformation}}</p>
+        </div>
+        <div class="fx-child row-parent" *ngIf="showDeviceInfo; else noDataAvailable">
+            <div class="fx-child col-parent">
+                <div class="fx-child">
+                    <dl>
+                        <dt>{{resources.moduleModelNumber}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.moduleModelNumber}}</dd>
+                        <dt>{{resources.moduleSerialNumber}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.moduleSerialNumber}}</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="fx-child col-parent">
+                <div class="fx-child">
+                    <dl>
+                        <dt>{{resources.pcuModelNumber}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.pcuModelNumber}}</dd>
+                        <dt>{{resources.pcuSerialNumber}}: </dt>
+                        <dd class="multiline-truncate">{{adtInformationModel?.pcuSerialNumber}}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noDataAvailable>
+    <div class="fx-child row-parent">
+        <div class="fx-child col-parent">
+            <div class="fx-child no-data-available-template">
+                {{ resources.noDataAvailable }}
+            </div>
+        </div>
+    </div>
+</ng-template>

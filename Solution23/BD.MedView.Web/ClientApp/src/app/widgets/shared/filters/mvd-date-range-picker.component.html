@@ -1,0 +1,51 @@
+﻿<div class="control-container">
+    <div style="overflow: auto; width: 100%;">
+        <div class="title-container">
+            <img class="title-image" src="./dist/assets/images/clock.png">
+            <span class="title-text">{{resources.setTimeframe}}</span>
+        </div>
+        <div class="flex-container flex-row">
+            <div class="component-margin currentdate-filter-container">
+                <div class="flex-container">
+                    <div class="align-verticalcenter radio-container">
+                        <p-radioButton name="date-range-picker" [(ngModel)]="dateOptionSelected" (onClick)="cleanDateRangeOptions($event)" value="{{currentDateValue}}"></p-radioButton>{{resources.current}}
+                        <br>
+                    </div>
+                    <div style="flex-grow: 1;padding-left: 5px;padding-right: 5px" class="align-verticalcenter">
+                        <p-dropdown [(ngModel)]="selectedCurrentDate" [options]="currentDateOptions" [autoWidth]="false" [autoDisplayFirst]="false"
+                            [disabled]="dateOptionSelected !== currentDateValue" appendTo="body" (onChange)="onCurrentDateSelected()"></p-dropdown>
+
+                    </div>
+                </div>
+            </div>
+            <div class="component-margin daterange-filter-container">
+                <div class="flex-container">
+                    <div class="align-verticalcenter radio-container">
+                        <p-radioButton name="date-range-picker" [(ngModel)]="dateOptionSelected" (onClick)="cleanCurrentDateOptions()" value="{{dateRangeValue}}"></p-radioButton>{{resources.specificDateRange}}
+                        <br>
+                    </div>
+                    <div class="align-verticalcenter flex-column-container">
+                        <div class="align-verticalcenter dropdown-date-picker">
+                            <p-dropdown [options]="startDateOptions" [(ngModel)]="startDateId" [autoWidth]="false" [autoDisplayFirst]="false" appendTo="body"
+                                [placeholder]="resources.start" [disabled]="dateOptionSelected !== dateRangeValue" (onChange)="onStartDateSelected($event.value)"
+                                (click)="createStartDateRange()"></p-dropdown>
+                        </div>
+                        <div class="align-verticalcenter to-label">
+                            {{resources.to.toLowerCase()}}
+                        </div>
+                        <div class="align-verticalcenter dropdown-date-picker">
+                            <p-dropdown [options]="stopDateOptions" [(ngModel)]="stopDateId" [autoWidth]="false" [autoDisplayFirst]="false" [placeholder]="resources.end"
+                                appendTo="body" [disabled]="startDateId === undefined || startDateId === null || dateOptionSelected !== dateRangeValue"
+                                (onChange)="onStopDateSelected($event.value)"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="dialog-buttons">
+        <button class="btn btn-cancel" (click)="onCancel()">{{resources.cancel}}</button>
+        <button class="btn btn-save" [disabled]="!isModified || !isValid()" (click)="onSave()">{{resources.apply}}</button>
+    </div>
+</div>

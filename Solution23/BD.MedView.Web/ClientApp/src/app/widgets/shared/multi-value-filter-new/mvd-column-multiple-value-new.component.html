@@ -1,0 +1,46 @@
+<div>
+    <div class="title-container">
+        <img class="title-image" src="./dist/assets/images/filter.png">
+        <span class="title-text">{{resources.filterInfusions}}</span>
+    </div>
+    <div>
+        <div class="flex-container scrollable" style="flex-wrap: nowrap !important; justify-content: flex-start !important">
+            <div style="flex-grow: 5">
+                <div class="flex-container" style="justify-content: flex-start !important; align-content: stretch">
+                    <div class="multi-value-filter" *ngFor="let filter of options">
+                        {{filter.header}}
+                        <div class="thumbnail sub-container" [class.wd-box]="widerBoxesMode" [class.st-box]="!widerBoxesMode">
+                            <ul class="">
+                                <li class="">
+                                    <p-checkbox binary="true" (onChange)="checkAll($event, filter.field)" [(ngModel)]="filter.filterOptions.allChecked"></p-checkbox> &nbsp;{{resources.all}}
+                                </li>
+                                <li *ngFor="let criteria of filter.filterOptions.criteria" [ngSwitch]="filter.field">
+                                    <div *ngSwitchCase="'guardrailStatus'">
+                                        <p-checkbox binary="true" (onChange)="isAllChecked(filter.field)" value="{{criteria.value}}" [(ngModel)]="criteria.state"></p-checkbox>&nbsp;{{criteria.value}}
+                                    </div>
+                                    <div *ngSwitchCase="'highPriority'">
+                                        <p-checkbox binary="true" (onChange)="isAllChecked(filter.field)" value="{{criteria.value}}" [(ngModel)]="criteria.state"></p-checkbox>
+                                        &nbsp;{{criteria.value ? resources.yes : resources.no}}
+                                    </div>
+                                    <div *ngSwitchCase="'priority'">
+                                        <p-checkbox binary="true" (onChange)="isAllChecked(filter.field)" value="{{criteria.value}}" [(ngModel)]="criteria.state"></p-checkbox>
+                                        &nbsp;{{criteria.value ? criteria.value : resources.normal}}
+                                    </div>
+                                    <div *ngSwitchDefault>
+                                        <p-checkbox binary="true" (onChange)="isAllChecked(filter.field)" value="{{criteria.value}}" [(ngModel)]="criteria.state"></p-checkbox>&nbsp;{{criteria.value ? criteria.value: resources.unknown}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="dialog-buttons">
+            <button class="btn btn-default btn-reset" (click)="resetFilters()">{{resources.resetFilters}}</button>
+            <button class="btn btn-default btn-cancel" (click)="cancel()">{{resources.cancel}}</button>
+            <button class="btn btn-primary btn-save" (click)="applyFilters()" [disabled]="!applyButtonEnabled">{{resources.apply}}</button>
+        </div>
+    </div>
+</div>

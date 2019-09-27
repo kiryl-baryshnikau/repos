@@ -1,0 +1,93 @@
+﻿.input-group-btn > .btn {
+    border-left-width: 0;
+    left: -2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    /*
+        search icon of mvd-search-box in widget/medview/configuration/medview-authorization
+        is collapsed (font-size is 0) if font-size is not set here.
+    */
+    font-size: 14px;
+}
+
+.form-control {
+    font-size: 13px;
+}
+
+    .form-control:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+.btn {
+    background-color: white;
+    color: black;
+}
+
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover {
+    background-color: white;
+    color: black;
+    /*border: 1px solid #004593*/
+}
+input.form-control:focus {
+    border: 1px solid #ccc !important;
+    border-right: 0px !important;
+}
+
+.btn-default:hover {
+    background-color: white;
+    color: black;
+    /*border: 1px solid #003884 !important;*/
+}
+
+.clear {
+    color: #004593;
+    z-index: 10;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+input[type=text] {
+    padding-right: 30px;
+    max-width: 330px;
+}
+
+/*.btn-search {
+    border-left-width: 0;
+    left: -2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-size: 14px;
+}*/
+
+.input-group-btn {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 1%;
+}
+
+.form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+.clear {
+    color: #004593;
+    z-index: 10;
+    pointer-events: auto;
+    cursor: pointer;
+}
+.has-feedback {
+    position: relative;
+}

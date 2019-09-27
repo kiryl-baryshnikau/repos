@@ -1,0 +1,1 @@
+﻿CREATE ROLE [BDMedViewRole] AUTHORIZATION [dbo];

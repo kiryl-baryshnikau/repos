@@ -1,0 +1,440 @@
+$popup-background: #F7F7F7;
+$popup-counters-size: 38px;
+$popup-counters-width: 48px;
+$red: #FF0000;
+$red-light: #F93354;
+$orange-light: #FFB032;
+$orange: #FE9006;
+$dark-gray: #333333;
+$medium-gray: #999999;
+$light-gray:#DADADA;
+
+.float-right {
+    float: right;
+}
+
+.tooltip-container {
+    background-color: $popup-background;
+    width: 415px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+    .title {
+        font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .red {
+        color: $red !important;
+    }
+
+    .orange {
+        color: $orange-light;
+    }
+
+    .error-message-container {
+        display: flex;
+        padding: 12px;
+    }
+
+    .acknowledge-message-container {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+
+        .acknowledge-title {
+            font-family: 'Roboto-Medium', 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: $dark-gray;
+        }
+
+        .acknowledge-label {
+            font-family: 'Roboto-Light', 'Roboto Light', 'Roboto', sans-serif;
+            font-size: 12px;
+            color: $medium-gray;
+            text-align: left;
+            width: 100px;
+            margin-right: 3px;
+        }
+    }
+
+    .labeltooltip {
+        color: #808080;
+        font-family: 'Roboto Light', 'Roboto', sans-serif;
+        font-size: 12px;
+        text-align: left !important;
+        width: 85px;
+    }
+
+    .text {
+        color: $dark-gray;
+        font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+        font-size: 13px;
+        text-align: left;
+        flex-grow: 3;
+    }
+}
+
+.top-bar {
+    color: #004593;
+    font-size: 1.8em;
+    display: block;
+    height: 30px;
+    margin-top: 4px;
+    margin-right: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.summaryContainer {
+    padding: 16px 12px 12px 12px;
+
+    background-color: $light-gray;
+
+    &.withGuardrails {
+        padding-bottom: 10px;
+    }
+}
+
+.summary-title-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.summary-priority-img {
+    height: 15px;
+    width: 15px;
+    margin: 3px 3px 0 0;
+    background: no-repeat center;
+    background-size: cover;
+}
+
+.summary-title {
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: $dark-gray;
+    text-align: left;
+    flex-grow: 3;
+}
+
+.summary-content-label {
+    font-family: 'Roboto-Light', 'Roboto Light', 'Roboto', sans-serif;
+    font-size: 12px;
+    color: $medium-gray;
+    text-align: left;
+    width: auto;
+    margin-right: 5px;
+}
+
+.summary-content {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 13px;
+    color: $dark-gray;
+    text-align: left;
+}
+
+.guardrail-container {
+    display: flex;
+    margin-top: 12px;
+}
+
+.guardrail-icon {
+    width: 18px;
+    height: 18px;
+    background: url(../../../../../assets/images/Guardrails_G.png) no-repeat center;
+    background-size: cover;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.guardrail-violation-list {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: $red-light;
+    margin-left: 8px;
+    line-height: 18px;
+}
+
+.red-diamond {
+    background-image: url(../../../../../assets/images/red-diamond.png);
+}
+
+.orange-triangle {
+    background-image: url(../../../../../assets/images/orange-triangle.png);
+}
+
+.gray-diamond {
+    background-image: url(../../../../../assets/images/gray-diamond.png);
+}
+
+.gray-triangle {
+    background-image: url(../../../../../assets/images/gray-triangle.png);
+}
+
+.horizontal-line {
+    border: 1px solid;
+
+    &.red {
+        border-color: $red;
+        background-color: $red;
+    }
+
+    &.orange {
+        border-color: $orange;
+        background-color: $orange;
+    }
+
+    &.gray {
+        border-color: $medium-gray;
+        background-color: $medium-gray;
+    }
+}
+
+.order-services-container {
+    margin: 14px 12px 0 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 60px;
+    overflow-y: auto;
+}
+
+.order-service {
+    display: flex;
+    flex-direction: column;
+    min-height: 115px;
+    padding: 10px 0 0 0;
+    border-bottom: solid 1px $light-gray;
+    line-height: 1.2em;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &:first-of-type {
+        padding-top: 0;
+    }
+}
+
+.order-solution-name {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 14px;
+    color: $dark-gray;
+    text-align: left;
+}
+
+.order-patient-data {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 13px;
+    color: $dark-gray;
+    text-align: left;
+}
+
+.order-label {
+    font-family: 'Roboto-Light', 'Roboto Light', 'Roboto', sans-serif;
+    font-size: 12px;
+    color: $medium-gray;
+    text-align: left;
+    width: auto;
+    margin-right: 3px;
+
+    &.left {
+        width: 60px;
+    }
+
+    &.right {
+        width: 82px;
+    }
+}
+
+.order-instructions {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    padding-right: 12px;
+    width: 100%;
+}
+
+#modal-buttons-placeholder {
+    margin-top: 0;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.iv-prep-doses-container {
+    margin: 14px 12px 0 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 60px;
+    overflow-y: auto;
+    line-height: 1.2em;
+}
+
+.iv-prep-dose {
+    margin-top: 10px;
+    border-bottom: 1px solid $light-gray;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.dose-container {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.dose-error-message {
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto', sans-serif;
+    font-size: 13px;
+    color: $dark-gray;
+    line-height: $popup-counters-size;
+}
+
+.ci-counter-container {
+    background-color: $light-gray;
+    height: $popup-counters-size;
+    width: $popup-counters-width;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.counter-text {
+    font-family: 'Roboto-Light', 'Roboto Light', 'Roboto', sans-serif;
+    font-size: 36px;
+    color: $dark-gray;
+    text-align: center;
+    line-height: $popup-counters-size;
+}
+
+.counter-label-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.counter-label {
+    font-family: 'Roboto-Medium', 'Roboto Medium', 'Roboto', sans-serif;
+    font-size: 13px;
+    color: $dark-gray;
+    text-align: left;
+    width: 100%;
+
+    &.single-line {
+        line-height: 38px;
+    }
+
+    &.red {
+        color: $red-light;
+    }
+}
+
+.dose-radio-button {
+    display: flex;
+    margin-top: 1px;
+    margin-right: 20px;
+    margin-left: 18px;
+}
+
+.dose-label {
+    font-family: 'Roboto-Light', 'Roboto Light', 'Roboto', sans-serif;
+    font-size: 12px;
+    color: $medium-gray;
+    text-align: left;
+    width: auto;
+    margin-right: 3px;
+
+    &.left {
+        width: 90px;
+    }
+
+    &.right {
+        width: 82px;
+    }
+}
+
+.dose-state-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dose-state-label {
+    font-family: 'Roboto-Medium', 'Roboto', sans-serif;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.dose-state-img-container {
+    display: flex;
+}
+
+.dose-state-img-priority {
+    color: white;
+    width: 29px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 2px;
+    margin-right: 5px;
+
+    &.stat {
+        background: red;
+    }
+
+    &.normal {
+        background: $light-gray;
+    }
+}
+
+.prep-state-img {
+    padding: 2px 0 2px 0;
+}
+
+.change-priority-button-text {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 11px;
+    text-align: left;
+    line-height: 100%;
+}
+
+.btnsave {
+    &.change-priority-button {
+        height: 32px;
+        width: 213px;
+        padding-left: 12px;
+        margin-right: 6px;
+    }
+
+
+    &.acknowledge-button {
+        font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+        font-size: 13px !important;
+    }
+}
+
+.medminedalert-container {
+    display: flex;
+    margin-top: 12px;
+}
+
+.medminedalert-icon {
+    width: 20px;
+    height: 20px;
+    background: url(../../../../../assets/images/system_alert_red.png) no-repeat center;
+    background-size: cover;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+.medminedalert-title-list {
+    font-family: 'Roboto-Regular', 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: $red-light;
+    margin-left: 8px;
+    line-height: 18px;
+}

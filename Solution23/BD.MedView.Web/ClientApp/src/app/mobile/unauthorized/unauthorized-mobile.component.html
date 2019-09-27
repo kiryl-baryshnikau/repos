@@ -1,0 +1,30 @@
+﻿<nav class="navbar navbar-dark bg-primary">
+        <div class="navbar-brand">
+            <div class="bdshell--logo--brand navbar-brand">
+                <div class="row">
+                    <div class="uss--icon-bd-logo col"></div>
+                    <div class="col" style="font-size: 1.1em">{{ resources?.attentionNotices | titlecase }}</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+<div class="container-fluid px-0">
+    <div class="row mr-0 ">
+        <div class="col pr-0">
+            <div class="titleContainer card-1">
+                <div class="title critical">
+                    <div class="text">{{ resources.unauthorized | uppercase }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mr-0">
+        <div class="col pr-0">
+            <div class="px-3 py-4">
+                <div>
+                    {{ resources.unauthorizedMessage}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿<div class="itemContainer" (click)="onElementClick(itemData)" [class.critical]="itemData.critical" [class.noncritical]="!itemData.critical"  *ngIf="itemData"  [class.blinkingRow]="itemData.blinkingRow">
+    <div class="borderPlaceHolder redBackground">&nbsp;</div>
+    <div class="detailsContainer">
+        <div class="iconPlaceHolder">
+            <span class='icon'><i [class]="getIconClass(itemData)"></i></span>
+        </div>
+        <div class="counter" [class.blinkingText]="itemData.blinkingRow">
+            {{itemData.counter}}
+        </div>
+        <div class="textContainer">
+            <div class="title" [class.blinkingText]="itemData.blinkingRow">
+                {{itemData.title}}
+            </div>
+            <div class="subtitle" [class.blinkingText]="itemData.blinkingRow"><span>{{itemData.label}}: </span>{{itemData.value}}</div>
+        </div>
+    </div>
+</div>

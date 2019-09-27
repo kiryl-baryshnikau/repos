@@ -1,0 +1,110 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: 0px 0px 0px 40px;
+    font-family: 'Open Sans', sans-serif;
+    color: #666;
+    height: 620px;
+}
+
+.buttonGroupContainer {
+    padding: 60px 30px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 200px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.buttonGroupContainer .buttonContainer {
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+button:disabled {
+    background-color: #004593;
+    color: white;
+    border-color: #004593;
+    cursor: not-allowed;
+}
+
+.treeControlContainer {
+    flex-grow: 3;
+    width: 500px;
+    height: 500px;
+}
+
+.treeNodeLabel {
+    width: 100%;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: normal;
+    margin: 0px 0px 0px 5px;
+}
+
+.treeNodeOrphanLabel {
+    color: #c7c7c7;
+    font-style: italic;
+}
+
+.treeNodeStatusContainer {
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.treeNodeStatusIcon {
+    text-align: right;
+    font-size: 1.5em;
+}
+
+.btngraph {
+    max-width: 64px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    border-style: solid;
+    border-color: rgba(0, 69, 147, 1);
+    color: #004593;
+    border-width: 0px;
+    width: 150px;
+    height: 32px;
+    font-family: 'Roboto-Regular', 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    margin-right: 10px;
+}
+    .btngraph over {
+        border: none;
+        background-color: #004593;
+        color: #ffffff;
+    }
+
+.btn-purge {
+    color: white;
+    background-color: #004593;
+    border-color: rgba(0, 69, 147, 1);
+    width: 122px;
+    max-width: 122px;
+}
+
+.targetTreeActionsContainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.errorMessagesContainer{
+    padding-bottom: 10px;
+    margin-left: -10px;
+}
+
+.header {
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+}

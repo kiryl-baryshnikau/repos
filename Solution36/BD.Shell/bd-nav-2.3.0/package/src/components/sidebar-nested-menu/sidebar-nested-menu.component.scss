@@ -1,0 +1,33 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+li {
+    a {
+        color: $gray-light;
+        cursor: pointer;
+        text-decoration: none;
+        padding-left: 56px;
+        display: block;
+        width: 100%;
+
+        &:hover {
+            color: $alert-primary;
+        }
+    }
+
+    &.active {
+        a {
+            color: $white;
+            font-weight: bold;
+        }
+    }
+
+    &.disable {
+        color: $gray-dark;
+        cursor: default;
+
+        > a {
+            color: $gray-dark;
+            cursor: default;
+        }
+    }
+}

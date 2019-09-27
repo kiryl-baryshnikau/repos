@@ -1,0 +1,22 @@
+<div id="container" class="flx-child columnParent" #templateContainer>
+    <div class="flx-child rowParent header">
+        <div id="rowChild84024" class="flx-child">
+            <i class="fa fa-exclamation-triangle header-icon" aria-hidden="true"></i>
+        </div>
+        <div class="flx-child">
+            <h4 class="modal-title pull-left">
+                {{resources.header}}
+            </h4>
+        </div>
+    </div>
+
+    <div class="flx-child">
+        <p><strong>{{resources.caution}}:</strong> {{resources.message}}</p>
+    </div>
+
+    <div class="flx-child footer">
+        <button type="button" class="btn btn-cancel" (click)="decline()">{{resources.cancelLabel}}</button>
+        <button type="button" class="btn btn-primary btn-default" (click)="confirm()" #yesButton>{{resources.yesLabel}}</button>
+    </div>
+</div>
+

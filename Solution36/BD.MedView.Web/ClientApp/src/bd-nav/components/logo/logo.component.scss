@@ -1,0 +1,45 @@
+@import "../../../assets/pdlg/scss/pdlg-variables-override";
+
+:host {
+    display: flex;
+
+    .bdshell--logo--brand {
+        padding: 0;
+        margin: 0;
+
+        line-height: $navbar-height;
+
+        > .uss--icon-bd-logo {
+            font-size: 1.5rem;
+            line-height: $navbar-height;
+            margin-right: 4px;
+        }
+
+        .insight-group-text {
+            font-size: 22px;
+            font-family: Roboto;
+        }
+
+        .insight-application-text {
+            font-size: 22px;
+            font-family: Roboto;
+
+            &:before {
+                margin-left: -.5rem;
+            }
+        }
+    }
+}
+
+.line-small {
+    background: $core-blue-light none repeat scroll 0 0;
+    height: 32px;
+    width: .05rem;
+}
+
+.trade-class {
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    float: right;
+    margin-top: -5px;
+}

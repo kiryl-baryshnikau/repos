@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HSViewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="expires" content="-1">
+  <link rel="icon" type="image/x-icon" href="dist/favicon.ico">
+  <script>
+    window['applicationName'] = 'HSV';
+    window['applicationVersion'] = '2.2.1';
+    window['localeName'] = 'en-US';
+
+    window['trackingEnabled'] = true;
+
+    // Test data. It will be removed later.
+    window['infusionStatusFilters'] = {
+      // "facilities": "test",
+      // "units": "Microbiology",
+      // "patients": "150201074852",
+      // "infusions": "Intermittent",
+      // "statuses": 1203,
+      // "startdate": "2014-01-30 17:05:32.0000000",
+      // "stopdate": "2016-01-30 17:06:58.0000000",
+      "preservehours": 72
+    };
+  </script>
+</head>
+<body>
+  <app-root>
+    <div class="main-spinner loader-large"></div>
+  </app-root>
+</body>
+</html>

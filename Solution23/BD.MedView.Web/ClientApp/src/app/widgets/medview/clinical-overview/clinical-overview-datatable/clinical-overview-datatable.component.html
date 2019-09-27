@@ -1,0 +1,76 @@
+﻿<div *ngIf="clinicalDashboardData" class="iv-status clinicalOverviewTable">
+    <div *ngIf="!clinicalDashboardData.data || clinicalDashboardData.data.length === 0">
+        {{resources.noRecordsFound}}
+    </div>
+    <p-table #clinicalOverviewTable [columns]="clinicalDashboardData.columns" [value]="clinicalDashboardData.data" [rowHover]="true"
+             dataKey="id" rowExpandMode="single" *ngIf="clinicalDashboardData.data && clinicalDashboardData.data.length"
+             [rows]="rows" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,15,20,25,50]" (onPage)="onPage($event)"
+             (onRowCollapse)="onRowCollapse($event)" (onRowExpand)="onRowExpanded($event)"
+             [responsive]="false" [expandedRowKeys]="expandedRows"
+             [reorderableColumns]="true" (onColReorder)="onColReorder($event)">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th style="width: 2em"></th>
+                <th *ngFor="let col of columns" [pSortableColumnDisabled]="col.sortOptions.enabled === 'false'"
+                    [pSortableColumn]="col.field" pReorderableColumn>
+                    {{col.header}}
+                    <p-sortIcon *ngIf="col.sortOptions.enabled !== 'false'" [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+            <tr [pRowToggler]="rowData" [class.newAlert]="rowData['status'] === 'New'">
+                <td>
+                    <span style="cursor: pointer">
+                        <i [ngClass]="expanded ? 'fa fa-angle-up' : 'fa fa-angle-down'" style="font-size: 18px; font-weight: bold;"></i>
+                    </span>
+                </td>
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr>
+                <td [attr.colspan]="columns.length + 1" style="padding: 0px;">
+                    <div class="ui-g ui-fluid" style="font-size:16px;" *ngIf="currentAlertDetails[rowData['id']]">
+                        <div class="ui-g detailsDataContainer">
+                            <div class="ui-md-2" *ngFor="let column of currentAlertDetails[rowData['id']].info">
+                                <div class="title text-details">
+                                    {{column.title}}
+                                </div>
+                                <div class="content text-details" style="height: 180px" [style.overflow-y]="column.data.length > 0 && column.data[0].itemsData.length > 1 ? 'auto' : 'hidden'">
+                                    <div *ngFor="let item of column.data" [style.margin-bottom]="item.itemsData.length > 0 ? '10px' : '0px'">
+                                        <div *ngFor="let values of item.itemsData">
+                                            {{values.name}}<strong [innerHTML]="values.value"></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui-md-{{12 - 2*(currentAlertDetails[rowData['id']].info?.length || 1)}}" style="text-align:right">
+                                <button [pRowToggler]="rowData" class="btn disposeButton ui-md-3">
+                                    {{resources.cancel}}
+                                </button>
+                                <button (click)="acknowledge(rowData)" *ngIf="rowData.status === resources.new && rowData.hasWriteAccess" class="btn btn-cancel ui-md-3" style="margin-left:10px;">
+                                    {{resources.acknowledgeButton}}
+                                </button>
+                                <button (click)="acknowledge(rowData)" *ngIf="rowData.status !== resources.new && rowData.hasWriteAccess" disabled class="btn btn-cancel ui-md-3">
+                                    {{resources.acknowledgeButton}}
+                                </button>
+                                <button (click)="showPatientForm(currentAlertDetails[rowData['id']].id, currentAlertDetails[rowData['id']].facilityKey)" class="btn btn-cancel ui-md-3" style="margin-left:10px;">
+                                    {{resources.patientInfoButton}}
+                                </button>
+                                <button *ngIf="rowData.subscriptionType == 'Full' && rowData.hasWriteAccess"
+                                        (click)="showDocumentationForm(currentAlertDetails[rowData['id']].id, currentAlertDetails[rowData['id']].facilityKey)"
+                                        class="btn btn-cancel ui-md-3" style="margin-left:10px">
+                                    {{resources.documentationButton}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

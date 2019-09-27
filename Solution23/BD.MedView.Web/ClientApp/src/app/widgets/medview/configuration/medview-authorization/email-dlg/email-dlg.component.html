@@ -1,0 +1,13 @@
+<div class="container" #templateContainer>
+    <div class="header">
+        <h4 class="modal-title pull-left">{{header}}</h4>
+    </div>
+    <div class="content">
+        <div><label class="gray-label">User Email</label></div>
+        <div><input [formControl]="newPrimaryEmail" type="text" /></div>
+    </div>
+    <div class="footer">
+        <button type="button" class="btn btn-cancel" (click)="decline()">{{cancelLabel}}</button>
+        <button type="button" class="btn btn-primary btn-default" [disabled]="!newPrimaryEmail.valid" (click)="confirm()" #yesButton>{{yesLabel}}</button>
+    </div>
+</div>

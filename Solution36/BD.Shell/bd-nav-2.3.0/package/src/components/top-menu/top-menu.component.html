@@ -1,0 +1,23 @@
+<i class="bdshell--top-menu--more ml-2" (click)="toggleMore($event)" [ngClass]="expandToTwoRows ? 'uss--icon-close-bold': 'uss--icon-more-vertical border-left'"></i>
+<ul class="bdshell--top-menu--navbar nav" *ngIf="topMenuItems.length" [ngClass]="{'has-transcluded-content': transcludeContainer.childNodes.length, 'multiple-rows': expandToTwoRows}">
+    <ng-container *ngFor="let topMenuItem of topMenuItems">
+        <ng-container *ngIf="!topMenuItem.componentName">
+            <li (mouseover)="topMenuItem.hover = true"
+                (mouseout)="topMenuItem.hover = false"
+                *ngIf="topMenuItem.state != 2"
+                [ngClass]="getTopMenuCss(topMenuItem)"
+                class="nav-item"
+                [attr.data-menu-code]="topMenuItem.code">
+                <a class="px-3" (click)="updateMenuSelection(topMenuItem)">
+                    {{topMenuItem.displayName}}
+                </a>
+                <ul *ngIf="topMenuItem.subMenus && topMenuItem.subMenus.length" [class.show]="topMenuItem.hover" submenu [subMenus]="topMenuItem.subMenus"></ul>
+            </li>
+        </ng-container>
+        <ng-container *ngIf="topMenuItem.componentName" component-factory [componentName]="topMenuItem.componentName">
+        </ng-container>
+    </ng-container>
+    <li class="bdshell--top-menu--transclude--default ml-auto text-truncate" #transcludeContainer>
+        <ng-content></ng-content>
+    </li>
+</ul>

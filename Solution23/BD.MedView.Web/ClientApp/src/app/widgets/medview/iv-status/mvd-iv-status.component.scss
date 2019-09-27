@@ -1,0 +1,206 @@
+﻿:host {
+    display: block;
+}
+
+.search-box {
+    width: 220px;
+}
+
+.search-button .glyphicon {
+    color: white;
+}
+
+.iv-status input[type=text] {
+    border: 1px solid #b3b3b3;
+    width: 100%;
+}
+
+.iv-status input[type=text]:hover {
+    border: 1px solid #004593;
+}
+
+.iv-status input[type=text]:focus {
+    border: 2px solid #004593;
+}
+
+.iv-status .ui-button {
+    background-color: #004593;
+}
+
+.iv-status input[type=radio] {
+    border-width: 0px;
+    position: absolute;
+    left: -3px;
+    top: -2px;
+}
+
+.iv-status .row {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.checkboxContainer {
+    display: block;
+    text-align: center;
+}
+
+.global-search-column {
+    width: 100%;
+    max-width: 350px;
+}
+
+.date-range-column {
+    max-width: 800px;
+}
+
+.column-toggle-icons {
+    max-width: 120px
+}
+
+.filtercomponents-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding-right: 10px;
+    padding-left: 15px;
+    /*max-width: 620px;*/
+    min-width: 370px;
+    height: 44px;
+    align-items: center;
+    /*background-color: #f2f2f2;*/
+}
+
+.checkboxContainer {
+    display: block;
+    text-align: center;
+}
+
+a {
+    cursor: pointer;
+}
+
+.pressed-state {
+    color: #333 !important;
+    background-color: #d4d4d4 !important;
+    border-color: #8c8c8c !important;
+}
+
+.active.btn-default,
+.focus.btn-default,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover,
+.open > .btn-default.dropdown-toggle {
+    background-color: #ffffff;
+}
+
+.btn-default:hover {
+    color: #333 !important;
+    background-color: #d4d4d4 !important;
+    border-color: #8c8c8c !important;
+}
+
+.unknown-tooltip {
+    line-height: inherit;
+    color: #e50000;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+th {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    border: 0px !important;
+    border-bottom: 1px !important;
+    color: #808080 !important;
+    padding: 16px !important;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: normal;
+    border-bottom: 1px solid #dddddd !important;
+    background-color: white;
+    position: sticky;
+    top: -2px;
+    z-index: 1;
+}
+
+.high-priority-row{
+    background: #EEE;
+    background-color: #EEE !important;
+}
+
+:host ::ng-deep .iv-status-table .ui-table th.tableColumn {
+    cursor: default;
+}
+
+:host ::ng-deep .iv-status-table .ui-table th.tableColumn.ui-sortable-column {
+    cursor: pointer;
+}
+
+:host ::ng-deep .iv-status-table .ui-table th.tableColumn.reorderable-column {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+:host ::ng-deep .iv-status-table .ui-table th.tableColumn.reorderable-column.ui-sortable-column {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+:host ::ng-deep .iv-status-table .ui-table th.tableColumn.reorderable-column.ui-sortable-column .ui-table-sort-icon {
+    cursor: -webkit-grab;
+    cursor: move;
+    cursor: grab;
+}
+
+.medMinedAlerts {
+    width: 30px !important;
+    max-width: 30px !important;
+    padding: 0px !important;
+}
+
+:host ::ng-deep .tooltip-inner {
+    max-width: 200px;
+    padding: 0.25rem 0.5rem;
+    color: #ffffff;
+    text-align: left;
+    background-color: #000000;
+    border-radius: 0.25rem;
+    min-width: 100px;
+}
+
+.medmined-alert-column {
+    padding-left: 30px;
+}
+
+.medmined-default-icon {
+    min-width: 35px;
+}
+.counters-column {
+    min-width: 190px;
+    padding: 7px 10px;
+    background-color: #f2f2f2;
+    margin-right: 15px;
+    font-family: 'Roboto', sans-serif;
+
+    .counter-container {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+
+        .number {
+            margin: 0 5px;
+            font-size: 15px;
+        }
+
+        .label-counter {
+            font-size: 11px;
+            line-height: 17px;
+        }
+    }
+}

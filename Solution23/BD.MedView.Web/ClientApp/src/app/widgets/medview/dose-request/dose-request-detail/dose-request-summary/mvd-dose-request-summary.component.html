@@ -1,0 +1,45 @@
+<div class="innerHeaderWidget">
+    <div class="rowContainer header">
+        <div class="resumeContainer summary-cell" style="min-width: 110px">
+            {{resources.allLocations}}
+        </div>
+        <div class="resumeContainer" style="min-width: 100px">
+            {{totals ? totals?.totalRequestsCount + " " + (totals?.totalRequestsCount > 1 ? resources.requests : resources.request) : "0 " + resources.requests }}
+        </div>
+        <div class="resumeContainer summary-cell" style="min-width: 110px; flex-direction: row">
+            <div class="iconPlaceHolder">
+                <span class='icon'><i class="fa fa-circle fa-circle-blue"></i></span>
+            </div>
+            <div>
+                {{totals?.totalNewRequestsCount}} {{resources.columnNew}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class='listPriorities'>
+    <li *ngFor='let item of items' (click)="onClick($event, item)">
+        <div class="rowContainer" [class.dose-selected]="selectedItem && item.careUnit === selectedItem">
+            <div class="resumeContainer summary-cell" style="min-width: 110px">
+                <div class="title">
+                    {{item.careUnit}}
+                </div>
+                <div class="resume" style="min-width: 110px">
+                    <span>{{resources.newestItem}} </span>{{item.ageOnScreen}}
+                </div>
+            </div>
+            <div class="resumeContainer summary-cell">
+                {{item.allItemsCount + " " + (item.allItemsCount > 1 ? resources.requests : resources.request)}}
+            </div>
+            <div class="resumeContainer" style="min-width: 110px; flex-direction: row">
+                <div class="iconPlaceHolder">
+                    <span class='icon'><i class="fa fa-circle fa-circle-blue" *ngIf="item.newItemsCount > 0"></i></span>
+                </div>
+                <div>
+                    {{item.newItemsCount}} {{resources.columnNew}}
+                </div>
+            </div>
+
+        </div>
+    </li>
+</ul>

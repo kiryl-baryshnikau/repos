@@ -1,0 +1,7 @@
+﻿<mvd-widget-toolbar [appCode]="appCode" [widgetId]="widgetId" [showExportTable]="false" [showColumnSelector]="false"
+    [showDataFilter]="false" [showSetTimeframe]="false" [showSettings]="true" #widgetToolbar (widgetSettingsClicked)="onWidgetSettingsClicked()"></mvd-widget-toolbar>
+<div>
+    <clinical-overview-summary [summaryData]="summaryData$" (onElementClick)="itemSelectedChanged($event)"
+        [summaryWidget]="true">
+    </clinical-overview-summary>
+</div>

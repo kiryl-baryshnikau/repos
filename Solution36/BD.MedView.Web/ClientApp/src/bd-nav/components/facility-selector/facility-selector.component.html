@@ -1,0 +1,85 @@
+<ng-container>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-2">
+                <h5 class="modal-title">{{localeKeys['BD-UI-SiteSelection-FacilityListForIdnFormat'] | stringFormat:selectedIdn.name}}</h5>
+                <button type="button"
+                        class="close"
+                        aria-label="Close"
+                        [title]="localeKeys['BD-UI-SiteSelection-Close']"
+                        (click)="hideFacilitySelectorPopup()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body pt-2 pb-0">
+                <p>{{facilitySelectorDescriptionMessage}}</p>
+                <p>{{localeKeys['BD-UI-SiteSelection-FacilityFilterCountFormat'] | stringFormat:filteredFacilitiesCount():facilityList.length}}</p>
+                <p><input class="form-control" maxlength="50" [(ngModel)]="facilityNameFilterString" [placeholder]="localeKeys['BD-UI-SiteSelection-SearchFacility']"></p>
+                <div class="bdshell--site-selection--facility-selection--alert alert alert-primary"
+                     role="alert"
+                     *ngIf="!(facilityList | arraySearch:facilityNameFilterString:'name' | arrayCount)">
+                    <h5 class="alert-heading text-center">{{localeKeys['BD-UI-SiteSelection-NoDataFound']}}</h5>
+                    <p class="text-center">{{localeKeys['BD-UI-SiteSelection-NoFacilitySearchFormat'] | stringFormat:facilityNameFilterString}}</p>
+                </div>
+                <table class="table table-fixed table-hover"
+                       *ngIf="facilityList | arraySearch:facilityNameFilterString:'name' | arrayCount">
+                    <thead>
+                        <tr class="row mx-0 border-bottom float-left w-100 text-muted">
+                            <th scope="col" class="col-xl-1 col-xs-2 border-top-0">
+                                <div class="custom-control custom-checkbox">
+                                    <input id="bdshell--site-selection--facility-selector-all"
+                                           type="checkbox"
+                                           class="custom-control-input"
+                                           #bdshellSiteSelectionFacilitySelectorAll
+                                           [checked]="allFacilitiesSelectedByFacilitySelector"
+                                           (change)="toggleAllFacilitiesFilterFlag(bdshellSiteSelectionFacilitySelectorAll.checked)" />
+                                    <label class="custom-control-label" for="bdshell--site-selection--facility-selector-all"></label>
+                                </div>
+                            </th>
+                            <th scope="col" class="col-xl-11 col-xs-10 border-top-0 font-weight-normal">{{localeKeys['BD-UI-SiteSelection-FacilityName']}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row mx-0 float-left w-100"
+                            *ngFor="let facility of facilityList | arraySearch:facilityNameFilterString:'name'; index as i"
+                            [ngClass]="{'table-active': facility.filtered}"
+                            (click)="toggleFacilityFilterFlag(facility, !facility.filtered)">
+                            <td class="col-xl-1 col-xs-2">
+                                <div class="custom-control custom-checkbox"
+                                     (click)="$event.stopPropagation()">
+                                    <input type="checkbox" class="custom-control-input"
+                                           #bdshellSiteSelectionFacilitySelectorCheckbox
+                                           [id]="'bdshell--site-selection--facility-selector-' + i"
+                                           [checked]="facility.filtered"
+                                           (change)="toggleFacilityFilterFlag(facility, bdshellSiteSelectionFacilitySelectorCheckbox.checked); $event.stopPropagation();">
+                                    <label class="custom-control-label" [attr.for]="'bdshell--site-selection--facility-selector-' + i"></label>
+                                </div>
+                            </td>
+                            <td class="col-xl-11 col-xs-10">
+                                <a href="javascript:void(0);"
+                                   (click)="setSelectedFacility(facility); $event.stopPropagation();">
+                                    {{facility.name}}
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="w-100 text-right">
+                    <button type="button" class="btn btn-primary btn-sm"
+                            [disabled]="isDisplaySelectedFacilitiesButtonDisabled()"
+                            (click)="setFilteredFacilityList()">
+                        {{localeKeys['BD-UI-SiteSelection-DisplaySelectedFacilities']}}
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-sm ml-3" (click)="hideFacilitySelectorPopup()">
+                        {{localeKeys['BD-UI-SiteSelection-Cancel']}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<div #backdrop
+     class="modal-backdrop fade"
+     [ngClass]="{show: facilitySelectorPopupOpened}"></div>

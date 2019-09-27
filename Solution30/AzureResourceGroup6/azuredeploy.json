@@ -1,0 +1,698 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appserviceplanSkuName": {
+      "type": "string",
+      "defaultValue": "F1",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "metadata": {
+        "description": "Describes plan's pricing tier and capacity. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+      }
+    },
+    "sql-serverAdminLogin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sql-serverAdminLoginPassword": {
+      "type": "securestring"
+    },
+    "db-allCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "db-allEdition": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "db-allRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic",
+      "allowedValues": [
+        "Basic",
+        "S0",
+        "S1",
+        "S2",
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "metadata": {
+        "description": "Describes the performance level for Edition"
+      }
+    }
+  },
+  "variables": {
+    "appserviceplanName": "[concat(resourceGroup().name, '-appserviceplan')]",
+    "bdportal-configurationName": "[concat(resourceGroup().name, '-bdportal-configuration')]",
+    "bdportal-configurationUri": "[concat('https://', resourceGroup().name, '-bdportal-configuration', '.azurewebsites.net')]",
+    "containerframework-dataName": "[concat(resourceGroup().name, '-containerframework-data')]",
+    "containerframework-dataUri": "[concat('https://', resourceGroup().name, '-containerframework-data', '.azurewebsites.net')]",
+    "idm-adminName": "[concat(resourceGroup().name, '-idm-admin')]",
+    "idm-adminUri": "[concat('https://', resourceGroup().name, '-idm-admin', '.azurewebsites.net')]",
+    "idm-apiName": "[concat(resourceGroup().name, '-idm-api')]",
+    "idm-stsName": "[concat(resourceGroup().name, '-idm-sts')]",
+    "idm-stsUri": "[concat('https://', resourceGroup().name, '-idm-sts', '.azurewebsites.net')]",
+    "medview-servicesName": "[concat(resourceGroup().name, '-medview-services')]",
+    "medview-servicesUri": "[concat('https://', resourceGroup().name, '-medview-services', '.azurewebsites.net')]",
+    "medview-webName": "[concat(resourceGroup().name, '-medview-web')]",
+    "medview-webUri": "[concat('https://', resourceGroup().name, '-medview-web', '.azurewebsites.net')]",
+    "medview-web-tvName": "[concat(resourceGroup().name, '-medview-web-tv')]",
+    "sql-serverName": "[concat(resourceGroup().name, '-sql-server')]",
+    "elasticpoolName": "[concat(resourceGroup().name, '-elasticpool')]",
+    "db-bdportalName": "[concat(resourceGroup().name, '-db-bdportal')]",
+    "db-bdportalConnectionString": "[concat('Server=tcp:', resourceGroup().name, '-sql-server', '.database.windows.net,1433;Initial Catalog=', resourceGroup().name, '-db-bdportal', ';Persist Security Info=False;User ID=', parameters('sql-serverAdminLogin'), ';Password=', parameters('sql-serverAdminLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
+    "db-containerframeworkName": "[concat(resourceGroup().name, '-db-containerframework')]",
+    "db-containerframeworkConnectionString": "[concat('Server=tcp:', resourceGroup().name, '-sql-server', '.database.windows.net,1433;Initial Catalog=', resourceGroup().name, '-db-containerframework', ';Persist Security Info=False;User ID=', parameters('sql-serverAdminLogin'), ';Password=', parameters('sql-serverAdminLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
+    "db-idmName": "[concat(resourceGroup().name, '-db-idm')]",
+    "db-idmConnectionString": "[concat('Server=tcp:', resourceGroup().name, '-sql-server', '.database.windows.net,1433;Initial Catalog=', resourceGroup().name, '-db-idm', ';Persist Security Info=False;User ID=', parameters('sql-serverAdminLogin'), ';Password=', parameters('sql-serverAdminLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
+    "db-medviewName": "[concat(resourceGroup().name, '-db-medview')]",
+    "db-medviewConnectionString": "[concat('Server=tcp:', resourceGroup().name, '-sql-server', '.database.windows.net,1433;Initial Catalog=', resourceGroup().name, '-db-medview', ';Persist Security Info=False;User ID=', parameters('sql-serverAdminLogin'), ';Password=', parameters('sql-serverAdminLoginPassword'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
+
+    "relayName": "[concat(resourceGroup().name, '-rely')]",
+    "hybrid-connectionName": "[concat(resourceGroup().name, '-hybrid-connection')]"
+  },
+  "resources": [
+    {
+      "name": "[variables('appserviceplanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "[parameters('appserviceplanSkuName')]"
+      },
+      "dependsOn": [],
+      "tags": {
+        "displayName": "appserviceplan"
+      },
+      "properties": {
+        "name": "[variables('appserviceplanName')]",
+        "numberOfWorkers": 1
+      },
+      "resources": [
+        {
+          "name": "[variables('bdportal-configurationName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "bdportal-configuration"
+          },
+          "properties": {
+            "name": "[variables('bdportal-configurationName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "IDMSTSUrl",
+                  "value": "[concat(variables('idm-stsUri'), '/ids/')]"
+                }
+              ],
+              "connectionStrings": [
+                {
+                  "name": "ConfigurationUnitOfWork",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('containerframework-dataName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "[resourceId('Microsoft.Relay/namespaces', variables('relayName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "containerframework-data"
+          },
+          "properties": {
+            "name": "[variables('containerframework-dataName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "identity-server-url",
+                  "value": "[concat(variables('idm-stsUri'), '/ids/')]"
+                },
+                {
+                  "name": "RelayConnectionName",
+                  "value": "[variables('hybrid-connectionName')]"
+                },
+                {
+                  "name": "RelayName",
+                  "value": "[variables('relayName')]"
+                },
+                {
+                  "name": "RelaySharedAccessKey",
+                  "value": "[listkeys(resourceId('Microsoft.Relay/namespaces/hybridConnections/authorizationRules', variables('relayName'), variables('hybrid-connectionName'), 'send'), '2017-04-01').primaryKey]"
+                }
+              ],
+              "connectionStrings": [
+                {
+                  "name": "DefaultConnection",
+                  "connectionString": "[variables('db-containerframeworkConnectionString')]",
+                  "type": "SQLServer"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('idm-adminName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "idm-admin"
+          },
+          "properties": {
+            "name": "[variables('idm-adminName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "ClientUri",
+                  "value": "[concat(variables('idm-adminUri'), '/login/')]"
+                },
+                {
+                  "name": "IDMServerBaseUri",
+                  "value": "[concat(variables('idm-stsUri'), '/ids/')]"
+                },
+                {
+                  "name": "PostLogoutRedirectUri",
+                  "value": "[concat(variables('idm-adminUri'), '/')]"
+                },
+                {
+                  "name": "WEBSITE_LOAD_CERTIFICATES",
+                  "value": "*"
+                },
+                {
+                  "name": "WEBSITE_RUN_FROM_PACKAGE",
+                  "value": "0"
+                }
+              ],
+              "connectionStrings": [
+                {
+                  "name": "ClientModel",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "IDMConnection",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "LocalizationDbContext",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('idm-apiName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "idm-api"
+          },
+          "properties": {
+            "name": "[variables('idm-apiName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "StsBaseUrl",
+                  "value": "[concat(variables('idm-stsUri'), '/ids/')]"
+                },
+                {
+                  "name": "WEBSITE_LOAD_CERTIFICATES",
+                  "value": "*"
+                },
+                {
+                  "name": "WEBSITE_RUN_FROM_PACKAGE",
+                  "value": "0"
+                }
+              ],
+              "connectionStrings": [
+                {
+                  "name": "IDMConnection",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('idm-stsName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "idm-sts"
+          },
+          "properties": {
+            "name": "[variables('idm-stsName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "WEBSITE_LOAD_CERTIFICATES",
+                  "value": "*"
+                },
+                {
+                  "name": "WEBSITE_RUN_FROM_PACKAGE",
+                  "value": "0"
+                }
+              ],
+              "connectionStrings": [
+                {
+                  "name": "IDMConnection",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "LocalizationDbContext",
+                  "connectionString": "[variables('db-idmConnectionString')]",
+                  "type": "SQLServer"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('medview-servicesName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "medview-services"
+          },
+          "properties": {
+            "name": "[variables('medview-servicesName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "identity-server-url",
+                  "value": "[concat(variables('idm-stsUri'), '/ids/')]"
+                },
+                {
+                  "name": "WEBSITE_RUN_FROM_PACKAGE",
+                  "value": "0"
+                }
+              ],
+              "connectionStrings": [
+                {
+                  "name": "BD.MedView.Services.Models.AuthorizationContext",
+                  "connectionString": "[variables('db-medviewConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "BD.MedView.Services.Models.CacheContext",
+                  "connectionString": "[variables('db-medviewConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "BD.MedView.Services.Models.ConfigurationContext",
+                  "connectionString": "[variables('db-medviewConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "BD.MedView.Services.Models.FacilityContext",
+                  "connectionString": "[variables('db-medviewConnectionString')]",
+                  "type": "SQLServer"
+                },
+                {
+                  "name": "BD.MedView.Services.Models.RuntimeContext",
+                  "connectionString": "[variables('db-medviewConnectionString')]",
+                  "type": "SQLServer"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('medview-webName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "medview-web"
+          },
+          "properties": {
+            "name": "[variables('medview-webName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "AppSettings:IdentityServerClientPostLogoutRedirectUrl",
+                  "value": "[concat(variables('medview-webUri'), '/')]"
+                },
+                {
+                  "name": "AppSettings:IdentityServerClientRedirectUrl",
+                  "value": "[concat(variables('medview-webUri'), '/')]"
+                },
+                {
+                  "name": "AppSettings:IdentityServerUrl",
+                  "value": "[concat(variables('idm-stsUri'), '/ids/')]"
+                },
+                {
+                  "name": "configuration:accessTokenUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/token')]"
+                },
+                {
+                  "name": "configuration:applicationSessionResetUrl",
+                  "value": "[concat(variables('bdportal-configurationUri'), '/api/refresh')]"
+                },
+                {
+                  "name": "configuration:bdShellServiceUrl",
+                  "value": "[concat(variables('bdportal-configurationUri'), '/')]"
+                },
+                {
+                  "name": "configuration:cfwDataServiceUrl",
+                  "value": "[concat(variables('containerframework-dataUri'), '/')]"
+                },
+                {
+                  "name": "configuration:idmGetUserByNameUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/getuserbyname')]"
+                },
+                {
+                  "name": "configuration:idmGetUserUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/getuserbyname')]"
+                },
+                {
+                  "name": "configuration:isAuthenticatedUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/keepAlive')]"
+                },
+                {
+                  "name": "configuration:logOutUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/logout')]"
+                },
+                {
+                  "name": "configuration:medminedIdm",
+                  "value": "[concat(variables('idm-stsUri'), '/ids')]"
+                },
+                {
+                  "name": "configuration:medminedSamlUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/saml')]"
+                },
+                {
+                  "name": "configuration:medminedUIDocumentationInfo",
+                  "value": "https://dev.edison.medmined.com/Phoenix/HsvIntegration"
+                },
+                {
+                  "name": "configuration:medminedUserAuthorizationBaseUrl",
+                  "value": "http://localhost/DispensingData/HSVIntegration/"
+                },
+                {
+                  "name": "configuration:mvdUserAuthorizationBaseUrl",
+                  "value": "[variables('medview-servicesUri')]"
+                },
+                {
+                  "name": "configuration:processAuthenticationUrl",
+                  "value": "[concat(variables('medview-webUri'), '/api/authorize')]"
+                },
+                {
+                  "name": "WEBSITE_RUN_FROM_PACKAGE",
+                  "value": "0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[variables('medview-web-tvName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]"
+          ],
+          "tags": {
+            "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName')))]": "Resource",
+            "displayName": "medview-web-tv"
+          },
+          "properties": {
+            "name": "[variables('medview-web-tvName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appserviceplanName'))]",
+            "siteConfig": {
+              "appSettings": [
+                {
+                  "name": "configuration:cfwDataServiceContext",
+                  "value": "[concat(variables('containerframework-dataUri'), '/')]"
+                },
+                {
+                  "name": "configuration:mvdUserAuthorizationBaseUrl",
+                  "value": "[concat(variables('medview-servicesUri'), '/')]"
+                },
+                {
+                  "name": "WEBSITE_RUN_FROM_PACKAGE",
+                  "value": "0"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.Relay/namespaces",
+      "apiVersion": "2017-04-01",
+      "name": "[variables('relayName')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "relay"
+      },
+      "sku": {
+        "name": "Standard",
+        "tier": "Standard"
+      },
+      "properties": {
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Relay/namespaces/hybridConnections",
+          "apiVersion": "2017-04-01",
+          "name": "[concat(variables('relayName'), '/', variables('hybrid-connectionName'))]",
+          "location": "[resourceGroup().location]",
+          "tags": {
+            "displayName": "hybridConnections"
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Relay/namespaces', variables('relayName'))]"
+          ],
+          "properties": {
+            "requiresClientAuthorization": true
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Relay/namespaces/hybridConnections/authorizationRules",
+              "apiVersion": "2017-04-01",
+              "name": "[concat(variables('relayName'), '/', variables('hybrid-connectionName'), '/listen')]",
+              "tags": {
+                "displayName": "listen"
+              },
+              "location": "[resourceGroup().location]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Relay/namespaces/hybridConnections', variables('relayName'), variables('hybrid-connectionName'))]",
+                "[resourceId('Microsoft.Relay/namespaces', variables('relayName'))]"
+              ],
+              "properties": {
+                "rights": [
+                  "Listen"
+                ]
+              }
+            },
+            {
+              "type": "Microsoft.Relay/namespaces/hybridConnections/authorizationRules",
+              "apiVersion": "2017-04-01",
+              "name": "[concat(variables('relayName'), '/', variables('hybrid-connectionName'), '/send')]",
+              "tags": {
+                "displayName": "send"
+              },
+              "location": "[resourceGroup().location]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Relay/namespaces/hybridConnections', variables('relayName'), variables('hybrid-connectionName'))]",
+                "[resourceId('Microsoft.Relay/namespaces', variables('relayName'))]"
+              ],
+              "properties": {
+                "rights": [
+                  "Send"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "[variables('sql-serverName')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "sql-server"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('sql-serverAdminLogin')]",
+        "administratorLoginPassword": "[parameters('sql-serverAdminLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "[concat(variables('sql-serverName'), '/', variables('elasticpoolName'))]",
+          "type": "Microsoft.Sql/servers/elasticPools",
+          "apiVersion": "2014-04-01",
+          "tags": {
+            "displayName": "elasticpool"
+          },
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]"
+          ],
+          "kind": "vcore,pool",
+          "properties": {
+            "edition": "GeneralPurpose",
+            "storageMB": 32768,
+            "zoneRedundant": false
+          }
+        },
+        {
+          "name": "[concat(variables('sql-serverName'), '/', variables('db-bdportalName'))]",
+          "type": "Microsoft.Sql/servers/databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2017-03-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]",
+            "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]"
+          ],
+          "tags": {
+            "displayName": "db-bdportal"
+          },
+          "properties": {
+            "collation": "[parameters('db-allCollation')]",
+            "maxSizeBytes": "1073741824",
+            "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]",
+            "catalogCollation": "[parameters('db-allCollation')]",
+            "zoneRedundant": false
+          }
+        },
+        {
+          "name": "[concat(variables('sql-serverName'), '/', variables('db-containerframeworkName'))]",
+          "type": "Microsoft.Sql/servers/databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2017-03-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]",
+            "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]"
+          ],
+          "tags": {
+            "displayName": "db-containerframework"
+          },
+          "properties": {
+            "collation": "[parameters('db-allCollation')]",
+            "maxSizeBytes": "1073741824",
+            "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]",
+            "catalogCollation": "[parameters('db-allCollation')]",
+            "zoneRedundant": false
+          }
+        },
+        {
+          "name": "[concat(variables('sql-serverName'), '/', variables('db-idmName'))]",
+          "type": "Microsoft.Sql/servers/databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2017-03-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]",
+            "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]"
+          ],
+          "tags": {
+            "displayName": "db-idm"
+          },
+          "properties": {
+            "collation": "[parameters('db-allCollation')]",
+            "maxSizeBytes": "1073741824",
+            "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]",
+            "catalogCollation": "[parameters('db-allCollation')]",
+            "zoneRedundant": false
+          }
+        },
+        {
+          "name": "[concat(variables('sql-serverName'), '/', variables('db-medviewName'))]",
+          "type": "Microsoft.Sql/servers/databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2017-03-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', variables('sql-serverName'))]",
+            "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]"
+          ],
+          "tags": {
+            "displayName": "db-medview"
+          },
+          "properties": {
+            "collation": "[parameters('db-allCollation')]",
+            "maxSizeBytes": "1073741824",
+            "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', variables('sql-serverName'), variables('elasticpoolName'))]",
+            "catalogCollation": "[parameters('db-allCollation')]",
+            "zoneRedundant": false
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}

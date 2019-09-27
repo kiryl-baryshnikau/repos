@@ -1,0 +1,73 @@
+<ol class="bdshell--site-selection--breadcrumb breadcrumb py-1 mb-0 rounded-0 bg-light border-bottom"
+    [ngClass]="{'single-idn': idnList.length==1, 'single-facility': facilityList.length==1}">
+    <li class="breadcrumb-item bdshell--site-selection--breadcrumb--idn" [class.active]="!selectedFacility">
+        <small *ngIf="idnList.length == 1">
+            {{ selectedIdn ? selectedIdn.name : idnList[0].name }}
+        </small>
+        <div *ngIf="idnList.length > 1" class="dropdown d-inline" [ngClass]="{show: isIdnDropdownOpened}" click-outside (clickOutside)="isIdnDropdownOpened = false" [stopListening]="!isIdnDropdownOpened">
+            <a aria-haspopup="true"
+               class="bdshell--site-selection--idn-dropdown py-0 text-truncate btn btn-sm btn-outline-primary dropdown-toggle"
+               href="javascript:void(0);"
+               role="button"
+               (click)="isIdnDropdownOpened=!isIdnDropdownOpened"
+               [title]="!!selectedIdn ? selectedIdn.name : localeKeys['BD-UI-SiteSelection-SelectIdn']"
+               [attr.aria-expanded]="isIdnDropdownOpened">
+                <small>{{ !!selectedIdn ? selectedIdn.name : localeKeys['BD-UI-SiteSelection-SelectIdn'] }}</small>
+            </a>
+            <ul aria-labelledby="dropdownMenuLink"
+                class="dropdown-menu scrollable-menu mt-3" [ngClass]="{show: isIdnDropdownOpened}">
+                <li *ngIf="idnList.length > 10" class="px-2 pb-2">
+                    <input class="rounded-0 border form-control-sm form-control" [(ngModel)]="idnDropdownSearchString" [placeholder]="localeKeys['BD-UI-SiteSelection-SearchIdn']">
+                </li>
+                <li *ngFor="let idn of idnList | arraySearch: idnDropdownSearchString:'name'; index as i">
+                    <a class="dropdown-item text-truncate"
+                       href="javascript:void(0);"
+                       (click)="onSelectedIdnChanged(idn)">
+                        {{idn.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="breadcrumb-item bdshell--site-selection--breadcrumb--facility" [class.active]="!!selectedFacility" *ngIf="(isFacilityDropdownVisible || (idnList.length * facilityList.length == 1)) && filteredFacilityList.length">
+        <small *ngIf="filteredFacilityList.length == 1">
+            {{ selectedFacility ? selectedFacility.name : filteredFacilityList[0].name }}
+        </small>
+        <div *ngIf="filteredFacilityList.length > 1" class="dropdown d-inline" [ngClass]="{show: isFacilityDropdownOpened}" click-outside (clickOutside)="isFacilityDropdownOpened = false" [stopListening]="!isFacilityDropdownOpened">
+            <a aria-haspopup="true"
+               class="bdshell--site-selection--facility-dropdown py-0 text-truncate btn btn-sm btn-outline-primary dropdown-toggle"
+               href="javascript:void(0);"
+               role="button"
+               (click)="isFacilityDropdownOpened=!isFacilityDropdownOpened"
+               [title]="!!selectedFacility ? selectedFacility.name : localeKeys['BD-UI-SiteSelection-SelectFacility']"
+               [attr.aria-expanded]="isFacilityDropdownOpened">
+                <small>{{ !!selectedFacility ? selectedFacility.name : localeKeys['BD-UI-SiteSelection-SelectFacility'] }}</small>
+            </a>
+            <ul aria-labelledby="dropdownMenuLink"
+                class="dropdown-menu scrollable-menu mt-3" [ngClass]="{show: isFacilityDropdownOpened}">
+                <li *ngIf="filteredFacilityList.length > 10" class="px-2 pb-2">
+                    <input class="rounded-0 border form-control-sm form-control" [(ngModel)]="facilityDropdownSearchString" [placeholder]="this.localeKeys['BD-UI-SiteSelection-SearchFacility']">
+                </li>
+                <li *ngFor="let facility of filteredFacilityList | arraySearch:facilityDropdownSearchString:'name'; index as i">
+                    <a class="dropdown-item text-truncate"
+                       (click)="onSelectedFacilityChanged(facility)"
+                       href="javascript:void(0);">
+                        {{facility.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="ml-auto">
+        <ng-content></ng-content>
+    </li>
+</ol>
+<facility-selector *ngIf="selectedIdn"
+                   [idnList]="idnList"
+                   [facilityList]="facilityList"
+                   [selectedIdn]="selectedIdn"
+                   [(selectedFacility)]="selectedFacility"
+                   [(isFacilityDropdownVisible)]="isFacilityDropdownVisible"
+                   [(filteredFacilityList)]="filteredFacilityList"
+                   [(facilitySelectorPopupOpened)]="facilitySelectorPopupOpened">
+</facility-selector>

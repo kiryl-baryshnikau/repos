@@ -1,0 +1,36 @@
+.mvd-radiobuttonlist-list {
+    list-style-type: none;
+    padding: 10px 0px 10px 0px;
+    width: 300px;
+}
+.mvd-radiobuttonlist-element {
+    display: flex;
+    padding: 10px 15px 10px 15px;
+    border-bottom: 1px solid #dcdcdc;
+    list-style: none;
+    margin-left: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+    .mvd-radiobuttonlist-element:first-of-type {
+        border-top: 1px solid #dcdcdc;
+    }
+
+    .mvd-radiobuttonlist-element .control {
+        flex-grow: 1;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    .mvd-radiobuttonlist-element .label {
+        font-family: 'Roboto-Regular', 'Roboto';
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        flex-grow: 3;
+        text-align: left;
+        color: #333333;
+        min-width: 350px;
+        line-height: 24px;
+    }

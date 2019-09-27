@@ -1,0 +1,93 @@
+<div class="fx-child col-parent">
+    <div class="fx-child row-parent header">
+        <div class="fx-child med-state-collumn right-margin-15 title">
+            <span class="center-align">{{resources.medicationStatesInIvPrep}}</span>
+        </div>
+
+        <div class="fx-child col-parent">
+            <div class="fx-child title">
+                <span class="center-align">{{resources.hsvStatus}}</span>
+            </div>
+            <div class="fx-child row-parent state-title">
+                <div class="fx-child col-parent fx-align-center">
+                    <div style="min-height: 19px"></div>
+                    <div>{{resources.unMapped}}</div>
+                </div>
+                <div class="fx-child col-parent fx-align-center">
+                    <div><img src="./dist/assets/images/queued_for_prep-n.png"></div>
+                    <div>{{resources.queuedForPrep}}</div>
+                </div>
+                <div class="fx-child col-parent fx-align-center">
+                    <div><img src="./dist/assets/images/ready_for_prep-n.png"></div>
+                    <div>{{resources.readyForPrep}}</div>
+                </div>
+                <div class="fx-child col-parent fx-align-center">
+                    <div><img src="./dist/assets/images/in_prep-n.png"></div>
+                    <div>{{resources.inPrep}}</div>
+                </div>
+                <div class="fx-child col-parent fx-align-center">
+                    <div><img src="./dist/assets/images/ready_for_check-n.png"></div>
+                    <div>{{resources.readyForCheck}}</div>
+                </div>
+                <div class="fx-child col-parent fx-align-center">
+                    <div><img src="./dist/assets/images/ready_for_delivery-n.png"></div>
+                    <div>{{resources.readyForDelivery}}</div>
+                </div>
+                <div class="fx-child col-parent fx-align-center">
+                    <div><img src="./dist/assets/images/delivery-n.png"></div>
+                    <div>{{resources.completed}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fx-child row-parent body-row" *ngFor="let stateMapping of stateMappingsViewModel">
+        <div class="fx-child med-state-collumn right-margin-15">
+            <div class="cell-content body-text" style="display:flex">
+                <div class="help-icon-container" containerClass="help-tooltip" container="body" tooltip="{{stateMapping.tooltipText}}">
+                    <img src="./dist/assets/images/help-tooltip-icon.png">
+                </div>
+                <div>{{stateMapping.designationDisplayName | titlecase }}</div>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="UNMAPPED" (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus">
+
+                </p-radioButton>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="QUEUEDPREP" (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus"></p-radioButton>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="READYPREP" 
+                (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus">
+            </p-radioButton>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="INPREP" (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus"></p-radioButton>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="READYCHECK" (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus"></p-radioButton>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="READYDELIVERY" (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus"></p-radioButton>
+            </div>
+        </div>
+        <div class="fx-child">
+            <div class="cell-content-centered">
+                <p-radioButton name="{{stateMapping.id}}" value="DELIVERY" (onClick)="onStateClick()" [(ngModel)]="stateMapping.ivPrepStatus"></p-radioButton>
+            </div>
+        </div>
+    </div>
+</div>
