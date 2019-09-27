@@ -1,0 +1,38 @@
+<label><input type="checkbox" [ngModel]="attentionNotices" (ngModelChange)="attentionNotices = $event; onSetSelectionChange();" />ATTENTION NOTICES</label>
+|
+<label><input type="checkbox" [ngModel]="continuousInfusions" (ngModelChange)="continuousInfusions = $event; onSetSelectionChange();" />CONTINUOUS INFUSIONS</label>
+|
+<label><input type="checkbox" [ngModel]="doseRequests" (ngModelChange)="doseRequests = $event; onSetSelectionChange();" />DOSE REQUESTS</label>
+<br />
+{{attentionNotices}}
+|
+{{continuousInfusions}}
+|
+{{doseRequests}}
+<br />
+{{widgetSet | json}}
+<br />
+<label>
+  Drill <select [(ngModel)]="widgetDrill">
+    <option value='' default>None</option>
+    <option value='ATTENTION NOTICES'>ATTENTION NOTICES</option>
+    <option value='DOSE REQUESTS'>DOSE REQUESTS</option>
+  </select>
+</label>
+<br />
+|{{widgetDrill}}|
+<br />
+<br />
+
+<cfw-main-container style="height:600px; display:block; background-color:lightcyan;" [widgetSet]="widgetSet" [widgetDrill]="widgetDrill">
+  <cfw-grid-container *widgetSetCase="[]">[]</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES']">['ATTENTION NOTICES']</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['CONTINUOUS INFUSIONS']">['CONTINUOUS INFUSIONS']</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','CONTINUOUS INFUSIONS']">['ATTENTION NOTICES','CONTINUOUS INFUSIONS']</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['DOSE REQUESTS']">['DOSE REQUESTS']</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','DOSE REQUESTS']">['ATTENTION NOTICES','DOSE REQUESTS']</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['CONTINUOUS INFUSIONS','DOSE REQUESTS']">['CONTINUOUS INFUSIONS','DOSE REQUESTS']</cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','CONTINUOUS INFUSIONS','DOSE REQUESTS']">['ATTENTION NOTICES','CONTINUOUS INFUSIONS','DOSE REQUESTS']</cfw-grid-container>
+  <cfw-drill-down-container *widgetDrillCase="'ATTENTION NOTICES'">'ATTENTION NOTICES'</cfw-drill-down-container>
+  <cfw-drill-down-container *widgetDrillCase="'DOSE REQUESTS'">'DOSE REQUESTS'</cfw-drill-down-container>
+</cfw-main-container>
