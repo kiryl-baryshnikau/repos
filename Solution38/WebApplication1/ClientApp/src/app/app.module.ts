@@ -19,6 +19,13 @@ import { WidgetSetCase } from './components/main-container/cfw-main-container.di
 import { WidgetDrillCase } from './components/main-container/cfw-main-container.directive';
 
 
+import { AttentionNoticesComponent } from './widgets/medview/attention-notices/mvd-attention-notices.component';
+import { AttentionNoticesDetailComponent } from './widgets/medview/attention-notices/attention-notices-detail/mvd-attention-notices-detail.component';
+import { ContinuousInfusions } from './widgets/medview/continuous-infusions/mvd-continuous-infusions.component';
+import { DoseRequestComponent } from './widgets/medview/dose-request/mvd-dose-request.component';
+import { DoseRequestDetailComponent } from './widgets/medview/dose-request/dose-request-detail/mvd-dose-request-detail.component';
+
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -33,7 +40,13 @@ import { WidgetDrillCase } from './components/main-container/cfw-main-container.
         DrillDownContainerComponent,
         WidgetSet,
         WidgetSetCase,
-        WidgetDrillCase
+        WidgetDrillCase,
+
+        AttentionNoticesComponent,
+        AttentionNoticesDetailComponent,
+        ContinuousInfusions,
+        DoseRequestComponent,
+        DoseRequestDetailComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

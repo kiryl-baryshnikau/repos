@@ -26,13 +26,45 @@
 
 <cfw-main-container style="height:600px; display:block; background-color:lightcyan;" [widgetSet]="widgetSet" [widgetDrill]="widgetDrill">
   <cfw-grid-container *widgetSetCase="[]">[]</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES']">['ATTENTION NOTICES']</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['CONTINUOUS INFUSIONS']">['CONTINUOUS INFUSIONS']</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','CONTINUOUS INFUSIONS']">['ATTENTION NOTICES','CONTINUOUS INFUSIONS']</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['DOSE REQUESTS']">['DOSE REQUESTS']</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','DOSE REQUESTS']">['ATTENTION NOTICES','DOSE REQUESTS']</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['CONTINUOUS INFUSIONS','DOSE REQUESTS']">['CONTINUOUS INFUSIONS','DOSE REQUESTS']</cfw-grid-container>
-  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','CONTINUOUS INFUSIONS','DOSE REQUESTS']">['ATTENTION NOTICES','CONTINUOUS INFUSIONS','DOSE REQUESTS']</cfw-grid-container>
-  <cfw-drill-down-container *widgetDrillCase="'ATTENTION NOTICES'">'ATTENTION NOTICES'</cfw-drill-down-container>
-  <cfw-drill-down-container *widgetDrillCase="'DOSE REQUESTS'">'DOSE REQUESTS'</cfw-drill-down-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES']">
+    <!--['ATTENTION NOTICES']<br />-->
+    <mvd-attention-notices></mvd-attention-notices>
+  </cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['CONTINUOUS INFUSIONS']">
+    <!--['CONTINUOUS INFUSIONS']<br />-->
+    <mvd-continuous-infusions></mvd-continuous-infusions>
+  </cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','CONTINUOUS INFUSIONS']">
+    <!--['ATTENTION NOTICES','CONTINUOUS INFUSIONS']<br />-->
+    <mvd-attention-notices></mvd-attention-notices>
+    <mvd-continuous-infusions></mvd-continuous-infusions>
+  </cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['DOSE REQUESTS']">
+    <!--['DOSE REQUESTS']<br />-->
+    <mvd-dose-request></mvd-dose-request>
+  </cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','DOSE REQUESTS']">
+    <!--['ATTENTION NOTICES','DOSE REQUESTS']<br />-->
+    <mvd-attention-notices></mvd-attention-notices>
+    <mvd-dose-request></mvd-dose-request>
+  </cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['CONTINUOUS INFUSIONS','DOSE REQUESTS']">
+    <!--['CONTINUOUS INFUSIONS','DOSE REQUESTS']<br />-->
+    <mvd-continuous-infusions></mvd-continuous-infusions>
+    <mvd-dose-request></mvd-dose-request>
+  </cfw-grid-container>
+  <cfw-grid-container *widgetSetCase="['ATTENTION NOTICES','CONTINUOUS INFUSIONS','DOSE REQUESTS']">
+    <!--['ATTENTION NOTICES','CONTINUOUS INFUSIONS','DOSE REQUESTS']<br />-->
+    <mvd-attention-notices></mvd-attention-notices>
+    <mvd-continuous-infusions></mvd-continuous-infusions>
+    <mvd-dose-request></mvd-dose-request>
+  </cfw-grid-container>
+  <cfw-drill-down-container *widgetDrillCase="'ATTENTION NOTICES'">
+    <!--'ATTENTION NOTICES'<br />-->
+    <mvd-attention-notices-detail></mvd-attention-notices-detail>
+  </cfw-drill-down-container>
+  <cfw-drill-down-container *widgetDrillCase="'DOSE REQUESTS'">
+    <!--'DOSE REQUESTS'<br />-->
+    <mvd-dose-request-detail></mvd-dose-request-detail>
+  </cfw-drill-down-container>
 </cfw-main-container>
