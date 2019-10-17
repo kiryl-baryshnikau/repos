@@ -12,5 +12,6 @@ Last update
 	Jul 25 - Microsoft.EntityFrameworkCore.SqlServer still does not support Many-To-Many
 	Aug 20 - Still failing on Many-to-Many
 	Sep 23 - Still failing on Many-to-Many
+	Oct 17 - Still failing on Many-to-Many
 Next date 
-	Oct 23
+	Nov 17
