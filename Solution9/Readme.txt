@@ -13,6 +13,7 @@ Last update
 	Aug 20 - Still failing on Many-to-Many
 	Sep 23 - Still failing on Many-to-Many
 	Oct 17 - Still failing on Many-to-Many
-	Nov 12 - Still failing on Many-to-Many ?
+	Nov 12 - Still failing on Many-to-Many
+	Dec 09 - Still failing on Many-to-Many ?
 Next date 
-	Dec 12
+	Jan 09
