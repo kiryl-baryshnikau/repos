@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p>
+  <button class="btn btn-primary" (click)="refresh()">Refresh</button>
+  &nbsp;
+  <button class="btn btn-secondary" (click)="refreshAsync()">Async Refresh</button>
+</p>
+<p *ngIf="(!forecasts) && (!error)"><em>Loading...</em></p>
+<p *ngIf="(!forecasts) && error"><em>{{error | json}}</em></p>
+<table *ngIf="forecasts && (!error)" class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temp. (C)</th>
+      <th>Temp. (F)</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

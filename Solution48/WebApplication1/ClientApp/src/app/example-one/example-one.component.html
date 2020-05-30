@@ -1,0 +1,48 @@
+<h1>Example One</h1>
+
+<h2>Angular 4: Template-driven forms</h2>
+<form #myForm="ngForm" (ngSubmit)="register(myForm)" countryCity telephoneNumbers novalidate>
+  <p> Is "myForm" valid? {{myForm.valid}} </p>
+
+  <div>
+    <label>Name</label>
+    <input type="text" name="name" #name="ngModel" ngModel required uniqueName>
+    <show-errors [control]="name"></show-errors>
+  </div>
+
+  <div>
+    <label>Birth Year</label>
+    <input type="text" name="birthYear" #year="ngModel" ngModel required birthYear>
+    <show-errors [control]="year"></show-errors>
+  </div>
+
+  <div ngModelGroup="location">
+    <h3>Location</h3>
+    <div>
+      <label>Country</label>
+      <input type="text" name="country" #country="ngModel" ngModel required minlength="5" maxlength="30">
+      <show-errors [control]="country"></show-errors>
+    </div>
+    <div>
+      <label>City</label>
+      <input type="text" name="city" ngModel>
+    </div>
+  </div>
+
+  <div ngModelGroup="phoneNumbers">
+    <h3>Phone numbers</h3>
+    <div *ngFor="let phoneId of phoneNumberIds; let i=index;">
+      <label>Phone number {{i + 1}}</label>
+      <input type="text" name="phoneNumber[{{phoneId}}]" #phoneNumber="ngModel" ngModel required telephoneNumber>
+      <button type="button" (click)="remove(i); myForm.control.markAsTouched()">remove</button>
+      <show-errors [control]="phoneNumber"></show-errors>
+    </div>
+    <button type="button" (click)="add(); myForm.control.markAsTouched()">Add phone number</button>
+  </div>
+
+  <show-errors [control]="myForm"></show-errors>
+
+  <pre>{{myForm.value | json}}</pre>
+  <button type="submit" [disabled]="myForm.invalid || myForm.pending">Register</button>
+  <button type="button" (click)="printMyForm()">Print to console</button>
+</form>

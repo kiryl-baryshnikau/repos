@@ -1,0 +1,12 @@
+<h1>Attempt Two</h1>
+<h2>Custom Input</h2>
+
+<form #myForm="ngForm" novalidate>
+  <p> Is "myForm" valid? {{myForm.valid}} </p>
+  <pre>{{myForm.value | json}}</pre>
+  <pre>{{model | json}}</pre>
+
+  <attempt-two-custom-input name="model_phonenumber" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumber" required telephoneNumber></attempt-two-custom-input>
+  <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+
+</form>

@@ -1,0 +1,112 @@
+<h1>Attempt One</h1>
+<h2>Edit Array</h2>
+
+<form #myForm="ngForm" novalidate>
+  <p> Is "myForm" valid? {{myForm.valid}} </p>
+  <pre>{{myForm.value | json}}</pre>
+  <pre>{{model | json}}</pre>
+
+  <div>
+    <label>Name</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="model.name" required>
+    <app-attempt-one-errors [control]="name"></app-attempt-one-errors>
+  </div>
+  <div>
+    <label>Surname</label>
+    <input type="text" name="surname" #surname="ngModel" [(ngModel)]="model.surname" required>
+    <app-attempt-one-errors [control]="surname"></app-attempt-one-errors>
+  </div>
+
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content *ngFor="let phonenumber of model.phonenumbers; let i=index;">
+      <div>
+        <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+        <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content>
+      <div>
+        <input name="phonenumbers__0" type="text" #phonenumber__0="ngModel" [(ngModel)]="model.phonenumbers[0]" required>
+        <app-attempt-one-errors [control]="phonenumber__0"></app-attempt-one-errors>
+      </div>
+    </content>
+    <content>
+      <div>
+        <input name="phonenumbers__1" type="text" #phonenumber__1="ngModel" [(ngModel)]="model.phonenumbers[1]" required>
+        <app-attempt-one-errors [control]="phonenumber__1"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+  <!--<div ngModelGroup="phoneNumbers">
+    <h3>Phone numbers</h3>
+    <div *ngFor="let phoneId of phoneNumberIds; let i=index;">
+      <label>Phone number {{i + 1}}</label>
+      <input type="text" name="phoneNumber[{{phoneId}}]" #phoneNumber="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+      <button type="button" (click)="remove(i); myForm.control.markAsTouched()">remove</button>
+      <app-attempt-one-errors [control]="phoneNumber"></app-attempt-one-errors>
+    </div>
+    <button type="button" (click)="add(); myForm.control.markAsTouched()">Add phone number</button>
+  </div>-->
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content *ngFor="let phonenumber of phoneNumberIds2; let i=index;">
+      <div>
+        <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+        <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content *ngFor="let phonenumber of getIndexes(model.phonenumbers); let i=index;">
+      <div>
+        <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+        <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content *ngFor="let phonenumber of model.phonenumbers; let i=index; trackBy: trackByIndex">
+      <div>
+        <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+        <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content *ngFor="let phonenumber of model.phonenumbers; let i=index; trackBy: trackByValue">
+      <div>
+        <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+        <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+
+
+  <!--<div>
+    <label>Phonenumbers</label>
+    <content *ngFor="let phonenumber of model.phonenumbers; let i=index; trackBy: ( '$value' | trackByExpression)">
+      <div>
+        <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+        <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+      </div>
+    </content>
+  </div>-->
+
+<div>
+  <label>Phonenumbers</label>
+  <content *ngFor="let phonenumber of model.phonenumbers; let i=index; trackBy: ( '$index' | trackByExpression)">
+    <div>
+      <input name="phonenumbers__{{i}}" type="text" #phonenumberCtrl="ngModel" [(ngModel)]="model.phonenumbers[i]" required>
+      <app-attempt-one-errors [control]="phonenumberCtrl"></app-attempt-one-errors>
+    </div>
+  </content>
+</div>
+
+</form>
